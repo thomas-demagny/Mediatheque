@@ -15,12 +15,12 @@ class User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nickName;
+    private ?string $nickName;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -31,12 +31,12 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstName;
+    private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastName;
+    private ?string $lastName;
 
     /**
      * @return int|null

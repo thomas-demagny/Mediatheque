@@ -15,8 +15,11 @@ class Cd
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;

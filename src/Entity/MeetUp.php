@@ -17,12 +17,12 @@ class MeetUp
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private ?DateTimeInterface $date;
 
     /**
      * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="guest")
@@ -30,18 +30,27 @@ class MeetUp
     private $subject;
 
 
-
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getDate(): ?DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    /**
+     * @param DateTimeInterface $date
+     * @return $this
+     */
+    public function setDate(DateTimeInterface $date): self
     {
         $this->date = $date;
 
@@ -56,6 +65,10 @@ class MeetUp
         return $this->subject;
     }
 
+    /**
+     * @param Product $subject
+     * @return $this
+     */
     public function addSubject(Product $subject): self
     {
         if (!$this->subject->contains($subject)) {
@@ -65,6 +78,10 @@ class MeetUp
         return $this;
     }
 
+    /**
+     * @param Product $subject
+     * @return $this
+     */
     public function removeSubject(Product $subject): self
     {
         if ($this->subject->contains($subject)) {
