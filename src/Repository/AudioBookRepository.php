@@ -14,6 +14,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AudioBookRepository extends ServiceEntityRepository
 {
+    /**
+     * AudioBookRepository constructor.
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, AudioBook::class);

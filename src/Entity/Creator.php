@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CreatorRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,17 +31,14 @@ class Creator
     /**
      * @ORM\Column(type="date")
      */
-    private $birthdate;
+    private ?DateTimeInterface $birthDate;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $deatDate;
+    private ?DateTimeInterface $deathDate;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
 
     public function getFirstName(): ?string
     {
@@ -66,27 +64,29 @@ class Creator
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getBirthDate(): ?DateTimeInterface
     {
-        return $this->birthdate;
+        return $this->birthDate;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthDate(DateTimeInterface $birthDate): self
     {
-        $this->birthdate = $birthdate;
+        $this->birthDate = $birthDate;
 
         return $this;
     }
 
-    public function getDeatDate(): ?\DateTimeInterface
+    public function getDeathDate(): ?DateTimeInterface
     {
-        return $this->deatDate;
+        return $this->deathDate;
     }
 
-    public function setDeatDate(?\DateTimeInterface $deatDate): self
+    public function setDeathDate(?DateTimeInterface $deathDate): self
     {
-        $this->deatDate = $deatDate;
+        $this->deathDate = $deathDate;
 
         return $this;
     }
+
+
 }

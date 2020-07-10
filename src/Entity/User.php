@@ -46,8 +46,6 @@ class User
         return $this->id;
     }
 
-
-
     /**
      * @return mixed
      */
@@ -98,6 +96,7 @@ class User
 
         return $this;
     }
+
     /**
      * @return string|null
      */
@@ -113,14 +112,6 @@ class User
     {
         $this->lastName = $lastName;
     }
-
-
-
-
-
-
-
-
 
 
 
