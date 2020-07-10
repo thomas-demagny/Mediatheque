@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BorrowingRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,45 +16,55 @@ class Borrowing
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Member::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $borrower;
+    private ?Member $borrower;
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $document;
+    private ?Product $document;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $startDate;
+    private ?DateTimeInterface $startDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $expectedReturnDate;
+    private ?DateTimeInterface $expectedReturnDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $effectiveReturnDate;
+    private ?DateTimeInterface $effectiveReturnDate;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return Member|null
+     */
     public function getBorrower(): ?Member
     {
         return $this->borrower;
     }
 
+    /**
+     * @param Member|null $borrower
+     * @return $this
+     */
     public function setBorrower(?Member $borrower): self
     {
         $this->borrower = $borrower;
@@ -61,11 +72,18 @@ class Borrowing
         return $this;
     }
 
+    /**
+     * @return Product|null
+     */
     public function getDocument(): ?Product
     {
         return $this->document;
     }
 
+    /**
+     * @param Product|null $document
+     * @return $this
+     */
     public function setDocument(?Product $document): self
     {
         $this->document = $document;
@@ -73,36 +91,57 @@ class Borrowing
         return $this;
     }
 
-    public function getStartDate(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface
+     */
+    public function getStartDate(): DateTimeInterface
     {
         return $this->startDate;
     }
 
-    public function setStartDate(\DateTimeInterface $startDate): self
+    /**
+     * @param DateTimeInterface $startDate
+     * @return $this
+     */
+    public function setStartDate(DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getExpectedReturnDate(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getExpectedReturnDate(): ?DateTimeInterface
     {
         return $this->expectedReturnDate;
     }
 
-    public function setExpectedReturnDate(\DateTimeInterface $expectedReturnDate): self
+    /**
+     * @param DateTimeInterface $expectedReturnDate
+     * @return $this
+     */
+    public function setExpectedReturnDate(DateTimeInterface $expectedReturnDate): self
     {
         $this->expectedReturnDate = $expectedReturnDate;
 
         return $this;
     }
 
-    public function getEffectiveReturnDate(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getEffectiveReturnDate(): ?DateTimeInterface
     {
         return $this->effectiveReturnDate;
     }
 
-    public function setEffectiveReturnDate(\DateTimeInterface $effectiveReturnDate): self
+    /**
+     * @param DateTimeInterface $effectiveReturnDate
+     * @return $this
+     */
+    public function setEffectiveReturnDate(DateTimeInterface $effectiveReturnDate): self
     {
         $this->effectiveReturnDate = $effectiveReturnDate;
 

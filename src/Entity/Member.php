@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MemberRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,24 +16,34 @@ class Member
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $membershipDate;
+    private ?DateTimeInterface $membershipDate;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getMembershipDate(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getMembershipDate(): ?DateTimeInterface
     {
         return $this->membershipDate;
     }
 
-    public function setMembershipDate(\DateTimeInterface $membershipDate): self
+    /**
+     * @param DateTimeInterface $membershipDate
+     * @return $this
+     */
+    public function setMembershipDate(DateTimeInterface $membershipDate): self
     {
         $this->membershipDate = $membershipDate;
 
