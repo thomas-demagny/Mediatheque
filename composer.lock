@@ -1932,23 +1932,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "7c87da1725d657c73376ce8c37973abe006db7c0"
+                "reference": "eb3320ef010709f339f118dde1645e197c4961ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/7c87da1725d657c73376ce8c37973abe006db7c0",
-                "reference": "7c87da1725d657c73376ce8c37973abe006db7c0",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/eb3320ef010709f339f118dde1645e197c4961ec",
+                "reference": "eb3320ef010709f339f118dde1645e197c4961ec",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
                 "php": "^7.2 || ^8.0",
-                "phpdocumentor/reflection-common": "^2.0",
-                "phpdocumentor/type-resolver": "^1.0",
-                "webmozart/assert": "^1"
+                "phpdocumentor/reflection-common": "^2.2",
+                "phpdocumentor/type-resolver": "^1.3",
+                "webmozart/assert": "^1.9.1"
             },
             "require-dev": {
-                "mockery/mockery": "1.3.*"
+                "mockery/mockery": "~1.3.2"
             },
             "type": "library",
             "extra": {
@@ -1976,7 +1976,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-07-07T14:44:20+00:00"
+            "time": "2020-07-09T12:42:26+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2582,12 +2582,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "085bea7fcff8f31b9121c978ef0fb5f2a7a87487"
+                "reference": "f16e794f2e8a666f1959125db6f699546bc2cbe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/085bea7fcff8f31b9121c978ef0fb5f2a7a87487",
-                "reference": "085bea7fcff8f31b9121c978ef0fb5f2a7a87487",
+                "url": "https://api.github.com/repos/symfony/config/zipball/f16e794f2e8a666f1959125db6f699546bc2cbe5",
+                "reference": "f16e794f2e8a666f1959125db6f699546bc2cbe5",
                 "shasum": ""
             },
             "require": {
@@ -2654,7 +2654,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-18T19:55:03+00:00"
+            "time": "2020-07-09T16:48:43+00:00"
         },
         {
             "name": "symfony/console",
@@ -3590,12 +3590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "841deed22169d2c86ebb4addaf0be6635b350247"
+                "reference": "cbcec83d097a177493267a3c225840b37fc72538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/841deed22169d2c86ebb4addaf0be6635b350247",
-                "reference": "841deed22169d2c86ebb4addaf0be6635b350247",
+                "url": "https://api.github.com/repos/symfony/form/zipball/cbcec83d097a177493267a3c225840b37fc72538",
+                "reference": "cbcec83d097a177493267a3c225840b37fc72538",
                 "shasum": ""
             },
             "require": {
@@ -3607,7 +3607,7 @@
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php80": "^1.15",
-                "symfony/property-access": "^5.0",
+                "symfony/property-access": "^5.0.8",
                 "symfony/service-contracts": "^1.1|^2"
             },
             "conflict": {
@@ -3685,7 +3685,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:25:45+00:00"
+            "time": "2020-07-10T08:14:54+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -5260,12 +5260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2"
+                "reference": "c7bdeabb8ec1964cb74892c8281d79fe31592e74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4a5b6bba3259902e386eb80dd1956181ee90b5b2",
-                "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/c7bdeabb8ec1964cb74892c8281d79fe31592e74",
+                "reference": "c7bdeabb8ec1964cb74892c8281d79fe31592e74",
                 "shasum": ""
             },
             "require": {
@@ -5332,7 +5332,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "time": "2020-07-03T13:31:43+00:00"
         },
         {
             "name": "symfony/process",
@@ -8031,12 +8031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "a27e61b2e888ae00ab630032c50426c2de1fea09"
+                "reference": "d7c549e2d59d536bba44262f9ad10e0de1e4da0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/a27e61b2e888ae00ab630032c50426c2de1fea09",
-                "reference": "a27e61b2e888ae00ab630032c50426c2de1fea09",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/d7c549e2d59d536bba44262f9ad10e0de1e4da0f",
+                "reference": "d7c549e2d59d536bba44262f9ad10e0de1e4da0f",
                 "shasum": ""
             },
             "require": {
@@ -8102,7 +8102,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-09T08:28:11+00:00"
+            "time": "2020-07-09T16:42:07+00:00"
         },
         {
             "name": "symfony/profiler-pack",
