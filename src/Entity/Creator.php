@@ -21,12 +21,12 @@ class Creator
     /**
      * @ORM\Column(type="string", length=40)
      */
-    private $first_name;
+    private ?string $first_name;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $last_name;
+    private ?string $last_name;
 
     /**
      * @ORM\Column(type="date")
@@ -39,12 +39,18 @@ class Creator
     private ?DateTimeInterface $deathDate;
 
 
-
+    /**
+     * @return string|null
+     */
     public function getFirstName(): ?string
     {
         return $this->first_name;
     }
 
+    /**
+     * @param string $first_name
+     * @return $this
+     */
     public function setFirstName(string $first_name): self
     {
         $this->first_name = $first_name;
@@ -52,11 +58,18 @@ class Creator
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLastName(): ?string
     {
         return $this->last_name;
     }
 
+    /**
+     * @param string $last_name
+     * @return $this
+     */
     public function setLastName(string $last_name): self
     {
         $this->last_name = $last_name;
@@ -64,11 +77,18 @@ class Creator
         return $this;
     }
 
+    /**
+     * @return DateTimeInterface|null
+     */
     public function getBirthDate(): ?DateTimeInterface
     {
         return $this->birthDate;
     }
 
+    /**
+     * @param DateTimeInterface $birthDate
+     * @return $this
+     */
     public function setBirthDate(DateTimeInterface $birthDate): self
     {
         $this->birthDate = $birthDate;
@@ -76,11 +96,18 @@ class Creator
         return $this;
     }
 
+    /**
+     * @return DateTimeInterface|null
+     */
     public function getDeathDate(): ?DateTimeInterface
     {
         return $this->deathDate;
     }
 
+    /**
+     * @param DateTimeInterface|null $deathDate
+     * @return $this
+     */
     public function setDeathDate(?DateTimeInterface $deathDate): self
     {
         $this->deathDate = $deathDate;

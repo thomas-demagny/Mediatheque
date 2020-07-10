@@ -16,22 +16,22 @@ class Product
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=150)
      */
-    private $category;
+    private ?string $category;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $stock;
+    private ?int $stock;
 
     /**
      * @ORM\ManyToMany(targetEntity=MeetUp::class, mappedBy="subject")
      */
-    private $meetUp;
+    private ArrayCollection $meetUp;
 
     /**
      * Product constructor.
