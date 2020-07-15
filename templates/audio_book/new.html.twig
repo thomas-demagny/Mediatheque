@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AudioBook{% endblock %}
+
+{% block body %}
+    <h1>Create new AudioBook</h1>
+
+    {{ include('audio_book/_form.html.twig') }}
+
+    <a href="{{ path('audio_book_index') }}">back to list</a>
+{% endblock %}

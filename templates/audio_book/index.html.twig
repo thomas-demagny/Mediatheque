@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AudioBook index{% endblock %}
+
+{% block body %}
+    <h1>AudioBook index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Duration</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for audio_book in audio_books %}
+            <tr>
+                <td>{{ audio_book.id }}</td>
+                <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('audio_book_show', {'id': audio_book.id}) }}">show</a>
+                    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('audio_book_new') }}">Create new</a>
+{% endblock %}

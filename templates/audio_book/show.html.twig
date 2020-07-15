@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AudioBook{% endblock %}
+
+{% block body %}
+    <h1>AudioBook</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ audio_book.id }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('audio_book_index') }}">back to list</a>
+
+    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}">edit</a>
+
+    {{ include('audio_book/_delete_form.html.twig') }}
+{% endblock %}
