@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="value", type="string")
+ * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal", "resources" = "Resources"})
  */
 class Product
 {
@@ -32,6 +35,21 @@ class Product
      * @ORM\ManyToMany(targetEntity=MeetUp::class, mappedBy="subject")
      */
     private ArrayCollection $meetUp;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $format;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $ProductCode;
 
     /**
      * Product constructor.
@@ -83,6 +101,42 @@ class Product
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getFormat(): ?string
+    {
+        return $this->format;
+    }
+
+    public function setFormat(string $format): self
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    public function getProductCode(): ?int
+    {
+        return $this->ProductCode;
+    }
+
+    public function setProductCode(int $ProductCode): self
+    {
+        $this->ProductCode = $ProductCode;
 
         return $this;
     }

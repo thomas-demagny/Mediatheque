@@ -14,17 +14,13 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AudioBookRepository extends ServiceEntityRepository
 {
-    /**
-     * AudioBookRepository constructor.
-     * @param ManagerRegistry $registry
-     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, AudioBook::class);
     }
 
     // /**
-    //  * @return AudioBook[] Returns an array of AudioBook objects
+    //  * @return AudiBook[] Returns an array of AudiBook objects
     //  */
     /*
     public function findByExampleField($value)
@@ -41,7 +37,7 @@ class AudioBookRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?AudioBook
+    public function findOneBySomeField($value): ?AudiBook
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

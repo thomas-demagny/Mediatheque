@@ -18,10 +18,27 @@ class Book
     private ?int $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $pages;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getPages(): ?int
+    {
+        return $this->pages;
+    }
+
+    public function setPages(int $pages): self
+    {
+        $this->pages = $pages;
+
+        return $this;
     }
 }

@@ -18,10 +18,44 @@ class Cd
     private ?int $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $plages;
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $duration;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getPlages(): ?int
+    {
+        return $this->plages;
+    }
+
+    public function setPlages(int $plages): self
+    {
+        $this->plages = $plages;
+
+        return $this;
+    }
+
+    public function getDuration(): ?\DateTimeInterface
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(\DateTimeInterface $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AudioBookRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,10 +19,24 @@ class AudioBook
     private ?int $id;
 
     /**
-     * @return int|null
+     * @ORM\Column(type="time")
      */
+    private ?DateTimeInterface $duration;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getDuration(): ?DateTimeInterface
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(DateTimeInterface $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
     }
 }
