@@ -18,7 +18,7 @@ class BookType extends AbstractType
             ->add('format')
             ->add('ProductCode')
             ->add('pages')
-            ->add('meetUp')
+
         ;
     }
 

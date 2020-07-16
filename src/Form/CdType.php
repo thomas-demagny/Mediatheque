@@ -19,7 +19,7 @@ class CdType extends AbstractType
             ->add('ProductCode')
             ->add('plages')
             ->add('duration')
-            ->add('meetUp')
+
         ;
     }
 

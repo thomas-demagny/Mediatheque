@@ -18,7 +18,7 @@ class AudioBookType extends AbstractType
             ->add('format')
             ->add('ProductCode')
             ->add('duration')
-            ->add('meetUp')
+
         ;
     }
 
