@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=EbookRepository::class)
  */
-class Ebook
+class Ebook extends Product
 {
     /**
      * @ORM\Id()

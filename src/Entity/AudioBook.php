@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=AudioBookRepository::class)
  */
-class AudioBook
+class AudioBook extends Product
 {
     /**
      * @ORM\Id()
