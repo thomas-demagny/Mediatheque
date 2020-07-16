@@ -66,6 +66,9 @@ class BookController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Book $book
+     * @return Response
      */
     public function edit(Request $request, Book $book): Response
     {
@@ -86,6 +89,9 @@ class BookController extends AbstractController
 
     /**
      * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Book $book
+     * @return Response
      */
     public function delete(Request $request, Book $book): Response
     {

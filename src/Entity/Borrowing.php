@@ -9,14 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=BorrowingRepository::class)
  */
-class Borrowing
+class Borrowing extends Product
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Member::class)

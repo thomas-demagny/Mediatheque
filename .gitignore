@@ -25,3 +25,6 @@ yarn-error.log
 ###> local environment ###
 .env
 ###< local environment ###
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###

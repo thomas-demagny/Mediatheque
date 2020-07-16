@@ -15,7 +15,7 @@ class Cd extends Product
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="integer")
@@ -28,7 +28,7 @@ class Cd extends Product
     private $duration;
 
     /**
-     * @return int|null
+     * @return int
      */
     public function getId(): ?int
     {

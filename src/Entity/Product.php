@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,14 +11,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="value", type="string")
  * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal", "resources" = "Resources"})
  */
-class Product
+abstract class Product
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -31,10 +30,6 @@ class Product
      */
     private ?int $stock;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=MeetUp::class, mappedBy="subject")
-     */
-    private ArrayCollection $meetUp;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -51,16 +46,10 @@ class Product
      */
     private ?int $ProductCode;
 
-    /**
-     * Product constructor.
-     */
-    public function __construct()
-    {
-        $this->meetUp = new ArrayCollection();
-    }
+
 
     /**
-     * @return int|null
+     * @return int
      */
     public function getId(): ?int
     {

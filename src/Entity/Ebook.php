@@ -15,7 +15,7 @@ class Ebook extends Product
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @return int|null
