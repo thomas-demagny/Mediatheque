@@ -1,0 +1,44 @@
+*{
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+html{
+
+	font-size: 62.5%;
+}
+
+body{
+	font-size: 1.6rem;
+	background-color: #f9fee1;
+}
+
+ul{
+	list-style: none;
+	padding-left:0;
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	width: 100%;
+}
+
+/* admin nav */
+
+.navAdmin{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(248, 248, 197) ;
+    padding: 2rem 0;
+    width: 80%;
+    margin: auto;
+}
+
+.navAdmin a{
+    color: rgb(100, 102, 97);
+    font-weight: bold;
+}
+
