@@ -12,8 +12,14 @@ class CdType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('category')
+            ->add('stock')
+            ->add('title')
+            ->add('format')
+            ->add('ProductCode')
             ->add('plages')
             ->add('duration')
+            ->add('meetUp')
         ;
     }
 
