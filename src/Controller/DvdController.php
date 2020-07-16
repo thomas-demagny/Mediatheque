@@ -17,6 +17,8 @@ class DvdController extends AbstractController
 {
     /**
      * @Route("/", name="dvd_index", methods={"GET"})
+     * @param DvdRepository $dvdRepository
+     * @return Response
      */
     public function index(DvdRepository $dvdRepository): Response
     {
@@ -27,6 +29,8 @@ class DvdController extends AbstractController
 
     /**
      * @Route("/new", name="dvd_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class DvdController extends AbstractController
 
     /**
      * @Route("/{id}", name="dvd_show", methods={"GET"})
+     * @param Dvd $dvd
+     * @return Response
      */
     public function show(Dvd $dvd): Response
     {
@@ -60,6 +66,9 @@ class DvdController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="dvd_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Dvd $dvd
+     * @return Response
      */
     public function edit(Request $request, Dvd $dvd): Response
     {
@@ -80,6 +89,9 @@ class DvdController extends AbstractController
 
     /**
      * @Route("/{id}", name="dvd_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Dvd $dvd
+     * @return Response
      */
     public function delete(Request $request, Dvd $dvd): Response
     {

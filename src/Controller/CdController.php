@@ -17,6 +17,8 @@ class CdController extends AbstractController
 {
     /**
      * @Route("/", name="cd_index", methods={"GET"})
+     * @param CdRepository $cdRepository
+     * @return Response
      */
     public function index(CdRepository $cdRepository): Response
     {
@@ -27,6 +29,8 @@ class CdController extends AbstractController
 
     /**
      * @Route("/new", name="cd_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class CdController extends AbstractController
 
     /**
      * @Route("/{id}", name="cd_show", methods={"GET"})
+     * @param Cd $cd
+     * @return Response
      */
     public function show(Cd $cd): Response
     {
@@ -60,6 +66,9 @@ class CdController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="cd_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Cd $cd
+     * @return Response
      */
     public function edit(Request $request, Cd $cd): Response
     {
@@ -80,6 +89,9 @@ class CdController extends AbstractController
 
     /**
      * @Route("/{id}", name="cd_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Cd $cd
+     * @return Response
      */
     public function delete(Request $request, Cd $cd): Response
     {

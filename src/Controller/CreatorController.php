@@ -17,6 +17,8 @@ class CreatorController extends AbstractController
 {
     /**
      * @Route("/", name="creator_index", methods={"GET"})
+     * @param CreatorRepository $creatorRepository
+     * @return Response
      */
     public function index(CreatorRepository $creatorRepository): Response
     {
@@ -27,6 +29,8 @@ class CreatorController extends AbstractController
 
     /**
      * @Route("/new", name="creator_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class CreatorController extends AbstractController
 
     /**
      * @Route("/{id}", name="creator_show", methods={"GET"})
+     * @param Creator $creator
+     * @return Response
      */
     public function show(Creator $creator): Response
     {
@@ -60,6 +66,9 @@ class CreatorController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="creator_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Creator $creator
+     * @return Response
      */
     public function edit(Request $request, Creator $creator): Response
     {
@@ -80,6 +89,9 @@ class CreatorController extends AbstractController
 
     /**
      * @Route("/{id}", name="creator_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Creator $creator
+     * @return Response
      */
     public function delete(Request $request, Creator $creator): Response
     {

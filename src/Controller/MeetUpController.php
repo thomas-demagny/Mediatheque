@@ -17,6 +17,8 @@ class MeetUpController extends AbstractController
 {
     /**
      * @Route("/", name="meet_up_index", methods={"GET"})
+     * @param MeetUpRepository $meetUpRepository
+     * @return Response
      */
     public function index(MeetUpRepository $meetUpRepository): Response
     {
@@ -27,6 +29,8 @@ class MeetUpController extends AbstractController
 
     /**
      * @Route("/new", name="meet_up_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class MeetUpController extends AbstractController
 
     /**
      * @Route("/{id}", name="meet_up_show", methods={"GET"})
+     * @param MeetUp $meetUp
+     * @return Response
      */
     public function show(MeetUp $meetUp): Response
     {
@@ -60,6 +66,9 @@ class MeetUpController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="meet_up_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param MeetUp $meetUp
+     * @return Response
      */
     public function edit(Request $request, MeetUp $meetUp): Response
     {
@@ -80,6 +89,9 @@ class MeetUpController extends AbstractController
 
     /**
      * @Route("/{id}", name="meet_up_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param MeetUp $meetUp
+     * @return Response
      */
     public function delete(Request $request, MeetUp $meetUp): Response
     {

@@ -17,6 +17,8 @@ class EmployeeController extends AbstractController
 {
     /**
      * @Route("/", name="employee_index", methods={"GET"})
+     * @param EmployeeRepository $employeeRepository
+     * @return Response
      */
     public function index(EmployeeRepository $employeeRepository): Response
     {
@@ -27,6 +29,8 @@ class EmployeeController extends AbstractController
 
     /**
      * @Route("/new", name="employee_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class EmployeeController extends AbstractController
 
     /**
      * @Route("/{id}", name="employee_show", methods={"GET"})
+     * @param Employee $employee
+     * @return Response
      */
     public function show(Employee $employee): Response
     {
@@ -60,6 +66,9 @@ class EmployeeController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="employee_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Employee $employee
+     * @return Response
      */
     public function edit(Request $request, Employee $employee): Response
     {
@@ -80,6 +89,9 @@ class EmployeeController extends AbstractController
 
     /**
      * @Route("/{id}", name="employee_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Employee $employee
+     * @return Response
      */
     public function delete(Request $request, Employee $employee): Response
     {

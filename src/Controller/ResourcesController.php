@@ -17,6 +17,8 @@ class ResourcesController extends AbstractController
 {
     /**
      * @Route("/", name="resources_index", methods={"GET"})
+     * @param ResourcesRepository $resourcesRepository
+     * @return Response
      */
     public function index(ResourcesRepository $resourcesRepository): Response
     {
@@ -27,6 +29,8 @@ class ResourcesController extends AbstractController
 
     /**
      * @Route("/new", name="resources_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class ResourcesController extends AbstractController
 
     /**
      * @Route("/{id}", name="resources_show", methods={"GET"})
+     * @param Resources $resource
+     * @return Response
      */
     public function show(Resources $resource): Response
     {
@@ -60,6 +66,9 @@ class ResourcesController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="resources_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Resources $resource
+     * @return Response
      */
     public function edit(Request $request, Resources $resource): Response
     {
@@ -80,6 +89,9 @@ class ResourcesController extends AbstractController
 
     /**
      * @Route("/{id}", name="resources_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Resources $resource
+     * @return Response
      */
     public function delete(Request $request, Resources $resource): Response
     {

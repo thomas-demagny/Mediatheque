@@ -17,6 +17,8 @@ class EbookController extends AbstractController
 {
     /**
      * @Route("/", name="ebook_index", methods={"GET"})
+     * @param EbookRepository $ebookRepository
+     * @return Response
      */
     public function index(EbookRepository $ebookRepository): Response
     {
@@ -27,6 +29,8 @@ class EbookController extends AbstractController
 
     /**
      * @Route("/new", name="ebook_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class EbookController extends AbstractController
 
     /**
      * @Route("/{id}", name="ebook_show", methods={"GET"})
+     * @param Ebook $ebook
+     * @return Response
      */
     public function show(Ebook $ebook): Response
     {
@@ -60,6 +66,9 @@ class EbookController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="ebook_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Ebook $ebook
+     * @return Response
      */
     public function edit(Request $request, Ebook $ebook): Response
     {
@@ -80,6 +89,9 @@ class EbookController extends AbstractController
 
     /**
      * @Route("/{id}", name="ebook_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Ebook $ebook
+     * @return Response
      */
     public function delete(Request $request, Ebook $ebook): Response
     {

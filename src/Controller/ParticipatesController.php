@@ -17,6 +17,8 @@ class ParticipatesController extends AbstractController
 {
     /**
      * @Route("/", name="participates_index", methods={"GET"})
+     * @param ParticipatesRepository $participatesRepository
+     * @return Response
      */
     public function index(ParticipatesRepository $participatesRepository): Response
     {
@@ -27,6 +29,8 @@ class ParticipatesController extends AbstractController
 
     /**
      * @Route("/new", name="participates_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class ParticipatesController extends AbstractController
 
     /**
      * @Route("/{id}", name="participates_show", methods={"GET"})
+     * @param Participates $participate
+     * @return Response
      */
     public function show(Participates $participate): Response
     {
@@ -60,6 +66,9 @@ class ParticipatesController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="participates_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Participates $participate
+     * @return Response
      */
     public function edit(Request $request, Participates $participate): Response
     {
@@ -80,6 +89,9 @@ class ParticipatesController extends AbstractController
 
     /**
      * @Route("/{id}", name="participates_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Participates $participate
+     * @return Response
      */
     public function delete(Request $request, Participates $participate): Response
     {

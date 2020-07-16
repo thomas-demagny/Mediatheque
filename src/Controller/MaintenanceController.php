@@ -17,6 +17,8 @@ class MaintenanceController extends AbstractController
 {
     /**
      * @Route("/", name="maintenance_index", methods={"GET"})
+     * @param MaintenanceRepository $maintenanceRepository
+     * @return Response
      */
     public function index(MaintenanceRepository $maintenanceRepository): Response
     {
@@ -27,6 +29,8 @@ class MaintenanceController extends AbstractController
 
     /**
      * @Route("/new", name="maintenance_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class MaintenanceController extends AbstractController
 
     /**
      * @Route("/{id}", name="maintenance_show", methods={"GET"})
+     * @param Maintenance $maintenance
+     * @return Response
      */
     public function show(Maintenance $maintenance): Response
     {
@@ -60,6 +66,9 @@ class MaintenanceController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="maintenance_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Maintenance $maintenance
+     * @return Response
      */
     public function edit(Request $request, Maintenance $maintenance): Response
     {
@@ -80,6 +89,9 @@ class MaintenanceController extends AbstractController
 
     /**
      * @Route("/{id}", name="maintenance_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Maintenance $maintenance
+     * @return Response
      */
     public function delete(Request $request, Maintenance $maintenance): Response
     {

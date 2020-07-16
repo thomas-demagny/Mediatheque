@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\AudioBook;
-use App\Form\AudioBook1Type;
+use App\Form\AudioBookType;
 use App\Repository\AudioBookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,7 +72,7 @@ class AudioBookController extends AbstractController
      */
     public function edit(Request $request, AudioBook $audioBook): Response
     {
-        $form = $this->createForm(AudioBook1Type::class, $audioBook);
+        $form = $this->createForm(AudioBookType::class, $audioBook);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -17,6 +17,8 @@ class BorrowingController extends AbstractController
 {
     /**
      * @Route("/", name="borrowing_index", methods={"GET"})
+     * @param BorrowingRepository $borrowingRepository
+     * @return Response
      */
     public function index(BorrowingRepository $borrowingRepository): Response
     {
@@ -27,6 +29,8 @@ class BorrowingController extends AbstractController
 
     /**
      * @Route("/new", name="borrowing_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class BorrowingController extends AbstractController
 
     /**
      * @Route("/{id}", name="borrowing_show", methods={"GET"})
+     * @param Borrowing $borrowing
+     * @return Response
      */
     public function show(Borrowing $borrowing): Response
     {
@@ -60,6 +66,9 @@ class BorrowingController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="borrowing_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Borrowing $borrowing
+     * @return Response
      */
     public function edit(Request $request, Borrowing $borrowing): Response
     {
@@ -80,6 +89,9 @@ class BorrowingController extends AbstractController
 
     /**
      * @Route("/{id}", name="borrowing_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Borrowing $borrowing
+     * @return Response
      */
     public function delete(Request $request, Borrowing $borrowing): Response
     {

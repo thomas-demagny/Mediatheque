@@ -17,6 +17,8 @@ class MemberController extends AbstractController
 {
     /**
      * @Route("/", name="member_index", methods={"GET"})
+     * @param MemberRepository $memberRepository
+     * @return Response
      */
     public function index(MemberRepository $memberRepository): Response
     {
@@ -27,6 +29,8 @@ class MemberController extends AbstractController
 
     /**
      * @Route("/new", name="member_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class MemberController extends AbstractController
 
     /**
      * @Route("/{id}", name="member_show", methods={"GET"})
+     * @param Member $member
+     * @return Response
      */
     public function show(Member $member): Response
     {
@@ -60,6 +66,9 @@ class MemberController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="member_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Member $member
+     * @return Response
      */
     public function edit(Request $request, Member $member): Response
     {
@@ -80,6 +89,9 @@ class MemberController extends AbstractController
 
     /**
      * @Route("/{id}", name="member_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Member $member
+     * @return Response
      */
     public function delete(Request $request, Member $member): Response
     {

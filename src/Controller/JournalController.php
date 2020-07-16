@@ -17,6 +17,8 @@ class JournalController extends AbstractController
 {
     /**
      * @Route("/", name="journal_index", methods={"GET"})
+     * @param JournalRepository $journalRepository
+     * @return Response
      */
     public function index(JournalRepository $journalRepository): Response
     {
@@ -27,6 +29,8 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/new", name="journal_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/{id}", name="journal_show", methods={"GET"})
+     * @param Journal $journal
+     * @return Response
      */
     public function show(Journal $journal): Response
     {
@@ -60,6 +66,9 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="journal_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Journal $journal
+     * @return Response
      */
     public function edit(Request $request, Journal $journal): Response
     {
@@ -80,6 +89,9 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/{id}", name="journal_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Journal $journal
+     * @return Response
      */
     public function delete(Request $request, Journal $journal): Response
     {
