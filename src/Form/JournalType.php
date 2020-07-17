@@ -19,7 +19,6 @@ class JournalType extends AbstractType
             ->add('ProductCode')
             ->add('periodicity')
             ->add('subscriptionDate')
-            ->add('meetUp')
         ;
     }
 
