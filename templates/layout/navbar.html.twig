@@ -9,27 +9,54 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
             </li>
+            <li>
+                <a class="nav-link" href="{{ path('admin') }}">Admin <span class="sr-only">(current)</span></a> 
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Les livres
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Livres</a>
-                    <a class="dropdown-item" href="#">Livres Audio</a>
-                    <a class="dropdown-item" href="#">E-Books</a>
+                    <a class="dropdown-item" href="{{ path('book_index') }}">Livres</a>
+                    <a class="dropdown-item" href="{{ path('audio_book_index') }} ">Livres Audio</a>
+                    <a class="dropdown-item" href="{{ path('ebook_index') }}">E-Books</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Un autre truc</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('cd_index') }}">les CD <span class="sr-only">(current)</span></a> 
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('dvd_index') }}">les DVD <span class="sr-only">(current)</span></a> 
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('journal_index') }}">les journaux <span class="sr-only">(current)</span></a> 
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gestion des produits
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('borrowing_index') }}">les emprunts</a> 
+                    <a class="dropdown-item" href="{{ path('participates_index') }}">Etat des produits</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Nos services
+                    Nos evenements
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Réserver une rencontre </a>
-                    <a class="dropdown-item" href="#">Modifier/Supprimer un livre</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Un autre truc</a>
+                    <a class="dropdown-item" href="{{ path('meet_up_index') }}">Voir/créer rencontre </a>
+                    <a class="dropdown-item" href="{{ path('participates_index') }}">voir les participants</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Les employé(e)s
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('role_index') }}">Par métier</a>
                 </div>
             </li>
         </ul>
