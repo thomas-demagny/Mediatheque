@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=BorrowingRepository::class)
  */
-class Borrowing extends Product
+class Borrowing
 {
     /**
      * @ORM\Id()
@@ -31,17 +31,17 @@ class Borrowing extends Product
     private ?Product $document;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $startDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $expectedReturnDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $effectiveReturnDate;
 

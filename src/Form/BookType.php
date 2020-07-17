@@ -12,13 +12,13 @@ class BookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('category')
+            ->add('productCode')
             ->add('stock')
-            ->add('title')
             ->add('format')
-            ->add('ProductCode')
+            ->add('category')
+            ->add('creator')
+            ->add('title')
             ->add('pages')
-
         ;
     }
 

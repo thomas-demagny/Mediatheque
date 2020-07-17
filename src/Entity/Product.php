@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,7 +46,18 @@ abstract class Product
     /**
      * @ORM\Column(type="integer")
      */
-    private ?int $ProductCode;
+    private ?int $productCode;
+
+    /**
+     * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="product", orphanRemoval=true)
+     */
+    private Collection $isInvolvedIns;
+
+    public function __construct()
+    {
+        $this->isInvolvedIns = new ArrayCollection();
+    }
+
 
 
 
@@ -120,15 +133,47 @@ abstract class Product
 
     public function getProductCode(): ?int
     {
-        return $this->ProductCode;
+        return $this->productCode;
     }
 
-    public function setProductCode(int $ProductCode): self
+    public function setProductCode(int $productCode): self
     {
-        $this->ProductCode = $ProductCode;
+        $this->productCode = $productCode;
 
         return $this;
     }
+
+    /**
+     * @return Collection|IsInvolvedIn[]
+     */
+    public function getIsInvolvedIns(): Collection
+    {
+        return $this->isInvolvedIns;
+    }
+
+    public function addIsInvolvedIn(IsInvolvedIn $isInvolvedIn): self
+    {
+        if (!$this->isInvolvedIns->contains($isInvolvedIn)) {
+            $this->isInvolvedIns[] = $isInvolvedIn;
+            $isInvolvedIn->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIsInvolvedIn(IsInvolvedIn $isInvolvedIn): self
+    {
+        if ($this->isInvolvedIns->contains($isInvolvedIn)) {
+            $this->isInvolvedIns->removeElement($isInvolvedIn);
+            // set the owning side to null (unless already changed)
+            if ($isInvolvedIn->getProduct() === $this) {
+                $isInvolvedIn->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 }

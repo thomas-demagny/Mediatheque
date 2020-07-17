@@ -3,13 +3,19 @@
 {% block title %}AudioBook index{% endblock %}
 
 {% block body %}
-    <h1>AudioBook index</h1>
+    <h1>Livres audio index</h1>
 
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Duration</th>
+                <th>Code produit</th>
+                <th>En stock</th>
+                <th>Format</th>
+                <th>Genre</th>
+                <th>Auteur</th>
+                <th>Titre</th>
+                <th>Durée</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,19 +23,26 @@
         {% for audio_book in audio_books %}
             <tr>
                 <td>{{ audio_book.id }}</td>
+                <td>{{ audio_book.productCode }}</td>
+                <td>{{ audio_book.stock }}</td>
+                <td>{{ audio_book.format }}</td>
+                <td>{{ audio_book.category }}</td>
+                <td>AUTEUR</td>
+                <td>{{ audio_book.title }}</td>
                 <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('audio_book_show', {'id': audio_book.id}) }}">show</a>
-                    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}">edit</a>
+                    <a href="{{ path('audio_book_show', {'id': audio_book.id}) }}" type="btn" class="btn btn-success">Voir</a>
+                    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('audio_book_new') }}">Create new</a>
+    <a href="{{ path('audio_book_new') }}" type="btn" class="btn btn-dark">Création</a>
 {% endblock %}
+

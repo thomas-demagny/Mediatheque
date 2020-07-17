@@ -7776,12 +7776,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "69c5d48afd1e631290de1aa9806eab0b38bb66a3"
+                "reference": "d8b19d79638ab678e7e3f378b8ae80ad85cf7404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/69c5d48afd1e631290de1aa9806eab0b38bb66a3",
-                "reference": "69c5d48afd1e631290de1aa9806eab0b38bb66a3",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d8b19d79638ab678e7e3f378b8ae80ad85cf7404",
+                "reference": "d8b19d79638ab678e7e3f378b8ae80ad85cf7404",
                 "shasum": ""
             },
             "require": {
@@ -7820,7 +7820,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-07-15T19:40:05+00:00"
+            "time": "2020-07-16T19:51:43+00:00"
         },
         {
             "name": "symfony/browser-kit",
