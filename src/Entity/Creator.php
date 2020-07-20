@@ -40,19 +40,15 @@ class Creator
      */
     private ?DateTimeInterface $deathDate;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="creator")
-     */
-    private $products;
 
     /**
      * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="creator", orphanRemoval=true)
      */
-    private $isInvolvedIns;
+    private Collection $isInvolvedIns;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+
         $this->isInvolvedIns = new ArrayCollection();
     }
 
@@ -133,33 +129,6 @@ class Creator
         return $this;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->addCreator($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            $product->removeCreator($this);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|IsInvolvedIn[]

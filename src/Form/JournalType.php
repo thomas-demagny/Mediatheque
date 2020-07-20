@@ -16,10 +16,10 @@ class JournalType extends AbstractType
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('ProductCode')
+            ->add('productCode')
             ->add('periodicity')
             ->add('subscriptionDate')
-            ->add('meetUp')
+
         ;
     }
 

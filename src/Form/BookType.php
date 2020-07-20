@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Book;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,12 @@ class BookType extends AbstractType
             ->add('stock')
             ->add('format')
             ->add('category')
-            ->add('creator')
+            ->add('isInvolvedIns', CollectionType::class,
+                [
+                    'entry_type' => IsInvolvedInType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                ])
             ->add('title')
             ->add('pages')
         ;

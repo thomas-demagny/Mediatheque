@@ -16,8 +16,9 @@ class DvdType extends AbstractType
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('ProductCode')
-            ->add('meetUp')
+            ->add('creator')
+            ->add('productCode')
+
         ;
     }
 

@@ -16,7 +16,8 @@ class CdType extends AbstractType
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('ProductCode')
+            ->add('productCode')
+            ->add('creator')
             ->add('plages')
             ->add('duration')
 
