@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\AudioBookRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AudioBookRepository::class)
@@ -20,6 +21,9 @@ class AudioBook extends Product
 
     /**
      * @ORM\Column(type="time")
+     * 
+     * @Assert\Type("time")
+     * @Assert\NotBlank
      */
     private ?DateTimeInterface $duration;
 

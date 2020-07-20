@@ -27,6 +27,18 @@ class BookController extends AbstractController
         ]);
     }
 
+    public function books()
+    {
+        $repository= $this->getDoctrine()
+                        ->getRepository(Book::class);
+                        
+        $books = $repository->findAll();
+        
+        return $this->render('products.html.twig', [
+            'books' => $books
+        ]);
+    }
+
     /**
      * @Route("/new", name="book_new", methods={"GET","POST"})
      * @param Request $request

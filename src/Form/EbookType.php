@@ -16,10 +16,8 @@ class EbookType extends AbstractType
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('ProductCode')
-        ;
+            ->add('ProductCode');
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

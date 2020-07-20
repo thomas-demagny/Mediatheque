@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BookRepository::class)
@@ -19,10 +20,16 @@ class Book extends Product
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero(
+     *     message = "Veuillez saisir un nombre valide"
+     *)
+     *@Assert\NotBlank
+     *@Assert\Type("integer")
      */
     private ?int $pages;
 
     /**
+     
      * @return int|null
      */
     public function getId(): ?int

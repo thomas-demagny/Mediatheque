@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\BorrowingRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BorrowingRepository::class)
@@ -21,27 +22,35 @@ class Borrowing extends Product
     /**
      * @ORM\ManyToOne(targetEntity=Member::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private ?Member $borrower;
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private ?Product $document;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank
+     *  @Assert\Date
+     * 
      */
     private ?DateTimeInterface $startDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank
+     *  @Assert\Date
      */
     private ?DateTimeInterface $expectedReturnDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
+     *  @Assert\Date
      */
     private ?DateTimeInterface $effectiveReturnDate;
 
