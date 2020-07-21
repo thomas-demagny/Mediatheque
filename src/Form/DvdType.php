@@ -16,14 +16,10 @@ class DvdType extends AbstractType
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('creator')
-            ->add('productCode')
-
-        ;
+            ->add('productCode');
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
             'data_class' => Dvd::class,
         ]);

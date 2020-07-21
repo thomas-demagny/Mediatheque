@@ -9,8 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class JournalType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('category')
             ->add('stock')
@@ -18,13 +17,10 @@ class JournalType extends AbstractType
             ->add('format')
             ->add('productCode')
             ->add('periodicity')
-            ->add('subscriptionDate')
-
-        ;
+            ->add('subscriptionDate');
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
             'data_class' => Journal::class,
         ]);
