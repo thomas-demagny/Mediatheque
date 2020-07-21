@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -24,27 +25,33 @@ abstract class Product
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Assert\Choice({"Action", "Aventure", "Romance", "Comedie", "Hip-hop", "Rock", "Country", "R&b"})
      */
     private ?string $category;
 
     /**
      * @ORM\Column(type="integer")
+     *  @Assert\NotBlank
      */
     private ?int $stock;
 
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank
      */
     private ?string $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank
      */
     private ?string $format;
 
     /**
      * @ORM\Column(type="integer")
+     *  @Assert\NotBlank
+     * @Assert\Positive
      */
     private ?int $productCode;
 
