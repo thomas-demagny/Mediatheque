@@ -3,7 +3,7 @@ var $collectionHolder;
 
 // setup an "add a tag" link
 var $addCreatorButton = $('<button type="button" class="btn btn-success">Add Creator</button>');
-var $newLinkContainer = $('<div></div>').append($addCreatorButton);
+var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addCreatorButton);
 
 function addCreatorCollection($selector) {
     jQuery(document).ready(function() {
@@ -35,17 +35,17 @@ function addCreatorForm($collectionHolder, $newLinkContainer) {
     // You need this only if you didn't set 'label' => false in your tags field in TaskType
     // Replace '__name__label__' in the prototype's HTML to
     // instead be a number based on how many items we have
-    newForm = newForm.replace(/__name__label__/g,'');
+    newForm = newForm.replace(/__name__label__/g, '');
 
     // Replace '__name__' in the prototype's HTML to
     // instead be a number based on how many items we have
-    newForm = newForm.replace(/__name__/g,'');
+    newForm = newForm.replace(/__name__/g, '');
 
     // increase the index with one for the next item
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormContainer = $('<div></div>').append(newForm);
+    var $newFormContainer = $('<div class="creatorContainer" ></div>').append(newForm);
     $newLinkContainer.before($newFormContainer);
 }
 
