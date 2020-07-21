@@ -40,7 +40,6 @@ class AudioBookController extends AbstractController
         foreach($audioBook->getIsInvolvedIns() as $isInvolvedIn) {
             $isInvolvedIn->setProduct($audioBook);
         }
-        var_dump(count($audioBook->getIsInvolvedIns()));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
