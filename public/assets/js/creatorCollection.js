@@ -45,8 +45,17 @@ function addCreatorForm($collectionHolder, $newLinkContainer) {
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormContainer = $('<div class="creatorContainer" ></div>').append(newForm);
+    var $newFormContainer = $('<div class="creatorContainer"></div>').append(newForm);
+
+    $newFormContainer.append('<button type="button" class="btn btn-danger remove-creator">Remove Creator</button>');
     $newLinkContainer.before($newFormContainer);
+    $('.creatorContainer fieldset.form-group').addClass('col-8');
+
+    $('.remove-creator').click(function(e) {
+        e.preventDefault();
+        $(this).parent().remove();
+        return false;
+    });
 }
 
 addCreatorCollection('#audio_book_isInvolvedIns');
