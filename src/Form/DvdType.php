@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Dvd;
+use App\Entity\IsInvolvedIn;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -26,6 +28,12 @@ class DvdType extends AbstractType
 
             ->add('stock')
             ->add('title')
+            ->add('isInvolvedIns', CollectionType::class, [
+                    'entry_type' => IsInvolvedInWithReferencedProductType::class,
+                    'label' => 'Creators',
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                ])
             ->add('format')
             ->add('productCode');
     }
