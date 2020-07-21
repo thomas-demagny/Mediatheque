@@ -49,7 +49,7 @@ abstract class Product
     private ?int $productCode;
 
     /**
-     * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="product", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="product", orphanRemoval=true, cascade="persist")
      */
     private Collection $isInvolvedIns;
 

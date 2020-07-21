@@ -12,28 +12,23 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AudioBookType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('category')
             ->add('stock')
-            ->add('isInvolvedIns', CollectionType::class,
-                [
-                    'entry_type' => IsInvolvedInType::class,
+            ->add('title')
+            ->add('isInvolvedIns', CollectionType::class, [
+                    'entry_type' => IsInvolvedInWithReferencedProductType::class,
+                    'label' => 'Creators',
                     'allow_add' => true,
                     'allow_delete' => true,
                 ])
-            ->add('title')
             ->add('format')
             ->add('productCode')
-            ->add('duration')
-
-
-        ;
+            ->add('duration');
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
             'data_class' => AudioBook::class,
         ]);

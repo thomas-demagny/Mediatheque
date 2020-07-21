@@ -7,12 +7,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class IsInvolvedInType extends AbstractType
+class IsInvolvedInWithReferencedProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('product')
             ->add('creator')
             ->add('role')
         ;
