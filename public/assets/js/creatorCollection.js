@@ -50,3 +50,5 @@ function addCreatorForm($collectionHolder, $newLinkContainer) {
 }
 
 addCreatorCollection('#audio_book_isInvolvedIns');
+addCreatorCollection('#book_isInvolvedIns');
+addCreatorCollection('#cd_isInvolvedIns');

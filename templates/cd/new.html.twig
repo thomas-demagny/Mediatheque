@@ -9,3 +9,8 @@
 
     <a href="{{ path('cd_index') }}">back to list</a>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/creatorCollection.js')}}"></script>
+{% endblock %}

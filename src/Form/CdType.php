@@ -6,6 +6,7 @@ use App\Entity\Cd;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class CdType extends AbstractType
 {
@@ -17,9 +18,15 @@ class CdType extends AbstractType
             ->add('title')
             ->add('format')
             ->add('productCode')
-            ->add('creator')
             ->add('plages')
             ->add('duration')
+            ->add('isInvolvedIns', CollectionType::class,
+                [
+                    'entry_type' => IsInvolvedInWithReferencedProductType::class,
+                    'label' => 'Creators',
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                ])
 
         ;
     }

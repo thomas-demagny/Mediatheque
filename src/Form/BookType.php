@@ -19,7 +19,8 @@ class BookType extends AbstractType
             ->add('category')
             ->add('isInvolvedIns', CollectionType::class,
                 [
-                    'entry_type' => IsInvolvedInType::class,
+                    'entry_type' => IsInvolvedInWithReferencedProductType::class,
+                    'label' => 'Creators',
                     'allow_add' => true,
                     'allow_delete' => true,
                 ])
