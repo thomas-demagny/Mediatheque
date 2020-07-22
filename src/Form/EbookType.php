@@ -23,10 +23,27 @@ class EbookType extends AbstractType
                         'Romance' => 'romance',
                     ]]])
 
-            ->add('stock')
-            ->add('title')
-            ->add('format')
-            ->add('productCode');
+            ->add('productCode', TextType::class, [
+                'required' => true,
+            ])
+
+            ->add('stock', TextType::class, [
+                'required' => true,
+            ])
+
+            ->add('format', ChoiceType::class, [
+                'choices' => [
+                    'Main Statuses' => [
+                        'PDF' => 'pdf',
+                        'TXT' => 'txt',
+                        'AZW' => 'azw',
+                        'CBZ' => 'cbz',
+                        'CBR' => 'cbr',
+                        'KCC' => 'kcc',
+                        
+                    ]]])
+
+            ->add('title');
     }
 
     public function configureOptions(OptionsResolver $resolver) {
@@ -35,3 +52,4 @@ class EbookType extends AbstractType
         ]);
     }
 }
+

@@ -18,12 +18,10 @@ class BookType extends AbstractType
         $builder
             ->add('productCode', TextType::class, [
                 'required' => true,
-                
             ])
 
             ->add('stock', TextType::class, [
                 'required' => true,
-                
             ])
 
             ->add('format', ChoiceType::class, [
@@ -62,4 +60,5 @@ class BookType extends AbstractType
             'data_class' => Book::class,
         ]);
     }
+
 }
