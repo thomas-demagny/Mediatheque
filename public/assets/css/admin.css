@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+    justify-content: center;
+}
+.card {
+    display: flex;
+    justify-content: end;
+}
+
+.card-body {
+    text-align: center;
+}

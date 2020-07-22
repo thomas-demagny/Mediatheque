@@ -9,20 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EbookType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('category')
             ->add('stock')
             ->add('title')
             ->add('format')
-            ->add('ProductCode')
-            ->add('meetUp')
-        ;
+            ->add('productCode');
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
             'data_class' => Ebook::class,
         ]);

@@ -1,7 +1,4 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.x-dev"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -116,6 +113,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.6.0"
+    },
+    "ocramius/package-versions": {
+        "version": "1.8.0"
     },
     "ocramius/proxy-manager": {
         "version": "2.8.x-dev"

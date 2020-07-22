@@ -3,7 +3,7 @@
 {% block title %}AudioBook{% endblock %}
 
 {% block body %}
-    <h1>AudioBook</h1>
+    <h1>Livre audio</h1>
 
     <table class="table">
         <tbody>
@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('audio_book_index') }}">back to list</a>
+    <a href="{{ path('audio_book_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}">edit</a>
+    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}">Editer</a>
 
     {{ include('audio_book/_delete_form.html.twig') }}
 {% endblock %}

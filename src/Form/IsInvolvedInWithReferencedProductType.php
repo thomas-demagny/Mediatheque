@@ -2,27 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Maintenance;
+use App\Entity\IsInvolvedIn;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MaintenanceType extends AbstractType
+class IsInvolvedInWithReferencedProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('status')
-            ->add('maintenanceDate')
-            ->add('maintainer')
-            ->add('product')
+            ->add('creator')
+            ->add('role')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Maintenance::class,
+            'data_class' => IsInvolvedIn::class,
         ]);
     }
 }
