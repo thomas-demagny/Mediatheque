@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DvdRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,6 +18,26 @@ class Dvd extends Product
      */
     protected ?int $id;
 
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getDuration(): ?DateTimeInterface
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param DateTimeInterface|null $duration
+     */
+    public function setDuration(?DateTimeInterface $duration): void
+    {
+        $this->duration = $duration;
+    }
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    private ?DateTimeInterface $duration;
     /**
      * @return int|null
      */

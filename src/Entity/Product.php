@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="value", type="string")
- * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal", "resources" = "Resources"})
+ * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal"})
  */
 abstract class Product
 {
@@ -57,9 +57,6 @@ abstract class Product
     {
         $this->isInvolvedIns = new ArrayCollection();
     }
-
-
-
 
     /**
      * @return int
@@ -180,3 +177,6 @@ abstract class Product
     }
 
 }
+
+
+
