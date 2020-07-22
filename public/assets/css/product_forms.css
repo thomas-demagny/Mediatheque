@@ -1,0 +1,5 @@
+.creatorContainer {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}

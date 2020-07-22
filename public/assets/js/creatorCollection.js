@@ -1,28 +1,27 @@
-
 var $collectionHolder;
 
 // setup an "add a tag" link
 var $addCreatorButton = $('<button type="button" class="btn btn-success">Add Creator</button>');
 var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addCreatorButton);
 
-function addCreatorCollection($selector) {
-    jQuery(document).ready(function() {
-        // Get the ul that holds the collection of tags
-        $collectionHolder = $($selector);
-    
-        // add the "add a tag" anchor and li to the tags ul
-        $collectionHolder.append($newLinkContainer);
-    
-        // count the current form inputs we have (e.g. 2), use that as the new
-        // index when inserting a new item (e.g. 2)
-        $collectionHolder.data('index', $collectionHolder.find('input').length);
-    
-        $addCreatorButton.on('click', function(e) {
-            // add a new tag form (see next code block)
-            addCreatorForm($collectionHolder, $newLinkContainer);
-        });
+jQuery(document).ready(function() {
+    var $selector = $('fieldset > div[id*="isInvolvedIns"]').attr('id');
+
+    // Get the ul that holds the collection of tags
+    $collectionHolder = $('#' + $selector);
+
+    // add the "add a tag" anchor and li to the tags ul
+    $collectionHolder.append($newLinkContainer);
+
+    // count the current form inputs we have (e.g. 2), use that as the new
+    // index when inserting a new item (e.g. 2)
+    $collectionHolder.data('index', $collectionHolder.find('input').length);
+
+    $addCreatorButton.on('click', function(e) {
+        // add a new tag form (see next code block)
+        addCreatorForm($collectionHolder, $newLinkContainer);
     });
-}
+});
 
 function addCreatorForm($collectionHolder, $newLinkContainer) {
     // Get the data-prototype explained earlier
@@ -45,8 +44,15 @@ function addCreatorForm($collectionHolder, $newLinkContainer) {
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormContainer = $('<div class="creatorContainer" ></div>').append(newForm);
-    $newLinkContainer.before($newFormContainer);
-}
+    var $newFormContainer = $('<div class="creatorContainer"></div>').append(newForm);
 
-addCreatorCollection('#audio_book_isInvolvedIns');
+    $newFormContainer.append('<button type="button" class="btn btn-danger remove-creator">Remove Creator</button>');
+    $newLinkContainer.before($newFormContainer);
+    $('.creatorContainer fieldset.form-group').addClass('col-8');
+
+    $('.remove-creator').click(function(e) {
+        e.preventDefault();
+        $(this).parent().remove();
+        return false;
+    });
+}

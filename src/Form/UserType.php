@@ -16,6 +16,7 @@ class UserType extends AbstractType
             ->add('passwd')
             ->add('firstName')
             ->add('lastName')
+            
         ;
     }
 

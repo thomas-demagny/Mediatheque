@@ -2,8 +2,13 @@
 
 {% block title %}New AudioBook{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/product_forms.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Créer un nouveau livre audio</h1>
+    <h1>Create new AudioBook</h1>
 
     {{ include('audio_book/_form.html.twig') }}
 
