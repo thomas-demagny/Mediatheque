@@ -19,11 +19,12 @@ class AudioBookRepository extends ServiceEntityRepository
         parent::__construct($registry, AudioBook::class);
     }
 
-    // /**
-    //  * @return AudiBook[] Returns an array of AudiBook objects
-    //  */
-    /*
-    public function findByExampleField($value)
+ /*   /**
+     * @param $value
+     * @return AudiBook[] Returns an array of AudiBook objects
+     */
+
+   /* public function findBy($value)
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
@@ -34,7 +35,7 @@ class AudioBookRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+ */
 
     /*
     public function findOneBySomeField($value): ?AudiBook

@@ -18,6 +18,26 @@ class Ebook extends Product
     protected ?int $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $pages;
+
+    /**
+     * @return int|null
+     */
+    public function getPages(): ?int
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param int|null $pages
+     */
+    public function setPages(?int $pages): void
+    {
+        $this->pages = $pages;
+    }
+    /**
      * @return int|null
      */
     public function getId(): ?int

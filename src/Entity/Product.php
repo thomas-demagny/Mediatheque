@@ -6,12 +6,13 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="value", type="string")
- * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal", "resources" = "Resources"})
+ * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal"})
  */
 abstract class Product
 {
@@ -24,27 +25,33 @@ abstract class Product
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Assert\Choice({"Action", "Aventure", "Romance", "Comedie", "Hip-hop", "Rock", "Country", "R&b"})
      */
     private ?string $category;
 
     /**
      * @ORM\Column(type="integer")
+     *  @Assert\NotBlank
      */
     private ?int $stock;
 
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank
      */
     private ?string $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank
      */
     private ?string $format;
 
     /**
      * @ORM\Column(type="integer")
+     *  @Assert\NotBlank
+     * @Assert\Positive
      */
     private ?int $productCode;
 
@@ -57,9 +64,6 @@ abstract class Product
     {
         $this->isInvolvedIns = new ArrayCollection();
     }
-
-
-
 
     /**
      * @return int
@@ -180,3 +184,6 @@ abstract class Product
     }
 
 }
+
+
+
