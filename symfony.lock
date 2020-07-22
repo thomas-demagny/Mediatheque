@@ -1,4 +1,7 @@
 {
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -98,6 +101,9 @@
     },
     "fzaninotto/faker": {
         "version": "1.9-dev"
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "3.0-dev"
     },
     "laminas/laminas-code": {
         "version": "3.5.x-dev"
