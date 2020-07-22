@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MaintenanceRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,27 +16,27 @@ class Maintenance
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Employee::class)
      */
-    private $maintainer;
+    private ?Employee $maintainer;
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class)
      */
-    private $Product;
+    private ?Product $Product;
 
     /**
      * @ORM\Column(type="string", length=70)
      */
-    private $status;
+    private ?string $status;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $maintenanceDate;
+    private ?DateTimeInterface $maintenanceDate;
 
     public function getId(): ?int
     {
@@ -78,12 +79,12 @@ class Maintenance
         return $this;
     }
 
-    public function getMaintenanceDate(): ?\DateTimeInterface
+    public function getMaintenanceDate(): ?DateTimeInterface
     {
         return $this->maintenanceDate;
     }
 
-    public function setMaintenanceDate(\DateTimeInterface $maintenanceDate): self
+    public function setMaintenanceDate(DateTimeInterface $maintenanceDate): self
     {
         $this->maintenanceDate = $maintenanceDate;
 

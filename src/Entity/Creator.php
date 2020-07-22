@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CreatorRepository;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,6 +39,18 @@ class Creator
      * @ORM\Column(type="datetime", nullable=true)
      */
     private ?DateTimeInterface $deathDate;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="creator", orphanRemoval=true)
+     */
+    private Collection $isInvolvedIns;
+
+    public function __construct()
+    {
+
+        $this->isInvolvedIns = new ArrayCollection();
+    }
 
 
     /**
@@ -111,6 +125,38 @@ class Creator
     public function setDeathDate(?DateTimeInterface $deathDate): self
     {
         $this->deathDate = $deathDate;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|IsInvolvedIn[]
+     */
+    public function getIsInvolvedIns(): Collection
+    {
+        return $this->isInvolvedIns;
+    }
+
+    public function addIsInvolvedIn(IsInvolvedIn $isInvolvedIn): self
+    {
+        if (!$this->isInvolvedIns->contains($isInvolvedIn)) {
+            $this->isInvolvedIns[] = $isInvolvedIn;
+            $isInvolvedIn->setCreator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIsInvolvedIn(IsInvolvedIn $isInvolvedIn): self
+    {
+        if ($this->isInvolvedIns->contains($isInvolvedIn)) {
+            $this->isInvolvedIns->removeElement($isInvolvedIn);
+            // set the owning side to null (unless already changed)
+            if ($isInvolvedIn->getCreator() === $this) {
+                $isInvolvedIn->setCreator(null);
+            }
+        }
 
         return $this;
     }

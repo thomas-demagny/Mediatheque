@@ -1,7 +1,4 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.x-dev"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -116,6 +113,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.6.0"
+    },
+    "ocramius/package-versions": {
+        "version": "1.8.0"
     },
     "ocramius/proxy-manager": {
         "version": "2.8.x-dev"
@@ -521,6 +521,15 @@
             "config/packages/test/web_profiler.yaml",
             "config/routes/dev/web_profiler.yaml"
         ]
+    },
+    "symfony/web-server-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
+        }
     },
     "symfony/yaml": {
         "version": "5.2-dev"

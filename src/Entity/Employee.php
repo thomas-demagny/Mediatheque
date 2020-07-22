@@ -8,19 +8,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=EmployeeRepository::class)
  */
-class Employee
+class Employee extends User
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=MeetUp::class)
      */
-    private $organizes;
+    private ?MeetUp $organizes;
 
     public function getId(): ?int
     {

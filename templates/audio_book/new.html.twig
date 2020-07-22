@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AudioBook{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/product_forms.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1>Create new AudioBook</h1>
+
+    {{ include('audio_book/_form.html.twig') }}
+
+    <a href="{{ path('audio_book_index') }}">Retour à la liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/creatorCollection.js')}}"></script>
+{% endblock %}

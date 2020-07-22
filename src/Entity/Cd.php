@@ -3,32 +3,33 @@
 namespace App\Entity;
 
 use App\Repository\CdRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CdRepository::class)
  */
-class Cd
+class Cd extends Product
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $plages;
+    private ?int $plages;
 
     /**
      * @ORM\Column(type="time")
      */
-    private $duration;
+    private ?DateTimeInterface $duration;
 
     /**
-     * @return int|null
+     * @return int
      */
     public function getId(): ?int
     {
@@ -47,12 +48,12 @@ class Cd
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
+    public function getDuration(): ?DateTimeInterface
     {
         return $this->duration;
     }
 
-    public function setDuration(\DateTimeInterface $duration): self
+    public function setDuration(DateTimeInterface $duration): self
     {
         $this->duration = $duration;
 

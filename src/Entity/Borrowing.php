@@ -16,7 +16,7 @@ class Borrowing
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Member::class)
@@ -31,17 +31,17 @@ class Borrowing
     private ?Product $document;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $startDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $expectedReturnDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $effectiveReturnDate;
 
