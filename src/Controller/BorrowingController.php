@@ -25,7 +25,12 @@ class BorrowingController extends AbstractController
         return $this->render('borrowing/index.html.twig', [
             'borrowings' => $borrowingRepository->findAll(),
         ]);
+                    
     }
+    
+
+  
+
 
     /**
      * @Route("/new", name="borrowing_new", methods={"GET","POST"})
