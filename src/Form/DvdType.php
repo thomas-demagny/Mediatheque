@@ -17,6 +17,7 @@ class DvdType extends AbstractType
             ->add('title')
             ->add('format')
             ->add('productCode');
+
     }
 
     public function configureOptions(OptionsResolver $resolver) {
