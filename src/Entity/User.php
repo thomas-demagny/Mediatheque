@@ -116,6 +116,10 @@ class User
         $this->lastName = $lastName;
     }
 
+    public function __toString()
+    {
+      return $this->nickName;
+    }
 
 
 }

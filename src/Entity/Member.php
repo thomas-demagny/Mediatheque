@@ -94,6 +94,8 @@ class Member extends User
 
         return $this;
     }
+
+
 }
 
 

@@ -20,8 +20,8 @@ class AudioBook extends Fixture
             $audioBook->setProductCode($faker->numberBetween($min = 20, $max = 500));
             $audioBook->setStock($faker->randomDigit);
             $audioBook->setFormat($faker->randomElement($array = array('audio')));
-            $audioBook->setCategory($faker->randomElement(['Suspense','Polar', 'Romance', 'Roman du terroir', 'Enfant']));
-            $audioBook->setTitle($faker->title);
+            $audioBook->setCategory($faker->randomElement(['Suspense','Polar', 'romance', 'Roman du terroir', 'Enfant']));
+            $audioBook->setTitle($faker->userName);
             $audioBook->setDuration($faker->dateTime());
 
             $manager->persist($audioBook);

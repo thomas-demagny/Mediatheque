@@ -6167,12 +6167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "da77d83a1cc2953dd54333717ce2b9e350065267"
+                "reference": "fc0db6f0de6b3ec12b95e77bf62ef8bbc43833ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/da77d83a1cc2953dd54333717ce2b9e350065267",
-                "reference": "da77d83a1cc2953dd54333717ce2b9e350065267",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/fc0db6f0de6b3ec12b95e77bf62ef8bbc43833ba",
+                "reference": "fc0db6f0de6b3ec12b95e77bf62ef8bbc43833ba",
                 "shasum": ""
             },
             "require": {
@@ -6256,7 +6256,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-18T19:55:03+00:00"
+            "time": "2020-07-23T08:36:44+00:00"
         },
         {
             "name": "symfony/serializer-pack",
@@ -8283,12 +8283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "2765c3fceb1e7120cb20555155063d0d1a05ed3b"
+                "reference": "942013b919d6d5221482c31ae4f48ab087e5d04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2765c3fceb1e7120cb20555155063d0d1a05ed3b",
-                "reference": "2765c3fceb1e7120cb20555155063d0d1a05ed3b",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/942013b919d6d5221482c31ae4f48ab087e5d04b",
+                "reference": "942013b919d6d5221482c31ae4f48ab087e5d04b",
                 "shasum": ""
             },
             "require": {
@@ -8354,7 +8354,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-15T12:47:34+00:00"
+            "time": "2020-07-23T09:29:40+00:00"
         },
         {
             "name": "symfony/profiler-pack",
@@ -8432,12 +8432,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "cc7e19478b2b9a8d56e7f93f522f199410101ea8"
+                "reference": "9b31be54c565dff2a18c955550de4300ee3c7d17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/cc7e19478b2b9a8d56e7f93f522f199410101ea8",
-                "reference": "cc7e19478b2b9a8d56e7f93f522f199410101ea8",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/9b31be54c565dff2a18c955550de4300ee3c7d17",
+                "reference": "9b31be54c565dff2a18c955550de4300ee3c7d17",
                 "shasum": ""
             },
             "require": {
@@ -8504,7 +8504,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-01T12:40:41+00:00"
+            "time": "2020-07-23T08:36:44+00:00"
         },
         {
             "name": "symfony/web-server-bundle",
