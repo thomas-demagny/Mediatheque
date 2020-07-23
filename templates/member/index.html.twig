@@ -7,20 +7,27 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>MembershipDate</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>NickName</th>
+            <th>Passwd</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>MembershipDate</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
-        {% for member in members %}
+        {% for user in members %}
             <tr>
-                <td>{{ member.id }}</td>
-                <td>{{ member.membershipDate ? member.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.id }}</td>
+
+                {{ include ("layout/global.html.twig",{'user': user } ) }}
+
+                <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('member_show', {'id': member.id}) }}">show</a>
-                    <a href="{{ path('member_edit', {'id': member.id}) }}">edit</a>
+                    <a href="{#{ path('member_show', {'id': user.id }) }}#}">show</a>
+                    <a href="{#{ path('member_edit', {'id': user.id}) }}#}">edit</a>
                 </td>
             </tr>
         {% else %}
