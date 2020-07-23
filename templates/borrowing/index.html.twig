@@ -12,6 +12,7 @@
                 <th>StartDate</th>
                 <th>ExpectedReturnDate</th>
                 <th>EffectiveReturnDate</th>
+                <th>Titre du produit</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,10 @@
                 <td>{{ borrowing.startDate ? borrowing.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ borrowing.expectedReturnDate ? borrowing.expectedReturnDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ borrowing.effectiveReturnDate ? borrowing.effectiveReturnDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{% for involved in borrowing.isInvolvedIn %}
+                {{ involved.title }}
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('borrowing_show', {'id': borrowing.id}) }}">show</a>
                     <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}">edit</a>

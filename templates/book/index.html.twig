@@ -7,29 +7,44 @@
 
     <table class="table">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Id</th>
-                <th>Pages</th>
+                <th>Code produit</th>
+                <th>En stock</th>
+                <th>Format</th>
+                <th>Genre</th>
+                <th>Auteur</th>
+                <th>Titre</th>
+                <th>Nombre de pages</th>
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         {% for book in books %}
             <tr>
                 <td>{{ book.id }}</td>
+                <td>{{ book.productCode }}</td>
+                <td>{{ book.stock }}</td>
+                <td>{{ book.format }}</td>
+                <td>{{ book.category }}</td>
+                <td>{% for isInvolvedIn in book.isInvolvedIns %}
+                        {{ isInvoldedIn.lastName ~ " " ~ isInvolvedIn.creator.firstName }}
+                    {% endfor %}
+                </td>
+                <td>{{ book.title }}</td>
                 <td>{{ book.pages }}</td>
                 <td>
-                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                    <a href="{{ path('book_show', {'id': book.id}) }}" type="btn" class="btn btn-success">Voir</a>
+                    <a href="{{ path('book_edit', {'id': book.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('book_new') }}">Create new</a>
+    <a href="{{ path('book_new') }}" type="btn" class="btn btn-outline-secondary mb-3">Création</a>
 {% endblock %}
