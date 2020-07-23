@@ -18,7 +18,7 @@ class Creator
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=40)
@@ -161,5 +161,25 @@ class Creator
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string|null $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function __toString()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 
 }
