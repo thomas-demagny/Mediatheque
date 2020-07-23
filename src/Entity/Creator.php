@@ -18,7 +18,7 @@ class Creator
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=40)
@@ -52,6 +52,10 @@ class Creator
         $this->isInvolvedIns = new ArrayCollection();
     }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     /**
      * @return string|null
@@ -160,6 +164,8 @@ class Creator
 
         return $this;
     }
-
+    public function __toString(){
+        return $this->first_name;
+    }
 
 }

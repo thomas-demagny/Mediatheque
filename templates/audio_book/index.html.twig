@@ -27,7 +27,11 @@
                 <td>{{ audio_book.stock }}</td>
                 <td>{{ audio_book.format }}</td>
                 <td>{{ audio_book.category }}</td>
-
+                <td>
+                    {% for abi in audio_book.IsInvolvedIns %}
+                        {{ abi.creator.firstName }}
+                    {% endfor %}
+                </td>
                 <td>{{ audio_book.title }}</td>
                 <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}</td>
                 <td>

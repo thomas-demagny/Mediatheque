@@ -28,7 +28,7 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-        private $passwd;
+    private $passwd;
 
 
     /**
@@ -115,9 +115,9 @@ class User
     {
         $this->lastName = $lastName;
     }
-
-
-
+    public function __toString(){
+        return $this->FirstName;
+    }
 }
 
 
