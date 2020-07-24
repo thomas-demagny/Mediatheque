@@ -2,13 +2,23 @@
 
 {% block title %}Hello StatisticsController!{% endblock %}
 
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<section>
+<section class ="stats">
     <h1 class="my-4">Statistiques</h1>
-    <p>{{render(controller('App\\Controller\\StatisticsController::last'))}}</p>
-    <p>{{render(controller('App\\Controller\\StatisticsController::ShowLastEbook'))}}</p>
-    <p>{{render(controller('App\\Controller\\StatisticsController::ShowMostBorrow'))}}</p>
-</section>
+    <article class="artClasse">
+        <p>{{render(controller('App\\Controller\\StatisticsController::last'))}}</p>
+        <p>{{render(controller('App\\Controller\\StatisticsController::ShowLastEbook'))}}</p>
+        <p>{{render(controller('App\\Controller\\StatisticsController::ShowMostBorrow'))}}</p>
+    <article>
+</section>    
+
     
 
 {% endblock %}

@@ -37,18 +37,19 @@ class BorrowingRepository extends ServiceEntityRepository
     */
 
     
-    public function productMostBorrow(): ?Borrowing
+    public function productMostBorrow(): ?array
     {
         $borrow = $this->createQueryBuilder('b')
 
-            ->where('b.document_id')
-            ->andWhere('count(b) As total  ')
-            ->groupBy('b.document_id')
-            ->orderBy('total', 'DESC')
+            ->select('count(b) as total','p.id', 'p.title')
+            ->join('b.document', 'p')
+            ->groupBy('p.id')
+            ->setMaxResults(5)
+            ->orderBy('total', 'desc')
             ->getQuery();
 
-            return $borrow->getOneOrNullResult()
-
+            
+           return $borrow->getResult();
         ;
     }
     

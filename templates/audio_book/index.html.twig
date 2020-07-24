@@ -28,8 +28,8 @@
                 <td>{{ audio_book.stock }}</td>
                 <td>{{ audio_book.format }}</td>
                 <td>{{ audio_book.category }}</td>
-                <td>{% for isInvolvedIn in audio_book.isInvolvedIns %}
-                        {{ isInvoldedIn.lastName ~ " " ~ isInvolvedIn.creator.firstName}}
+                <td>{% for audio in audio_book.isInvolvedIns %}
+                        {{ audio.creator}}
                     {% endfor %}
                 </td>
                 <td>{{ audio_book.title }}</td>

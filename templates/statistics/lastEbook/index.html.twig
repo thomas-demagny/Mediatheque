@@ -1,11 +1,13 @@
    
     <article>
-        <h2>Nos derniers produits</h2>
-        <p> {% for article in ebooks %}
-        <a href="">
-        {{ article.title }}
-    </a>
-{% endfor %}<p>
+        <h2>Nos 5 derniers ebooks rentré:</h2>
+        {% for ebook in ebooks %}
+        <p> 
+            <a href="{{ path('ebook_show', {'id': ebook.id}) }}">
+            {{ ebook.title }}
+            </a>
+        <p>
+        {% endfor %}
     </article>
 
     
