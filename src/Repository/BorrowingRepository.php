@@ -52,5 +52,10 @@ class BorrowingRepository extends ServiceEntityRepository
            return $borrow->getResult();
         ;
     }
+
+    public function dateLimit(): ?array //car group by fait un tableau
+    {
+        
+    }
     
 }

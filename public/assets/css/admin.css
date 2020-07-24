@@ -12,6 +12,9 @@
 }
 /*pages stats*/
 
+.stats{
+    padding: 5rem 0;
+}
 .stats .artClasse
 {
     display: flex;
