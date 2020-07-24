@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ user.id }}</td>
 
-                {{ include ("layout/global.html.twig",{'user': user } ) }}
+                {{ include ("layout/global.user.html.twig",{'user': user } ) }}
 
                 <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
