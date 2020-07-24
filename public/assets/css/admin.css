@@ -10,3 +10,27 @@
 .card-body {
     text-align: center;
 }
+/*pages stats*/
+
+.stats .artClasse
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.artClasse article
+{
+    border: 1px solid gray;
+    margin: 10px;
+    
+}
+
+.artClasse article p
+{
+    text-align: center;
+}
+
+.artClasse article p a{
+    color: rgb(90, 90, 129)
+}
+

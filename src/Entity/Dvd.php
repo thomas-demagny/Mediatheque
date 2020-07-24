@@ -20,6 +20,7 @@ class Dvd extends Product
 
     /**
      * @return DateTimeInterface|null
+     * * @ORM\Column(type="time")
      */
     public function getDuration(): ?DateTimeInterface
     {

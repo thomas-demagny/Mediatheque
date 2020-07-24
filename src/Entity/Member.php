@@ -16,24 +16,26 @@ class Member extends User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
-     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
     private ?string $address;
+
     /**
-     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
     private ?string $zipCode;
 
     /**
-     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
     private ?string $city;
 
+
     /**
-     * @var DateTimeInterface|null
+     * @ORM\Column(type="datetime")
      */
     private ?DateTimeInterface $membershipDate;
 
@@ -45,76 +47,68 @@ class Member extends User
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAddress()
+    public function getAddress(): ?string
     {
         return $this->address;
     }
 
-
-    /**
-     * @param $address
-     */
-    public function setAddress($address): void
+    public function setAddress(string $address): self
     {
         $this->address = $address;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getZipCode()
+    public function getZipCode(): ?string
     {
         return $this->zipCode;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCity()
+    public function setZipCode(string $zipCode): self
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
     {
         return $this->city;
     }
 
-
-    /**
-     * @param $city
-     */
-    public function setCity($city): void
+    public function setCity(string $city): self
     {
         $this->city = $city;
+
+        return $this;
     }
 
-    /**
-     * @param $zipCode
-     */
-    public function setZipCode($zipCode): void
-    {
-        $this->zipCode = $zipCode;
-    }
-
-    /**
-     * @return DateTimeInterface|null
-     */
     public function getMembershipDate(): ?DateTimeInterface
     {
         return $this->membershipDate;
     }
 
-
-    /**
-     * @param DateTimeInterface $membershipDate
-     * @return $this
-     */
     public function setMembershipDate(DateTimeInterface $membershipDate): self
     {
         $this->membershipDate = $membershipDate;
 
         return $this;
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

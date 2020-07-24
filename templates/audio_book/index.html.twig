@@ -13,13 +13,14 @@
                 <th>En stock</th>
                 <th>Format</th>
                 <th>Genre</th>
+                <th>Auteur</th>
                 <th>Titre</th>
                 <th>Durée</th>
                 <th>actions</th>
 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         {% for audio_book in audio_books %}
             <tr>
                 <td>{{ audio_book.id }}</td>
@@ -27,9 +28,13 @@
                 <td>{{ audio_book.stock }}</td>
                 <td>{{ audio_book.format }}</td>
                 <td>{{ audio_book.category }}</td>
+                <td>{% for audio in audio_book.isInvolvedIns %}
+                        {{ audio.creator}}
+                    {% endfor %}
+                </td>
                 <td>{{ audio_book.title }}</td>
-                <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}</td>
-
+                <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}
+                </td>
                 <td>
                     <a href="{{ path('audio_book_show', {'id': audio_book.id}) }}" type="btn" class="btn btn-success">Voir</a>
                     <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
@@ -42,8 +47,10 @@
         {% endfor %}
         </tbody>
     </table>
-
-
     <a href="{{ path('audio_book_new') }}" type="btn" class="btn btn-dark">Création</a>
 {% endblock %}
+
+
+
+
 

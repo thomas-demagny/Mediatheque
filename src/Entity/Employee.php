@@ -15,7 +15,7 @@ class Employee extends User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=MeetUp::class)

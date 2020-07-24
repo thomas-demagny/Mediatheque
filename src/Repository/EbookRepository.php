@@ -51,4 +51,16 @@ class EbookRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function lastEBook($max)
+    {
+        $ebook =  $this->createQueryBuilder('b')
+            
+            ->setMaxResults( $max)
+            ->orderBy('b.id', 'DESC')
+            ->getQuery();
+        
+            return $ebook->getResult()
+        ;
+    }
 }

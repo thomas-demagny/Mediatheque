@@ -18,7 +18,7 @@ class User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -116,6 +116,10 @@ class User
         $this->lastName = $lastName;
     }
 
+    public function __toString()
+    {
+      return $this->nickName;
+    }
 
 
 }
