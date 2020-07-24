@@ -27,8 +27,9 @@
                 <td>{{ book.stock }}</td>
                 <td>{{ book.format }}</td>
                 <td>{{ book.category }}</td>
-                <td>{% for isInvolvedIn in book.isInvolvedIns %}
-                        {{ isInvoldedIn.lastName ~ " " ~ isInvolvedIn.creator.firstName }}
+                <td>{% for book in book.isInvolvedIns %}
+                        {{ book.creator }}
+
                     {% endfor %}
                 </td>
                 <td>{{ book.title }}</td>
