@@ -1,0 +1,13 @@
+   
+    <article>
+        <h2>Les produits les plus empruntés</h2>
+        {% for borrow in borrows %}
+            <p> 
+                <a href="">
+                {{ borrow.title }}
+                </a>
+            <p>
+        {% endfor %}
+    </article>
+
+    

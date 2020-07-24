@@ -36,15 +36,20 @@ class BorrowingRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Borrowing
+    
+    public function productMostBorrow(): ?Borrowing
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $borrow = $this->createQueryBuilder('b')
+
+            ->where('b.document_id')
+            ->andWhere('count(b) As total  ')
+            ->groupBy('b.document_id')
+            ->orderBy('total', 'DESC')
+            ->getQuery();
+
+            return $borrow->getOneOrNullResult()
+
         ;
     }
-    */
+    
 }

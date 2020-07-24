@@ -36,12 +36,11 @@ class BookRepository extends ServiceEntityRepository
         ;
     }
 
-    public function lastBook($value, $max)
+    public function lastBook($max)
     {
         $book =  $this->createQueryBuilder('b')
-            ->Where('b.id = :val')
-            ->setParameter('val', $value )
-            ->setMaxResults('val', $max)
+            
+            ->setMaxResults($max)
             ->orderBy('b.id', 'DESC')
             ->getQuery();
         
