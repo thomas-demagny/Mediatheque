@@ -20,10 +20,10 @@ class DvdType extends AbstractType
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'Main Statuses' => [
-                        'Action' => 'action',
-                        'Aventure' => 'aventure',
-                        'Comedie' => 'comedie',
-                        'Romance' => 'romance',
+                        'Action' => 'Action',
+                        'Aventure' => 'Aventure',
+                        'Comedie' => 'Comedie',
+                        'Romance' => 'Romance',
                 ]]])
 
             ->add('stock')
