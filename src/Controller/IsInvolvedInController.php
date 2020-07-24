@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\IsInvolvedIn;
-use App\Form\IsInvolvedIn1Type;
+use App\Form\IsInvolvedInType;
 use App\Repository\IsInvolvedInRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,6 +17,8 @@ class IsInvolvedInController extends AbstractController
 {
     /**
      * @Route("/", name="is_involved_in_index", methods={"GET"})
+     * @param IsInvolvedInRepository $isInvolvedInRepository
+     * @return Response
      */
     public function index(IsInvolvedInRepository $isInvolvedInRepository): Response
     {
@@ -27,11 +29,13 @@ class IsInvolvedInController extends AbstractController
 
     /**
      * @Route("/new", name="is_involved_in_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
         $isInvolvedIn = new IsInvolvedIn();
-        $form = $this->createForm(IsInvolvedIn1Type::class, $isInvolvedIn);
+        $form = $this->createForm(IsInvolvedInType::class, $isInvolvedIn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,6 +54,8 @@ class IsInvolvedInController extends AbstractController
 
     /**
      * @Route("/{id}", name="is_involved_in_show", methods={"GET"})
+     * @param IsInvolvedIn $isInvolvedIn
+     * @return Response
      */
     public function show(IsInvolvedIn $isInvolvedIn): Response
     {
@@ -60,10 +66,13 @@ class IsInvolvedInController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="is_involved_in_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param IsInvolvedIn $isInvolvedIn
+     * @return Response
      */
     public function edit(Request $request, IsInvolvedIn $isInvolvedIn): Response
     {
-        $form = $this->createForm(IsInvolvedIn1Type::class, $isInvolvedIn);
+        $form = $this->createForm(IsInvolvedInType::class, $isInvolvedIn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -80,6 +89,9 @@ class IsInvolvedInController extends AbstractController
 
     /**
      * @Route("/{id}", name="is_involved_in_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param IsInvolvedIn $isInvolvedIn
+     * @return Response
      */
     public function delete(Request $request, IsInvolvedIn $isInvolvedIn): Response
     {
