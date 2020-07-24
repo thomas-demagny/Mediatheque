@@ -21,23 +21,19 @@
             </tr>
         </thead>
         <tbody class="text-center">
-        {% for audio_book in audio_books %}
+        {% for product in audio_books %}
             <tr>
-                <td>{{ audio_book.id }}</td>
-                <td>{{ audio_book.productCode }}</td>
-                <td>{{ audio_book.stock }}</td>
-                <td>{{ audio_book.format }}</td>
-                <td>{{ audio_book.category }}</td>
-                <td>{% for audio in audio_book.isInvolvedIns %}
-                        {{ audio.creator}}
+                {{ include ("layout/globalProduct.html.twig",{'product': product } ) }}
+                <td>{% for product in product.isInvolvedIns %}
+                        {{ product.creator}}
                     {% endfor %}
                 </td>
-                <td>{{ audio_book.title }}</td>
-                <td>{{ audio_book.duration ? audio_book.duration|date('H:i:s') : '' }}
+
+                <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}
                 </td>
                 <td>
-                    <a href="{{ path('audio_book_show', {'id': audio_book.id}) }}" type="btn" class="btn btn-success">Voir</a>
-                    <a href="{{ path('audio_book_edit', {'id': audio_book.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
+                    <a href="{{ path('audio_book_show', {'id': product.id}) }}" type="btn" class="btn btn-success">Voir</a>
+                    <a href="{{ path('audio_book_edit', {'id': product.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
                 </td>
             </tr>
         {% else %}
