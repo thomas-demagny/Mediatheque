@@ -26,8 +26,8 @@
 
                 <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{#{ path('member_show', {'id': user.id }) }}#}">show</a>
-                    <a href="{#{ path('member_edit', {'id': user.id}) }}#}">edit</a>
+                    <a href="{{ path('member_show', {'id': user.id }) }}}">show</a>
+                    <a href="{{ path('member_edit', {'id': user.id}) }}}">edit</a>
                 </td>
             </tr>
         {% else %}
