@@ -8,35 +8,35 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ParticipatesRepository::class)
  */
-class Participates
+class Participates extends User
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      */
-    private $person;
+    private ?User $person;
 
     /**
      * @ORM\ManyToOne(targetEntity=MeetUp::class, inversedBy="participates")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $meetUp;
+    private ?MeetUp $meetUp;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $bookingPlaces;
+    private ?int $bookingPlaces;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $availablePlaces;
+    private ?int $availablePlaces;
 
     /**
      * @return int|null
