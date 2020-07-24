@@ -19,10 +19,10 @@ class CdType extends AbstractType
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'Main Statuses' => [
-                        'Hip-hop' => 'hip-hop',
-                        'Country' => 'country',
-                        'Rock' => 'rock',
-                        'R&b' => 'r&b',
+                        'Hip-hop' => 'Hip-hop',
+                        'Country' => 'Country',
+                        'Rock' => 'Rock',
+                        'R&b' => 'R&b',
                     ]]])
 
             ->add('stock')
