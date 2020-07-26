@@ -16,8 +16,7 @@ class BorrowingType extends AbstractType
             ->add('expectedReturnDate')
             ->add('effectiveReturnDate')
             ->add('borrower')
-            ->add('document')
-        ;
+            ->add('document');
     }
 
     public function configureOptions(OptionsResolver $resolver)

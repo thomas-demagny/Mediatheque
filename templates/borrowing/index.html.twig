@@ -9,11 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>StartDate</th>
-                <th>ExpectedReturnDate</th>
-                <th>EffectiveReturnDate</th>
+                <th>Date de début</th>
+                <th>Date de retour attendu</th>
+                <th>Date de retour officieuse</th>
                 <th>Titre du produit</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +25,8 @@
                 <td>{{ borrowing.effectiveReturnDate ? borrowing.effectiveReturnDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ borrowing.document }}</td>
                 <td>
-                    <a href="{{ path('borrowing_show', {'id': borrowing.id}) }}">show</a>
-                    <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}">edit</a>
+                    <a href="{{ path('borrowing_show', {'id': borrowing.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

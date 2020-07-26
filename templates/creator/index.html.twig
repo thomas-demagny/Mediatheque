@@ -9,12 +9,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>First_name</th>
-                <th>Last_name</th>
+                <th>Prénom</th>
+                <th>Nom de famille</th>
                 <th>Role</th>
-                <th>BirthDate</th>
-                <th>DeathDate</th>
-                <th>actions</th>
+                <th>Date de naissance</th>
+                <th>Date de décès</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                 <td>{{ creator.birthDate ? creator.birthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ creator.deathDate ? creator.deathDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('creator_show', {'id': creator.id}) }}">show</a>
-                    <a href="{{ path('creator_edit', {'id': creator.id}) }}">edit</a>
+                    <a href="{{ path('creator_show', {'id': creator.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('creator_edit', {'id': creator.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

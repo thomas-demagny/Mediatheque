@@ -8,17 +8,17 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>actions</th>
+                {% include 'layout/globalProductTh.html.twig' %}
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for ebook in ebooks %}
+        {% for product in ebooks %}
             <tr>
-                <td>{{ ebook.id }}</td>
+                {% include 'layout/globalProduct.html.twig' %}
                 <td>
-                    <a href="{{ path('ebook_show', {'id': ebook.id}) }}">show</a>
-                    <a href="{{ path('ebook_edit', {'id': ebook.id}) }}">edit</a>
+                    <a href="{{ path('ebook_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('ebook_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date</th>
-                <th>actions</th>
+                <th>Dates</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,8 @@
                 <td>{{ meet_up.id }}</td>
                 <td>{{ meet_up.date ? meet_up.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('meet_up_show', {'id': meet_up.id}) }}">show</a>
-                    <a href="{{ path('meet_up_edit', {'id': meet_up.id}) }}">edit</a>
+                    <a href="{{ path('meet_up_show', {'id': meet_up.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('meet_up_edit', {'id': meet_up.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

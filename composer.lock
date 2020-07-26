@@ -7,6 +7,71 @@
     "content-hash": "673686582e20968dfa354268f11b3aa3",
     "packages": [
         {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.2 - 1.8.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-23T11:49:37+00:00"
+        },
+        {
             "name": "doctrine/annotations",
             "version": "dev-master",
             "source": {
@@ -1145,10 +1210,6 @@
                 "database",
                 "orm"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/v2.7.3"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1781,71 +1842,6 @@
                 }
             ],
             "time": "2020-07-09T08:32:21+00:00"
-        },
-        {
-            "name": "ocramius/package-versions",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "421679846270a5772534828013a93be709fb13df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/421679846270a5772534828013a93be709fb13df",
-                "reference": "421679846270a5772534828013a93be709fb13df",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1.0 || ^2.0",
-                "php": "^7.4.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.9.3 || ^2.0@dev",
-                "doctrine/coding-standard": "^7.0.2",
-                "ext-zip": "^1.15.0",
-                "infection/infection": "^0.15.3",
-                "phpunit/phpunit": "^9.0.1",
-                "vimeo/psalm": "^3.9.3"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PackageVersions\\Installer",
-                "branch-alias": {
-                    "dev-master": "1.99.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PackageVersions\\": "src/PackageVersions"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                }
-            ],
-            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "support": {
-                "issues": "https://github.com/Ocramius/PackageVersions/issues",
-                "source": "https://github.com/Ocramius/PackageVersions/tree/1.8.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/Ocramius",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/ocramius/package-versions",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-04-06T17:43:35+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -2778,9 +2774,6 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/config/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4046,73 +4039,6 @@
             "time": "2020-05-20T17:44:07+00:00"
         },
         {
-            "name": "symfony/google-mailer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/google-mailer.git",
-                "reference": "4a063d95cf826144c52a6246414bd1fd5bdd675b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/google-mailer/zipball/4a063d95cf826144c52a6246414bd1fd5bdd675b",
-                "reference": "4a063d95cf826144c52a6246414bd1fd5bdd675b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/mailer": "^4.4|^5.0"
-            },
-            "require-dev": {
-                "symfony/http-client": "^4.4|^5.0"
-            },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Mailer\\Bridge\\Google\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Google Mailer Bridge",
-            "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-05-20T17:44:07+00:00"
-        },
-        {
             "name": "symfony/http-client",
             "version": "dev-master",
             "source": {
@@ -5057,10 +4983,6 @@
                 "MIT"
             ],
             "description": "A pack for the Doctrine ORM",
-            "support": {
-                "issues": "https://github.com/symfony/orm-pack/issues",
-                "source": "https://github.com/symfony/orm-pack/tree/master"
-            },
             "time": "2020-02-10T18:03:48+00:00"
         },
         {
@@ -5125,9 +5047,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5204,9 +5123,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-icu/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5292,9 +5208,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5376,9 +5289,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5456,9 +5366,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5535,9 +5442,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.18.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5618,9 +5522,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/master"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8678,20 +8579,6 @@
                 "MIT"
             ],
             "description": "A pack for the Symfony web profiler",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-02-11T16:20:33+00:00"
         },
         {

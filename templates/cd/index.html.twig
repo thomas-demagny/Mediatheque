@@ -8,11 +8,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-
+                {% include "layout/globalProductTh.html.twig" %}
                 <th>Plages</th>
-                <th>Duration</th>
-                <th>actions</th>
+                <th>Durée</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +21,8 @@
                 <td>{{ product.plages }}</td>
                 <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('cd_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('cd_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('cd_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('cd_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

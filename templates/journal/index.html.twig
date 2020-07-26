@@ -8,21 +8,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Periodicity</th>
-                <th>SubscriptionDate</th>
-                <th>actions</th>
+                {% include 'layout/globalProductTh.html.twig' %}
+                <th>Periodicité</th>
+                <th>Date d'inscription</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for journal in journals %}
+        {% for product in journals %}
             <tr>
-                <td>{{ journal.id }}</td>
-                <td>{{ journal.periodicity }}</td>
-                <td>{{ journal.subscriptionDate ? journal.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('journal_show', {'id': journal.id}) }}">show</a>
-                    <a href="{{ path('journal_edit', {'id': journal.id}) }}">edit</a>
+                {% include "layout/globalProduct.html.twig" %}
+                <td>{{ product.periodicity }}</td>
+                <td>{{ product.subscriptionDate ? product.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="text-center">
+                    <a href="{{ path('journal_show', {'id': product.id}) }}" type="btn" class="btn btn-info mb-1">Voir</a>
+                    <a href="{{ path('journal_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

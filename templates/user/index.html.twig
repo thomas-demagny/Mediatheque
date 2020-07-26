@@ -9,24 +9,18 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>NickName</th>
-                <th>Passwd</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>actions</th>
+                {% include "layout/globalUserTh.html.twig" %}
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.nickName }}</td>
-                <td>{{ user.passwd }}</td>
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
+                {% include "layout/globalUser.html.twig" %}
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

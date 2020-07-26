@@ -9,12 +9,9 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>NickName</th>
-            <th>Passwd</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>MembershipDate</th>
-            <th>actions</th>
+            {% include "layout/globalUserTh.html.twig" %}
+            <th>Date d'adhésion</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -22,12 +19,12 @@
             <tr>
                 <td>{{ user.id }}</td>
 
-                {{ include ("layout/global.user.html.twig",{'user': user } ) }}
+                {{ include ("layout/globalUser.html.twig",{'user': user } ) }}
 
                 <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('member_show', {'id': user.id }) }}}">show</a>
-                    <a href="{{ path('member_edit', {'id': user.id}) }}}">edit</a>
+                    <a href="{{ path('member_show', {'id': user.id }) }}}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('member_edit', {'id': user.id}) }}}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

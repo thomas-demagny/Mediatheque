@@ -8,15 +8,10 @@
     <table class="table text-center">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Code produit</th>
-                <th>En stock</th>
-                <th>Format</th>
-                <th>Genre</th>
+                {% include "layout/globalProductTh.html.twig" %}
                 <th>Auteur</th>
-                <th>Titre</th>
                 <th>Durée</th>
-                <th>actions</th>
+                <th>Actions</th>
 
             </tr>
         </thead>
@@ -32,8 +27,8 @@
                 <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}
                 </td>
                 <td>
-                    <a href="{{ path('audio_book_show', {'id': product.id}) }}" type="btn" class="btn btn-success">Voir</a>
-                    <a href="{{ path('audio_book_edit', {'id': product.id}) }}" type="btn" class="btn btn-secondary">Editer</a>
+                    <a href="{{ path('audio_book_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('audio_book_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}

@@ -19,7 +19,7 @@ class MeetUp
      * @ORM\Column(type="integer")
      */
     private ?int $id;
-
+    
     /**
      * @ORM\Column(type="datetime")
      */
