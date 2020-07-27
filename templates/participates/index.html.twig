@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participates index{% endblock %}
+
+{% block body %}
+    <h1>Participates index</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BookingPlaces</th>
+                <th>AvailablePlaces</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participate in participates %}
+            <tr>
+                <td>{{ participate.id }}</td>
+                <td>{{ participate.bookingPlaces }}</td>
+                <td>{{ participate.availablePlaces }}</td>
+                <td>
+                    <a href="{{ path('participates_show', {'id': participate.id}) }}">show</a>
+                    <a href="{{ path('participates_edit', {'id': participate.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('participates_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resources{% endblock %}
+
+{% block body %}
+    <h1>Resources</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resource.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ resource.url }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ resource.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('resources_index') }}">back to list</a>
+
+    <a href="{{ path('resources_edit', {'id': resource.id}) }}">edit</a>
+
+    {{ include('resources/_delete_form.html.twig') }}
+{% endblock %}

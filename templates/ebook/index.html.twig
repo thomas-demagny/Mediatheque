@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ebook index{% endblock %}
+
+{% block body %}
+    <h1>Ebook index</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include 'layout/globalProductTh.html.twig' %}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in ebooks %}
+            <tr>
+                {% include 'layout/globalProduct.html.twig' %}
+                <td>
+                    <a href="{{ path('ebook_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('ebook_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ebook_new') }}">Create new</a>
+{% endblock %}

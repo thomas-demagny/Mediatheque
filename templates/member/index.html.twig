@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member index{% endblock %}
+
+{% block body %}
+    <h1>Member index</h1>
+
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <th>Id</th>
+            {% include "layout/globalUserTh.html.twig" %}
+            <th>Date d'adhésion</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in members %}
+            <tr>
+                <td>{{ user.id }}</td>
+
+                {{ include ("layout/globalUser.html.twig",{'user': user } ) }}
+
+                <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('member_show', {'id': user.id }) }}}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('member_edit', {'id': user.id}) }}}" type="btn" class="btn btn-success">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('member_new') }}">Create new</a>
+{% endblock %}

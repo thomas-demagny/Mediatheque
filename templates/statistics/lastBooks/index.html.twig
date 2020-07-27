@@ -1,0 +1,13 @@
+   
+    <article>
+        <h2>Nos 5 derniers livres rentrés:</h2>
+        {% for article in books %}
+            <p> 
+                <a href="{{ path('book_show', {'id': article.id}) }}">
+                {{ article.title }}
+                </a>
+            <p>
+        {% endfor %}
+    </article>
+
+    
