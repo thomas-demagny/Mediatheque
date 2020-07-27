@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cd index{% endblock %}
+{% block title %}Liste des Cd{% endblock %}
 
 {% block body %}
-    <h1>Cd index</h1>
+    <h1 class="my-4">Liste des Cd </h1 class="my-4">
 
     <table class="table">
         <thead>
@@ -12,7 +12,7 @@
 
                 <th>Plages</th>
                 <th>Duration</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,17 +22,17 @@
                 <td>{{ product.plages }}</td>
                 <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('cd_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('cd_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('cd_show', {'id': product.id}) }}">Voir</a>
+                    <a href="{{ path('cd_edit', {'id': product.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('cd_new') }}">Create new</a>
+    <a href="{{ path('cd_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

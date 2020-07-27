@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Resources{% endblock %}
+{% block title %}Ressource{% endblock %}
 
 {% block body %}
-    <h1>Resources</h1>
+    <h1 class="my-4">Ressource</h1 class="my-4">
 
     <table class="table">
         <tbody>
@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('resources_index') }}">back to list</a>
+    <a href="{{ path('resources_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 
-    <a href="{{ path('resources_edit', {'id': resource.id}) }}">edit</a>
+    <a href="{{ path('resources_edit', {'id': resource.id}) }}">Editer</a>
 
     {{ include('resources/_delete_form.html.twig') }}
 {% endblock %}

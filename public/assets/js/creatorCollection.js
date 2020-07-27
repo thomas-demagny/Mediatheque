@@ -1,7 +1,7 @@
 var $collectionHolder;
 
 // setup an "add a tag" link
-var $addCreatorButton = $('<button type="button" class="btn btn-success">Add Creator</button>');
+var $addCreatorButton = $('<button type="button" class="btn btn-success">Ajouter Artiste / Auteur</button>');
 var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addCreatorButton);
 
 jQuery(document).ready(function() {

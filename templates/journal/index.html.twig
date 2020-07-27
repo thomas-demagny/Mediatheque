@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Journal index{% endblock %}
+{% block title %}Liste des Journaux{% endblock %}
 
 {% block body %}
-    <h1>Journal index</h1>
+    <h1 class="my-4">Liste des Journaux</h1 class="my-4">
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Periodicity</th>
                 <th>SubscriptionDate</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 <td>{{ journal.periodicity }}</td>
                 <td>{{ journal.subscriptionDate ? journal.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('journal_show', {'id': journal.id}) }}">show</a>
-                    <a href="{{ path('journal_edit', {'id': journal.id}) }}">edit</a>
+                    <a href="{{ path('journal_show', {'id': journal.id}) }}">Voir</a>
+                    <a href="{{ path('journal_edit', {'id': journal.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('journal_new') }}">Create new</a>
+    <a href="{{ path('journal_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

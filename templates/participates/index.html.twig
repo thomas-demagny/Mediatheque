@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Participates index{% endblock %}
+{% block title %}Liste des Participations{% endblock %}
 
 {% block body %}
-    <h1>Participates index</h1>
+    <h1 class="my-4">Liste des Participations</h1 class="my-4">
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>BookingPlaces</th>
                 <th>AvailablePlaces</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 <td>{{ participate.bookingPlaces }}</td>
                 <td>{{ participate.availablePlaces }}</td>
                 <td>
-                    <a href="{{ path('participates_show', {'id': participate.id}) }}">show</a>
-                    <a href="{{ path('participates_edit', {'id': participate.id}) }}">edit</a>
+                    <a href="{{ path('participates_show', {'id': participate.id}) }}">Voir</a>
+                    <a href="{{ path('participates_edit', {'id': participate.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('participates_new') }}">Create new</a>
+    <a href="{{ path('participates_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

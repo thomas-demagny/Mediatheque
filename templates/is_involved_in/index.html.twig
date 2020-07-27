@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}IsInvolvedIn index{% endblock %}
+{% block title %}Liste des IsInvolvedIn{% endblock %}
 
 {% block body %}
-    <h1>IsInvolvedIn index</h1>
+    <h1 class="my-4">Liste des IsInvolvedIn</h1 class="my-4">
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Role</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,17 @@
                 <td>{{ is_involved_in.id }}</td>
                 <td>{{ is_involved_in.role }}</td>
                 <td>
-                    <a href="{{ path('is_involved_in_show', {'id': is_involved_in.id}) }}">show</a>
-                    <a href="{{ path('is_involved_in_edit', {'id': is_involved_in.id}) }}">edit</a>
+                    <a href="{{ path('is_involved_in_show', {'id': is_involved_in.id}) }}">Voir</a>
+                    <a href="{{ path('is_involved_in_edit', {'id': is_involved_in.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('is_involved_in_new') }}">Create new</a>
+    <a href="{{ path('is_involved_in_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

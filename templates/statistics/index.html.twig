@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StatisticsController!{% endblock %}
+{% block title %}Page des Statistiques{% endblock %}
 
 
 
@@ -11,7 +11,7 @@
 
 {% block body %}
 <section class ="stats">
-    <h1 class="my-4">Statistiques</h1>
+    <h1 class="my-4" class="my-4">Statistiques</h1 class="my-4">
     <article class="artClasse">
         <p>{{render(controller('App\\Controller\\StatisticsController::last'))}}</p>
         <p>{{render(controller('App\\Controller\\StatisticsController::ShowLastEbook'))}}</p>

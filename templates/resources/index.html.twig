@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Resources index{% endblock %}
+{% block title %}Liste des Ressources{% endblock %}
 
 {% block body %}
-    <h1>Resources index</h1>
+    <h1 class="my-4">Liste des Ressources </h1 class="my-4">
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Url</th>
                 <th>Type</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 <td>{{ resource.url }}</td>
                 <td>{{ resource.type }}</td>
                 <td>
-                    <a href="{{ path('resources_show', {'id': resource.id}) }}">show</a>
-                    <a href="{{ path('resources_edit', {'id': resource.id}) }}">edit</a>
+                    <a href="{{ path('resources_show', {'id': resource.id}) }}">Voir</a>
+                    <a href="{{ path('resources_edit', {'id': resource.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('resources_new') }}">Create new</a>
+    <a href="{{ path('resources_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
