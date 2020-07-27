@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book index{% endblock %}
+{% block title %}Liste des Livres{% endblock %}
 
 {% block body %}
-    <h1>Book index</h1>
+    <h1 class="my-4">Liste des Livres</h1>
 
     <table class="table text-center">
         <thead>
@@ -31,11 +31,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">aucun enregistrement trouvé</td>
+                <td colspan="3">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('book_new') }}" type="btn" class="btn btn-outline-secondary mb-3">Création</a>
+    <a href="{{ path('book_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

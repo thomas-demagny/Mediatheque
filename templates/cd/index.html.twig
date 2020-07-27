@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cd index{% endblock %}
+{% block title %}Liste des Cd{% endblock %}
 
 {% block body %}
-    <h1>Cd index</h1>
+    <h1 class="my-4">Liste des Cd </h1>
 
     <table class="table text-center">
         <thead>
@@ -27,11 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('cd_new') }}">Create new</a>
+    <a href="{{ path('cd_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

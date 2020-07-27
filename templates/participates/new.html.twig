@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Participates{% endblock %}
+{% block title %}Ajouter Participation{% endblock %}
 
 {% block body %}
-    <h1>Create new Participates</h1>
+    <h1 class="my-4">Ajouter une Participation</h1>
 
     {{ include('participates/_form.html.twig') }}
 
-    <a href="{{ path('participates_index') }}">back to list</a>
+    <a href="{{ path('participates_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 {% endblock %}

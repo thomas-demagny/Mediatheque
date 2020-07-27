@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Maintenance index{% endblock %}
+{% block title %}Liste des Maintenances{% endblock %}
 
 {% block body %}
-    <h1>Maintenance index</h1>
+    <h1 class="my-4">Liste des Maintenances</h1>
 
     <table class="table text-center">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Status</th>
                 <th>MaintenanceDate</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 <td>{{ maintenance.status }}</td>
                 <td>{{ maintenance.maintenanceDate ? maintenance.maintenanceDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('maintenance_show', {'id': maintenance.id}) }}">show</a>
-                    <a href="{{ path('maintenance_edit', {'id': maintenance.id}) }}">edit</a>
+                    <a href="{{ path('maintenance_show', {'id': maintenance.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('maintenance_edit', {'id': maintenance.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('maintenance_new') }}">Create new</a>
+    <a href="{{ path('maintenance_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

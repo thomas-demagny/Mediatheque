@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AudioBook index{% endblock %}
+{% block title %}Liste des Livres Audio{% endblock %}
 
 {% block body %}
-    <h1>Livres audio index</h1>
+    <h1 class="my-4">Liste des Livres Audio</h1 class="my-4">
 
     <table class="table text-center">
         <thead>
@@ -33,12 +33,13 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">aucun enregistrement trouvé</td>
+                <td colspan="3">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('audio_book_new') }}" type="btn" class="btn btn-dark">Création</a>
+
+    <a href="{{ path('audio_book_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
 
 
