@@ -17,6 +17,7 @@ class Member extends Fixture
 
             $member->setNickName($faker->userName);
             $member->setPasswd($faker->password);
+            $member->setEmail($faker->email);
             $member->setFirstName($faker->firstName($gender = 'male' | 'female'));
             $member->setLastName($faker->lastName);
             $member->setZipCode($faker->numberBetween($min = 10000, $max = 99999));
