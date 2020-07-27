@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                {% include "layout/globalUserTh.html.twig" %}
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
         {% for employee in employees %}
             <tr>
                 <td>{{ employee.id }}</td>
+                {% include "layout/gloabalUser.html.twig" %}
                 <td>
                     <a href="{{ path('employee_show', {'id': employee.id}) }}">show</a>
                     <a href="{{ path('employee_edit', {'id': employee.id}) }}">edit</a>
