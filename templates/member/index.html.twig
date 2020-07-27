@@ -23,17 +23,17 @@
 
                 <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('member_show', {'id': user.id }) }}}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('member_edit', {'id': user.id}) }}}" type="btn" class="btn btn-success">Editer</a>
+                    <a href="{{ path('member_show', {'id': user.id }) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('member_edit', {'id': user.id}) }}" type="btn" class="btn btn-success">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">pas d'enregistrements</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('member_new') }}">Create new</a>
+    <a href="{{ path('member_new') }}">Creation</a>
 {% endblock %}
