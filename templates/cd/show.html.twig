@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cd_index') }}">back to list</a>
+    <a href="{{ path('cd_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 
-    <a href="{{ path('cd_edit', {'id': cd.id}) }}">edit</a>
+    <a href="{{ path('cd_edit', {'id': cd.id}) }}">Editer</a>
 
     {{ include('cd/_delete_form.html.twig') }}
 {% endblock %}

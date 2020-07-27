@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cd{% endblock %}
+{% block title %}Ajouter Cd{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Create new Cd</h1>
+    <h1>Ajouter un Cd</h1>
 
     {{ include('cd/_form.html.twig') }}
 
-    <a href="{{ path('cd_index') }}">back to list</a>
+    <a href="{{ path('cd_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 {% endblock %}
 
 {% block javascripts %}

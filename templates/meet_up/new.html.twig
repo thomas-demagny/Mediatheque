@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New MeetUp{% endblock %}
+{% block title %}Ajouter Evénement{% endblock %}
 
 {% block body %}
-    <h1>Create new MeetUp</h1>
+    <h1>Ajouter un Evénement</h1>
 
     {{ include('meet_up/_form.html.twig') }}
 
-    <a href="{{ path('meet_up_index') }}">back to list</a>
+    <a href="{{ path('meet_up_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 {% endblock %}
