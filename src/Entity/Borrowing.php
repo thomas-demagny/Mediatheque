@@ -125,7 +125,7 @@ class Borrowing
     public function setExpectedReturnDate(DateTimeInterface $expectedReturnDate): self
     {
         $this->expectedReturnDate = $expectedReturnDate;
-
+        $expectedReturnDate->add(new DateInterval('P15D'));
         return $this;
     }
 
