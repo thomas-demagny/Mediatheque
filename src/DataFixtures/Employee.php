@@ -15,6 +15,7 @@ class Employee extends Fixture
         for ($i = 0; $i < 50; $i++) {
             $employee = new \App\Entity\Employee();
             $employee->setNickName($faker->userName);
+            $employee->setEmail($faker->email);
             $employee->setFirstName($faker->firstName($gender = 'male' | 'female'));
             $employee->setLastName($faker->lastName);
             $employee->setPasswd($faker->password);

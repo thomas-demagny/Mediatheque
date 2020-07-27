@@ -28,8 +28,9 @@ class IsInvolvedIn extends Fixture
 
 
             $isInvolvedIn = new \App\Entity\IsInvolvedIn();
+            $id = $faker->numberBetween($min = 1, $max = 100);
 
-            $isInvolvedIn->setProduct($repoProduct->find($faker->numberBetween($min = 1, $max = 100)));
+            $isInvolvedIn->setProduct($repoProduct->find($id));
 
             switch (get_class($isInvolvedIn->getProduct())) {
                 case "App\Entity\DVD":
@@ -38,11 +39,14 @@ class IsInvolvedIn extends Fixture
                 case "App\Entity\CD":
                     $isInvolvedIn->setRole($faker->randomElement($array = array('chanteur', 'compositeur', 'musicien')));
                     break;
-                case "App\Entity\Journal":
-                    $isInvolvedIn->setRole($faker->randomElement($array = array('rédacteur', 'producteur')));
+                case "App\Entity\AudioBook":
+                    $isInvolvedIn->setRole($faker->randomElement($array = array('éditeur', 'auteur')));
                     break;
                 case "App\Entity\Book":
                     $isInvolvedIn->setRole($faker->randomElement($array = array('éditeur', 'illustrateur', 'auteur')));
+                    break;
+                case "App\Entity\Journal":
+                    $isInvolvedIn->setRole($faker->randomElement($array = array('éditeur', "auteur")));
                     break;
                 case "App\Entity\EBook":
                     $isInvolvedIn->setRole($faker->randomElement($array = array('narrateur', 'auteur', 'illustrateur')));
