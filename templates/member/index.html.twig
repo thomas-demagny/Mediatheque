@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Member index{% endblock %}
+{% block title %}Liste des Adhésions{% endblock %}
 
 {% block body %}
-    <h1>Member index</h1>
+    <h1 class="my-4">Liste des Adhésions</h1>
 
     <table class="table text-center">
         <thead>
@@ -29,11 +29,15 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">pas d'enregistrements</td>
+
+                <td colspan="3">Aucune entitée</td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('member_new') }}">Creation</a>
+
+    <a href="{{ path('member_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
 {% endblock %}

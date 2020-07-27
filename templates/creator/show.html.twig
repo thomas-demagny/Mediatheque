@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Creator{% endblock %}
+{% block title %}Artiste / Auteur{% endblock %}
 
 {% block body %}
-    <h1>Creator</h1>
+    <h1 class="my-4">Artiste / Auteur</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,23 @@
                 <td>{{ creator.id }}</td>
             </tr>
             <tr>
-                <th>First_name</th>
+                <th>Pseudo</th>
+                <td>{{ creator.nickName }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ creator.passwd }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ creator.email }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
                 <td>{{ creator.firstName }}</td>
             </tr>
             <tr>
-                <th>Last_name</th>
+                <th>Nom de famille</th>
                 <td>{{ creator.lastName }}</td>
             </tr>
             <tr>
@@ -30,9 +42,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('creator_index') }}">back to list</a>
+    <a href="{{ path('creator_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 
-    <a href="{{ path('creator_edit', {'id': creator.id}) }}">edit</a>
+    <a href="{{ path('creator_edit', {'id': creator.id}) }}">Editer</a>
 
     {{ include('creator/_delete_form.html.twig') }}
 {% endblock %}

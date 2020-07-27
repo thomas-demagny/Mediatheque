@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dvd{% endblock %}
+{% block title %}DVD{% endblock %}
 
 {% block body %}
-    <h1>Dvd</h1>
+    <h1 class="my-4">DVD</h1>
 
     <table class="table">
         <tbody>
@@ -14,9 +14,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('dvd_index') }}">back to list</a>
+    <a href="{{ path('dvd_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 
-    <a href="{{ path('dvd_edit', {'id': dvd.id}) }}">edit</a>
+    <a href="{{ path('dvd_edit', {'id': dvd.id}) }}">Editer</a>
 
     {{ include('dvd/_delete_form.html.twig') }}
 {% endblock %}

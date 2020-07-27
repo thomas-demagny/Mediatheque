@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Employee index{% endblock %}
+{% block title %}Liste des Employés{% endblock %}
 
 {% block body %}
-    <h1>Employee index</h1>
+    <h1 class="my-4">Liste des Employés</h1>
 
     <table class="table text-center">
         <thead>
             <tr>
                 <th>Id</th>
                 {% include "layout/globalUserTh.html.twig" %}
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,17 @@
                 <td>{{ user.id }}</td>
                 {% include "layout/globalUser.html.twig" %}
                 <td>
-                    <a href="{{ path('employee_show', {'id': user.id}) }}">Voir</a>
-                    <a href="{{ path('employee_edit', {'id': user.id}) }}" type="btn" class="btn bg-succes">Editer</a>
+                    <a href="{{ path('employee_show', {'id': user.id}) }}" type="btn" class="btn btn-info">Voir</a>
+                    <a href="{{ path('employee_edit', {'id': user.id}) }}" type="btn" class="btn bg-success">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="2">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('employee_new') }}">Create new</a>
+    <a href="{{ path('employee_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

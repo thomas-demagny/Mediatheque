@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}MeetUp index{% endblock %}
+{% block title %}Liste des Evénements{% endblock %}
 
 {% block body %}
-    <h1>MeetUp index</h1>
+    <h1 class="my-4">Liste des Evénements</h1>
 
     <table class="table text-center">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Dates</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,11 +25,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('meet_up_new') }}">Create new</a>
+    <a href="{{ path('meet_up_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

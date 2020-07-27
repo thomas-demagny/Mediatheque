@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Creator index{% endblock %}
+{% block title %}Liste des Artistes / Auteurs{% endblock %}
 
 {% block body %}
-    <h1>Creator index</h1>
+    <h1 class="my-4">Liste des Artistes / Auteurs</h1>
 
     <table class="table text-center">
         <thead>
@@ -35,11 +35,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('creator_new') }}">Create new</a>
+    <a href="{{ path('creator_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
