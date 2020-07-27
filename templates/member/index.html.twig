@@ -21,7 +21,7 @@
 
                 {{ include ("layout/globalUser.html.twig",{'user': user } ) }}
 
-                <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('member_show', {'id': user.id }) }}}" type="btn" class="btn btn-info">Voir</a>
                     <a href="{{ path('member_edit', {'id': user.id}) }}}" type="btn" class="btn btn-success">Editer</a>

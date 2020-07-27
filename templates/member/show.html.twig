@@ -7,15 +7,36 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ member.id }}</td>
+        <tr>
+            <th>Id</th>
+            <td>{{ member.id }}</td>
+        </tr>
+        <tr>
+            <th>Pseudo</th>
+            <td>{{ member.nickName }}</td>
 
-            </tr>
-            <tr>
-                <th>MembershipDate</th>
-                <td>{{ member.membershipDate ? member.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+        </tr>
+        <tr>
+            <th>Mot de Passe</th>
+            <td>{{ member.passwd }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ member.email }}</td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ member.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ member.lastName }}</td>
+        </tr>
+
+        <tr>
+            <th>MembershipDate</th>
+            <td>{{ member.membershipDate ? member.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -25,3 +46,12 @@
 
     {{ include('member/_delete_form.html.twig') }}
 {% endblock %}
+
+
+
+
+
+
+
+
+
