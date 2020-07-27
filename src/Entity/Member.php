@@ -35,7 +35,7 @@ class Member extends User
 
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $membershipDate;
 

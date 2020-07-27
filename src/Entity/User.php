@@ -42,9 +42,9 @@ class User
     private ?string $lastName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @return int|null
