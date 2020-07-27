@@ -42,6 +42,11 @@ class User
     private ?string $lastName;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -119,6 +124,18 @@ class User
     public function __toString()
     {
       return $this->nickName;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 
 
