@@ -68,5 +68,18 @@ class BorrowingRepository extends ServiceEntityRepository
        return $date->getResult();
     ;
     }
+
+    public function warningReturn()
+    {
+        $dateClose= $this->createQueryBuilder('d')
+
+        ->select('d.expectedReturnDate','p.id', 'p.title', 'm.email', 'm.lastName')
+        ->where('DATESUB(c.expectedReturnDate, 2, "DAY")')
+        ->join('c.borrower', 'm')
+        ->join('c.document', 'p')
+        ->orderBy('c.expectedReturnDate', 'asc')
+        ->getQuery();
+
+    }
     
 }

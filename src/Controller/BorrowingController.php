@@ -123,8 +123,8 @@ class BorrowingController extends AbstractController
     public function sendEmail(MailerInterface $mailer, LagManager $lagManager)
     {
 
-        $lagManager -> late();
-        die;
+        $lagManager->late();
+
         /*$email = (new Email())
             ->from('hello@example.com')
             ->to('you@example.com')
