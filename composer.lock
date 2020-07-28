@@ -2832,6 +2832,9 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/config/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4547,12 +4550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "52e4d86260a874e13fbcd0495fcc2ae3d8b970f3"
+                "reference": "56177b534107aaec9f90f8f90bf986ceba46c3e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/52e4d86260a874e13fbcd0495fcc2ae3d8b970f3",
-                "reference": "52e4d86260a874e13fbcd0495fcc2ae3d8b970f3",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/56177b534107aaec9f90f8f90bf986ceba46c3e9",
+                "reference": "56177b534107aaec9f90f8f90bf986ceba46c3e9",
                 "shasum": ""
             },
             "require": {
@@ -4621,7 +4624,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-20T16:31:06+00:00"
+            "time": "2020-07-15T10:59:44+00:00"
         },
         {
             "name": "symfony/mime",
@@ -5109,6 +5112,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5185,6 +5191,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-icu/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5270,6 +5279,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5351,6 +5363,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5428,6 +5443,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5504,6 +5522,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.18.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5584,6 +5605,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
