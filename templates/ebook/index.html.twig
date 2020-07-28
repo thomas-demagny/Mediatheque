@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ebook index{% endblock %}
+{% block title %}Liste des E-Books{% endblock %}
 
 {% block body %}
-    <h1>Ebook index</h1>
+    <h1 class="my-4">Liste des E-Books</h1>
 
     <table class="table text-center">
         <thead>
@@ -23,11 +23,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="2">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('ebook_new') }}">Create new</a>
+    <a href="{{ path('ebook_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

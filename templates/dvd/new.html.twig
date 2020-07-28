@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Dvd{% endblock %}
+{% block title %}Ajouter DVD{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Create new Dvd</h1>
+    <h1 class="my-4">Ajouter un DVD</h1>
 
     {{ include('dvd/_form.html.twig') }}
 
-    <a href="{{ path('dvd_index') }}">back to list</a>
+    <a href="{{ path('dvd_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 {% endblock %}
 
 {% block javascripts %}

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Borrowing{% endblock %}
+{% block title %}Emprunt{% endblock %}
 
 {% block body %}
-    <h1>Borrowing</h1>
+    <h1 class="my-4">Emprunt</h1>
 
     <table class="table">
         <tbody>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('borrowing_index') }}">back to list</a>
+    <a href="{{ path('borrowing_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
 
-    <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}">edit</a>
+    <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}">Editer</a>
 
     {{ include('borrowing/_delete_form.html.twig') }}
 {% endblock %}
