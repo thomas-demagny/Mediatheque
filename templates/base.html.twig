@@ -7,12 +7,104 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         {% endblock %}
+        
+        <style>
+            #mainNav{
+                position: fixed;
+                top: 0%;
+                width: 100%;
+                z-index: 9999;
+                background: linear-gradient(135deg, purple, orange)!important;
+                box-shadow: 0 2px 10px .5em rgba(0,0,0,.25);
+            }
+            body{
+                -webkit-transition: .3s;
+                transition: .3s;
+            }
+            .nuit{
+                background: #333 !important;
+                color: white !important;
+            }
+            .nuit-fonce{
+                background: #1f1f1f !important;
+                color: white !important;
+            }
+            .white{
+                color: white !important;
+            }
+            .card{
+                border-radius: 0.5em !important;
+            }
+            .switch {
+                top: 2px;
+                right: 1%;
+                position: relative;
+                display: inline-block;
+                width: 45px;;
+                height: 26px;
+              }
+              
+              .switch input { 
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+              
+              .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: purple;
+                -webkit-transition: .3s;
+                transition: .3s;
+              }
+              
+              .slider:before {
+                position: absolute;
+                content: "";
+                height: 20px;
+                width: 20px;
+                left: 3px;
+                bottom: 3.5px;
+                background-color: white;
+                -webkit-transition: .3s;
+                transition: .3s;
+              }
+              
+              input:checked + .slider {
+                background-color: #222;
+              }
+              
+              input:focus + .slider {
+              }
+              
+              input:checked + .slider:before {
+                -webkit-transform: translateX(18px);
+                -ms-transform: translateX(18px);
+                transform: translateX(18px);
+              }
+              
+              /* Rounded sliders */
+              .slider.round {
+                border-radius: 100px;
+              }
+              
+              .slider.round:before {
+                border-radius: 100px;
+              }
+            footer{
+                background: linear-gradient(0deg, #000, purple)!important;
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
             {% include "layout/navbar.html.twig"%}
         </nav>
-        <div class="container">
+        <div class="container pt-5 pb-5 mt-5 mb-5">
             {% block body %}{% endblock %}
         </div>
         <footer class="bg-dark pt-1">
@@ -20,6 +112,37 @@
         </footer>
         <div>
             {% block javascripts %}
+                <script>
+                    'use strict'
+                    document.addEventListener('DOMContentLoaded', function(){
+                        var nuit = document.getElementById('nuit');
+                        var body = document.querySelector('body');
+                        var card = document.getElementsByClassName('card-body');
+                        var tr = document.querySelectorAll('tr');
+                        var href = document.querySelectorAll('a');
+                        var input = document.querySelectorAll('input');
+                        var select = document.querySelectorAll('select');
+
+                        nuit.addEventListener('click', function(){
+                            body.classList.toggle('nuit');
+                            for(let i = 0; i < card.length; i++){
+                                card[i].classList.toggle('nuit-fonce');
+                            }
+                            for(let i = 0; i < tr.length; i++){
+                                tr[i].classList.toggle('white');
+                            }
+                            for(let i = 0; i < href.length; i++){
+                                href[i].classList.toggle('white');
+                            }
+                            for(let i = 0; i < input.length; i++){
+                                input[i].classList.toggle('nuit-fonce');
+                            }
+                            for(let i = 0; i < select.length; i++){
+                                select[i].classList.toggle('nuit-fonce');
+                            }
+                        })
+                    });
+                </script>
                 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
