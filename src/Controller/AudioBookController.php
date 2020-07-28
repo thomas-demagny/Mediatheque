@@ -77,6 +77,9 @@ class AudioBookController extends AbstractController
     {
         $form = $this->createForm(AudioBookType::class, $audioBook);
         $form->handleRequest($request);
+        foreach($audioBook->getIsInvolvedIns() as $isInvolvedIn) {
+            $isInvolvedIn->setProduct($audioBook);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();

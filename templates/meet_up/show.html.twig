@@ -2,10 +2,15 @@
 
 {% block title %}Evénement{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/show_entity.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Evénement</h1>
 
-    <table class="table">
+    <table class="table text-center">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -17,10 +22,10 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('meet_up_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
-
-    <a href="{{ path('meet_up_edit', {'id': meet_up.id}) }}">Editer</a>
-
-    {{ include('meet_up/_delete_form.html.twig') }}
+    
+    <div class="actions my-3">
+        <a href="{{ path('meet_up_edit', {'id': meet_up.id}) }}" type="btn" class="btn btn-success">Editer</a>
+        {{ include('meet_up/_delete_form.html.twig') }}
+        <a href="{{ path('meet_up_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+    </div>
 {% endblock %}
