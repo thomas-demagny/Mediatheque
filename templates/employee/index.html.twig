@@ -2,13 +2,19 @@
 
 {% block title %}Liste des Employés{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Liste des Employés</h1>
+
+    <a href="{{ path('employee_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 
     <table class="table text-center">
         <thead>
             <tr>
-                <th>Id</th>
                 {% include "layout/globalUserTh.html.twig" %}
                 <th>Actions</th>
             </tr>
@@ -16,20 +22,14 @@
         <tbody>
         {% for user in employees %}
             <tr>
-                <td>{{ user.id }}</td>
-                {% include "layout/globalUser.html.twig" %}
-                <td>
-                    <a href="{{ path('employee_show', {'id': user.id}) }}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('employee_edit', {'id': user.id}) }}" type="btn" class="btn bg-success">Editer</a>
-                </td>
+                {% include "layout/globalUser.html.twig" with {'user' : user} %}
+                {% include "layout/crudActions.html.twig" with {'crudName': 'employee', 'crudElement': user} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">Aucune entitée</td>
+                <td colspan="6">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('employee_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

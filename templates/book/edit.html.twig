@@ -2,12 +2,23 @@
 
 {% block title %}Editer Livre{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/form_products.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1 class="my-4">Edition Livre</h1>
+    <h1 class="my-4">Editer Livre Audio</h1>
 
-    {{ include('book/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('book_index') }}">Retour à la liste</a>
+    {{ include('book/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('book/_delete_form.html.twig') }}
+
+    <a href="{{ path('book_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/creatorCollection.js')}}"></script>
 {% endblock %}

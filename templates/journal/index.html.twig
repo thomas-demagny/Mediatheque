@@ -2,15 +2,22 @@
 
 {% block title %}Liste des Journaux{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Liste des Journaux</h1>
+
+    <a href="{{ path('journal_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 
     <table class="table text-center">
         <thead>
             <tr>
                 {% include 'layout/globalProductTh.html.twig' %}
                 <th>Periodicité</th>
-                <th>Date d'inscription</th>
+                <th>Date Souscription</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,20 +25,15 @@
         {% for product in journals %}
             <tr>
                 {% include "layout/globalProduct.html.twig" %}
-                <td>{{ journal.periodicity }}</td>
-                <td>{{ journal.subscriptionDate ? journal.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td class="text-center">
-                    <a href="{{ path('journal_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('journal_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
-                </td>
+                <td>{{ product.periodicity }}</td>
+                <td>{{ product.subscriptionDate ? product.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'journal', 'crudElement': product} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">Aucune entitée</td>
+                <td colspan="10">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('journal_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
