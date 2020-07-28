@@ -2,10 +2,15 @@
 
 {% block title %}Role{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/show_entity.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Role</h1>
 
-    <table class="table">
+    <table class="table text-center">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -14,9 +19,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('role_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
-
-    <a href="{{ path('role_edit', {'id': role.id}) }}">Editer</a>
-
-    {{ include('role/_delete_form.html.twig') }}
+    <div class="actions my-3">
+        <a href="{{ path('role_edit', {'id': role.id}) }}" type="btn" class="btn btn-success">Editer</a>
+        {{ include('role/_delete_form.html.twig') }}
+        <a href="{{ path('role_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+    </div>
 {% endblock %}

@@ -4,7 +4,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('assets/css/product_forms.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/form_products.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -12,7 +13,7 @@
 
     {{ include('audio_book/_form.html.twig') }}
 
-    <a href="{{ path('creator_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
+    <a href="{{ path('audio_book_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
 {% endblock %}
 
 {% block javascripts %}
