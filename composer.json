@@ -6,6 +6,7 @@
         "php": "^7.4.7",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "beberlei/doctrineextensions": "dev-master",
         "fzaninotto/faker": "^1.9@dev",
         "ocramius/package-versions": "1.8.0",
         "sensio/framework-extra-bundle": "^5.1",

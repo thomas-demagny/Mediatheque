@@ -1,0 +1,30 @@
+    <article class="endBorrow">
+        <h2>Les dates de fins d'emprunt se rapprochant</h2>
+        {% for date in dates %}
+            <article>
+                <p> 
+                    <a>
+                        {{ date.title }}
+                    </a>
+                <p>
+                <p> 
+                    <a>
+                        {{ date.expectedReturnDate| date }}
+                    </a>
+                <p>
+                <p> 
+                    <a>
+                        {{ date.lastName }}
+                    </a>
+                <p>
+                <p> 
+                    <a>
+                        {{ date.email }}
+                    </a>
+                <p>
+                
+            </article>
+        {% endfor %}
+    </article>
+
+    

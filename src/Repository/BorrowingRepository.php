@@ -37,7 +37,7 @@ class BorrowingRepository extends ServiceEntityRepository
     */
 
     
-    public function productMostBorrow(): ?array
+    public function productMostBorrow(): ?array //car group by fait un tableau
     {
         $borrow = $this->createQueryBuilder('b')
 
@@ -53,9 +53,20 @@ class BorrowingRepository extends ServiceEntityRepository
         ;
     }
 
-    public function dateLimit(): ?array //car group by fait un tableau
+    public function expectedReturnDate(): ?array
     {
+        $date= $this->createQueryBuilder('c')
+
+        ->select('c.expectedReturnDate','p.id', 'p.title', 'm.email', 'm.lastName')
+        ->where('c.expectedReturnDate < CURRENT_DATE()')
+        ->join('c.borrower', 'm')
+        ->join('c.document', 'p')
+        ->orderBy('c.expectedReturnDate', 'asc')
+        ->getQuery();
+
         
+       return $date->getResult();
+    ;
     }
     
 }

@@ -68,4 +68,19 @@ class StatisticsController extends AbstractController
             'borrows' => $borrows
         ]);
     }
+
+    /**
+     * @Route("/limitdate", name="limitDate", methods={"GET"})
+     * @param BorrowingRepository $borrowingRepository
+     * @return Response
+     */
+    public function LimitDate(BorrowingRepository $borrowingRepository): Response
+    {
+        $dates = $borrowingRepository->expectedReturnDate();
+
+        return $this->render('statistics/dateLimit/index.html.twig', [
+            'dates' => $dates
+        ]);
+    }
+ 
 }

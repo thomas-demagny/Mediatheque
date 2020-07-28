@@ -12,6 +12,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use App\BorrowingService\LagManager;
 
 
 /**
@@ -61,8 +62,8 @@ class BorrowingController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="borrowing_show", methods={"GET"})
+    /** 
+     * @Route("/{id}", name="borrowing_show", methods={"GET"}, requirements={"id" = "\d+"})
      * @param Borrowing $borrowing
      * @return Response
      */
@@ -116,11 +117,15 @@ class BorrowingController extends AbstractController
     /**
      * @Route("/email")
      * @param MailerInterface $mailer
+     * @param LagManager $lagManager
      * @throws TransportExceptionInterface
      */
-    public function sendEmail(MailerInterface $mailer)
+    public function sendEmail(MailerInterface $mailer, LagManager $lagManager)
     {
-        $email = (new Email())
+
+        $lagManager -> late();
+        die;
+        /*$email = (new Email())
             ->from('hello@example.com')
             ->to('you@example.com')
             ->subject('Time for Symfony Mailer!')
@@ -130,5 +135,7 @@ class BorrowingController extends AbstractController
         $mailer->send($email);
 
         // ...
+        */
     }
+    
 }
