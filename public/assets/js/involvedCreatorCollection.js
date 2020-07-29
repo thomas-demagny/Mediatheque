@@ -1,44 +1,44 @@
-var $collectionHolder;
+var $creatorCollectionHolder;
 
 var $addCreatorButton = $('<button type="button" class="btn btn-success">Ajouter Artiste</button>');
-var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addCreatorButton);
+var $newCreatorContainer = $('<div class="creatorButton buttonContainer"></div>').append($addCreatorButton);
 
 jQuery(document).ready(function() {
     // Find the Collection group
     var $collectionSelector = $('fieldset > div[id*="isInvolvedIns"]').attr('id');
-    $collectionHolder = $('#' + $collectionSelector);
+    $creatorCollectionHolder = $('#' + $collectionSelector);
 
     // Add "Add New" Button
-    $collectionHolder.append($newLinkContainer);
+    $creatorCollectionHolder.append($newCreatorContainer);
 
     // Initializing index
-    // $collectionHolder.data('index', 0);
+    // $creatorCollectionHolder.data('index', 0);
 
     // Set all existing Entities of the Collection
-    $collectionEntities = $collectionHolder.find('fieldset');
+    $collectionEntities = $creatorCollectionHolder.find('fieldset');
     $.each($collectionEntities, function($collectionIndex, $collectionEntity) {
         $($collectionEntity).find('legend').text('');
-        encapsulateEntity($collectionEntity, $newLinkContainer);
+        encapsulateCreatorEntity($collectionEntity, $newCreatorContainer);
     });
     
     // Add "New Form" Event
     $addCreatorButton.on('click', function(e) {
-        addCreatorForm($collectionHolder, $newLinkContainer);
+        addCreatorForm($creatorCollectionHolder, $newCreatorContainer);
     });
 });
 
 
-function addCreatorForm($collectionHolder, $newLinkContainer) {
+function addCreatorForm($creatorCollectionHolder, $newCreatorContainer) {
     // Get the prototype of the Form for the new Entity
-    var prototype = $collectionHolder.data('prototype');
+    var prototype = $creatorCollectionHolder.data('prototype');
     var newForm = prototype;
 
     // Get the new index
-    // var index = $collectionHolder.data('index');
+    // var index = $creatorCollectionHolder.data('index');
 
     // Set the new Entity of the Collection
     newForm = treatFormLabel(newForm);
-    encapsulateEntity(newForm, $newLinkContainer);
+    encapsulateCreatorEntity(newForm, $newCreatorContainer);
 }
 
 
@@ -48,27 +48,27 @@ function treatFormLabel($form, index = '') {
 }
 
 
-function encapsulateEntity($collectionEntity, newLinkContainer) {
+function encapsulateCreatorEntity($collectionEntity, newCreatorContainer) {
     // Get the new index
-    // var index = $collectionHolder.data('index');
+    // var index = $creatorCollectionHolder.data('index');
 
     var $newFormContainer = $('<div class="creatorContainer"></div>').append($collectionEntity);
 
     // Add "Remove" Button
     $newFormContainer.append('<button type="button" class="btn btn-danger remove-creator">Supprimer</button>');
     
-    $newLinkContainer.before($newFormContainer);
+    $newCreatorContainer.before($newFormContainer);
     $('.creatorContainer fieldset.form-group').addClass('col-8');
 
     // Increase the index of one for the next item
-    // $collectionHolder.data('index', ++index);
+    // $creatorCollectionHolder.data('index', ++index);
 
     // Add "Delete" Event
     $('.remove-creator').click(function(e) {
         e.preventDefault();
         $(this).parent().remove();
         // Decrease the index of one due to the removed item
-        // $collectionHolder.data('index', --index);
+        // $creatorCollectionHolder.data('index', --index);
         return false;
     });
 }
