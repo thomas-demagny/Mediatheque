@@ -1,6 +1,7 @@
 'use strict'
-
-
+/*
+const { cssNumber } = require("jquery");
+*/
 document.addEventListener('DOMContentLoaded', function(){
     var nuit = document.getElementById('nuit');
     var body = document.querySelector('body');
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function(){
     nuit.addEventListener('click', function(){
         body.classList.toggle('nuit');
         nav.classList.toggle('bx-nuit')
-        console.log(nav)
 
         for(let i = 0; i < card.length; i++){
             card[i].classList.toggle('nuit-fonce');
