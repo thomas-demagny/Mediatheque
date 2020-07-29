@@ -102,6 +102,12 @@
     "fzaninotto/faker": {
         "version": "1.9-dev"
     },
+    "knplabs/knp-components": {
+        "version": "2.5.0-dev"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "5.3.x-dev"
+    },
     "laminas/laminas-code": {
         "version": "3.5.x-dev"
     },
