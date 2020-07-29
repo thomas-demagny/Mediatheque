@@ -4,14 +4,15 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="value", type="string")
- * @ORM\DiscriminatorMap({"user" = "User", "participates" = "Participates", "employee" = "Employee", "member" = "Member"})
+ * @ORM\DiscriminatorMap({"user" = "User","employee" = "Employee", "member" = "Member"})
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -23,12 +24,12 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $nickName;
+    private ?string $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-        private $passwd;
+    private ?string $password;
 
 
     /**
@@ -46,6 +47,13 @@ class User
      */
     private ?string $email;
 
+
+    /**
+     * @ORM\Column(type="array", length=255)
+     */
+    private array $roles = [];
+
+
     /**
      * @return int|null
      */
@@ -53,21 +61,12 @@ class User
     {
         return $this->id;
     }
-
     /**
-     * @return mixed
+     * @return string|void
      */
-    public function getNickName()
+    public function getUsername()
     {
-        return $this->nickName;
-    }
-
-    /**
-     * @param mixed $nickName
-     */
-    public function setNickName($nickName): void
-    {
-        $this->nickName = $nickName;
+        return $this->username;
     }
 
     /**
@@ -79,19 +78,15 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return array|string[]
      */
-    public function getPasswd()
+    public function getRoles()
     {
-        return $this->passwd;
-    }
+        return $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
-    /**
-     * @param mixed $passwd
-     */
-    public function setPasswd($passwd): void
-    {
-        $this->passwd = $passwd;
+        return array_unique($roles);
     }
 
     /**
@@ -121,16 +116,18 @@ class User
         $this->lastName = $lastName;
     }
 
-    public function __toString()
-    {
-      return $this->nickName;
-    }
-
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -138,8 +135,79 @@ class User
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     * @return $this
+     */
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function __toString()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
