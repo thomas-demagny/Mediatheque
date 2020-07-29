@@ -8,12 +8,9 @@ use App\Repository\BorrowingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use App\BorrowingService\LagManager;
-
 
 /**
  * @Route("/borrowing")
@@ -32,11 +29,6 @@ class BorrowingController extends AbstractController
         ]);
                     
     }
-    
-
-  
-
-
     /**
      * @Route("/new", name="borrowing_new", methods={"GET","POST"})
      * @param Request $request
@@ -62,7 +54,7 @@ class BorrowingController extends AbstractController
         ]);
     }
 
-    /** 
+    /**
      * @Route("/{id}", name="borrowing_show", methods={"GET"}, requirements={"id" = "\d+"})
      * @param Borrowing $borrowing
      * @return Response
@@ -118,24 +110,17 @@ class BorrowingController extends AbstractController
      * @Route("/email")
      * @param MailerInterface $mailer
      * @param LagManager $lagManager
-     * @throws TransportExceptionInterface
      */
-    public function sendEmail(MailerInterface $mailer, LagManager $lagManager)
+    public function send(MailerInterface $mailer, LagManager $lagManager)
     {
-
         $lagManager->late();
 
-        /*$email = (new Email())
-            ->from('hello@example.com')
-            ->to('you@example.com')
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
 
-        $mailer->send($email);
-
-        // ...
-        */
     }
-    
+
 }
+
+  
+
+
+
