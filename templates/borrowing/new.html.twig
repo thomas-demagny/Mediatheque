@@ -2,10 +2,15 @@
 
 {% block title %}Ajouter Emprunt{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Ajouter un Emprunt</h1>
 
     {{ include('borrowing/_form.html.twig') }}
 
-    <a href="{{ path('borrowing_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
+    <a href="{{ path('borrowing_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
 {% endblock %}

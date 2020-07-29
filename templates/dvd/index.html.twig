@@ -2,32 +2,36 @@
 
 {% block title %}Liste des DVD{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Liste des DVD</h1>
+
+    <a href="{{ path('dvd_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
     
     <table class="table text-center">
         <thead>
             <tr>
                 {% include "layout/globalProductTh.html.twig" %}
+                <th>Durée</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for product in dvds %}
             <tr>
-                {% include "layout/globalProduct.html.twig" %}
-                <td>
-                    <a href="{{ path('dvd_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('dvd_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
-                </td>
+                {% include "layout/globalProduct.html.twig" with {'product': product} %}
+                <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'dvd', 'crudElement': product} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">Aucune entitée</td>
+                <td colspan="9">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('dvd_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
