@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Role{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Ajouter un Role</h1>
+
+    {{ include('role/_form.html.twig') }}
+
+    <a href="{{ path('role_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}

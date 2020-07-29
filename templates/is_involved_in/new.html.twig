@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter IsInvolvedIn{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Ajouter un IsInvolvedIn</h1>
+
+    {{ include('is_involved_in/_form.html.twig') }}
+
+    <a href="{{ path('is_involved_in_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}

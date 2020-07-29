@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Participations{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Participations</h1>
+
+    <a href="{{ path('participates_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+    
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BookingPlaces</th>
+                <th>AvailablePlaces</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participate in participates %}
+            <tr>
+                <td>{{ participate.id }}</td>
+                <td>{{ participate.bookingPlaces }}</td>
+                <td>{{ participate.availablePlaces }}</td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'participates', 'crudElement': participate} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

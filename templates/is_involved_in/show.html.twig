@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IsInvolvedIn{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/show_entity.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">IsInvolvedIn</h1>
+
+    <table class="table text-center">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ is_involved_in.id }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ is_involved_in.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="actions my-3">
+        <a href="{{ path('is_involved_in_edit', {'id': is_involved_in.id}) }}" type="btn" class="btn btn-success">Editer</a>
+        {{ include('is_involved_in/_delete_form.html.twig') }}
+        <a href="{{ path('is_involved_in_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+    </div>
+{% endblock %}

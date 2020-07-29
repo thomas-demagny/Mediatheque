@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Artistes{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Artistes</h1>
+
+    <a href="{{ path('creator_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+    
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom de Famille</th>
+                <th>Date Naissance</th>
+                <th>Date Décès</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for creator in creators %}
+            <tr>
+                <td>{{ creator.id }}</td>
+                <td>{{ creator.firstName }}</td>
+                <td>{{ creator.lastName }}</td>
+                <td>{{ creator.birthDate ? creator.birthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ creator.deathDate ? creator.deathDate|date('Y-m-d H:i:s') : '' }}</td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'creator', 'crudElement': creator} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Evénement{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/form_meet_ups.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Ajouter un Evénement</h1>
+
+    {{ include('meet_up/_form.html.twig') }}
+
+    <a href="{{ path('meet_up_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/participantCollection.js')}}"></script>
+{% endblock %}

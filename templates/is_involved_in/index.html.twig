@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des IsInvolvedIn{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des IsInvolvedIn</h1>
+    
+    <a href="{{ path('is_involved_in_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for is_involved_in in is_involved_ins %}
+            <tr>
+                <td>{{ is_involved_in.id }}</td>
+                <td>{{ is_involved_in.role }}</td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'is_involved_in', 'crudElement': is_involved_in} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
