@@ -2,17 +2,23 @@
 
 {% block title %}Liste des Emprunts{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Liste des Emprunts</h1>
+    
+    <a href="{{ path('borrowing_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 
     <table class="table text-center">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date de début</th>
-                <th>Date de retour attendu</th>
-                <th>Date de retour officieuse</th>
-                <th>Titre du produit</th>
+                <th>Date d'Emprunt</th>
+                <th>Date Retour Attendue</th>
+                <th>Date Retour Effective</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,11 +29,7 @@
                 <td>{{ borrowing.startDate ? borrowing.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ borrowing.expectedReturnDate ? borrowing.expectedReturnDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ borrowing.effectiveReturnDate ? borrowing.effectiveReturnDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ borrowing.document }}</td>
-                <td>
-                    <a href="{{ path('borrowing_show', {'id': borrowing.id}) }}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('borrowing_edit', {'id': borrowing.id}) }}" type="btn" class="btn btn-success">Editer</a>
-                </td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'borrowing', 'crudElement': borrowing} %}
             </tr>
         {% else %}
             <tr>
@@ -36,7 +38,6 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('borrowing_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}
 
 

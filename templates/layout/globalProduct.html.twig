@@ -4,3 +4,8 @@
 <td>{{ product.format }}</td>
 <td>{{ product.category }}</td>
 <td>{{ product.title }}</td>
+<td>
+    {% for product in product.isInvolvedIns %}
+        <p>{{ product.creator}}</p>
+    {% endfor %}
+</td>

@@ -2,40 +2,36 @@
 
 {% block title %}Liste des Livres{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Liste des Livres</h1>
+    
+    <a href="{{ path('book_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 
     <table class="table text-center">
         <thead>
-            <tr class="text-center">
+            <tr>
                 {% include "layout/globalProductTh.html.twig" %}
-                <th>Auteur</th>
-                <th>Nombre de pages</th>
+                <th>Pages</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody class="text-center">
+        <tbody>
             {% for product in books %}
             <tr>
-                {% include "layout/globalProduct.html.twig" %}
-                <td>
-                    {% for product in product.isInvolvedIns %}
-                        {{ product.creator }}
-                    {% endfor %}
-                </td>
+                {% include "layout/globalProduct.html.twig" with {'product': product } %}
                 <td>{{ product.pages }}</td>
-                <td>
-                    <a href="{{ path('book_show', {'id': product.id}) }}" type="btn" class="btn btn-info">Voir</a>
-                    <a href="{{ path('book_edit', {'id': product.id}) }}" type="btn" class="btn btn-success">Editer</a>
-                </td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'book', 'crudElement': product} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">Aucune entitée</td>
+                <td colspan="9">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('book_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
 {% endblock %}

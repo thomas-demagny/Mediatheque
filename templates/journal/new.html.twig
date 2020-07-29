@@ -2,10 +2,21 @@
 
 {% block title %}Ajouter Journal{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form_general.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/form_products.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h1 class="my-4">Ajouter un Journal</h1>
 
     {{ include('journal/_form.html.twig') }}
 
-    <a href="{{ path('journal_index') }}" type="btn" class="btn btn-outline-secondary my-3">Retour à la Liste</a>
+    <a href="{{ path('journal_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/creatorCollection.js')}}"></script>
 {% endblock %}

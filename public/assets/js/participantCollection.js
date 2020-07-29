@@ -1,11 +1,11 @@
 var $collectionHolder;
 
-var $addCreatorButton = $('<button type="button" class="btn btn-success">Ajouter Artiste</button>');
-var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addCreatorButton);
+var $addParticipantButton = $('<button type="button" class="btn btn-success">Ajouter Participant</button>');
+var $newLinkContainer = $('<div class="buttonContainer"></div>').append($addParticipantButton);
 
 jQuery(document).ready(function() {
     // Find the Collection group
-    var $collectionSelector = $('fieldset > div[id*="isInvolvedIns"]').attr('id');
+    var $collectionSelector = $('fieldset > div[id*="Participates"]').attr('id');
     $collectionHolder = $('#' + $collectionSelector);
 
     // Add "Add New" Button
@@ -22,13 +22,13 @@ jQuery(document).ready(function() {
     });
     
     // Add "New Form" Event
-    $addCreatorButton.on('click', function(e) {
-        addCreatorForm($collectionHolder, $newLinkContainer);
+    $addParticipantButton.on('click', function(e) {
+        addParticipantForm($collectionHolder, $newLinkContainer);
     });
 });
 
 
-function addCreatorForm($collectionHolder, $newLinkContainer) {
+function addParticipantForm($collectionHolder, $newLinkContainer) {
     // Get the prototype of the Form for the new Entity
     var prototype = $collectionHolder.data('prototype');
     var newForm = prototype;
@@ -52,19 +52,19 @@ function encapsulateEntity($collectionEntity, newLinkContainer) {
     // Get the new index
     // var index = $collectionHolder.data('index');
 
-    var $newFormContainer = $('<div class="creatorContainer"></div>').append($collectionEntity);
+    var $newFormContainer = $('<div class="participantContainer"></div>').append($collectionEntity);
 
     // Add "Remove" Button
-    $newFormContainer.append('<button type="button" class="btn btn-danger remove-creator">Supprimer</button>');
+    $newFormContainer.append('<button type="button" class="btn btn-danger remove-participant">Supprimer</button>');
     
     $newLinkContainer.before($newFormContainer);
-    $('.creatorContainer fieldset.form-group').addClass('col-8');
+    $('.participantContainer fieldset.form-group').addClass('col-8');
 
     // Increase the index of one for the next item
     // $collectionHolder.data('index', ++index);
 
     // Add "Delete" Event
-    $('.remove-creator').click(function(e) {
+    $('.remove-participant').click(function(e) {
         e.preventDefault();
         $(this).parent().remove();
         // Decrease the index of one due to the removed item
