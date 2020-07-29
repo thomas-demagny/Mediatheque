@@ -1,15 +1,22 @@
 'use strict'
+
+
 document.addEventListener('DOMContentLoaded', function(){
     var nuit = document.getElementById('nuit');
     var body = document.querySelector('body');
+    var nav = document.getElementById('mainNav');
     var card = document.getElementsByClassName('card-body');
     var tr = document.querySelectorAll('tr');
     var href = document.querySelectorAll('a');
     var input = document.querySelectorAll('input');
     var select = document.querySelectorAll('select');
 
+
     nuit.addEventListener('click', function(){
         body.classList.toggle('nuit');
+        nav.classList.toggle('bx-nuit')
+        console.log(nav)
+
         for(let i = 0; i < card.length; i++){
             card[i].classList.toggle('nuit-fonce');
         }
