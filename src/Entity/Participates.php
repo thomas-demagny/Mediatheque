@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ParticipatesRepository::class)
  */
-class Participates extends User
+class Participates
 {
     /**
      * @ORM\Id()
@@ -31,7 +31,7 @@ class Participates extends User
     /**
      * @ORM\Column(type="integer")
      */
-    private ?int $bookingPlaces;
+    private ?int $bookingPlaces; //nombre max de places
 
     /**
      * @ORM\Column(type="integer")

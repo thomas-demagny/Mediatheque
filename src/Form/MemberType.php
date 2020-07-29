@@ -12,7 +12,7 @@ class MemberType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nickname')
+            ->add('username')
             ->add('passwd')
             ->add('email')
             ->add('firstName')
