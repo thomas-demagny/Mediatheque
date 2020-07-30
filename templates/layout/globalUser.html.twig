@@ -2,9 +2,3 @@
 <td>{{ user.lastName }}</td>
 <td>{{ user.username }}</td>
 <td>{{ user.email }}</td>
-<td>{{ user.password }}</td>
-<td>
-    {% for role in user.roles %}
-        <p>{{ role.label }}</p>
-    {% endfor %}
-</td>

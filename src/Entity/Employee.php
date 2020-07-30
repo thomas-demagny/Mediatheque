@@ -10,14 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=EmployeeRepository::class)
  */
-class Employee extends User
-{
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    protected ?int $id;
+class Employee extends User {
 
     /**
      * @ORM\OneToMany(targetEntity=MeetUp::class, mappedBy="organizer")
@@ -28,11 +21,6 @@ class Employee extends User
     {
         parent::__construct();
         $this->meetUpsOrganized = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**

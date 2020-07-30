@@ -16,8 +16,7 @@ class MeetUpType extends AbstractType
         $builder
             ->add('title')
             ->add('organizer', EntityType::class, [
-                'class' => Employee::class,
-                'multiple' => true
+                'class' => Employee::class
             ])
             ->add('date')
             ->add('guests', EntityType::class, [

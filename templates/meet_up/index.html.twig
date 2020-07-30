@@ -33,7 +33,7 @@
                 <td>{{ meet_up.title }}</td>
                 <td>
                     {% for creator in meet_up.guests %}
-                        <p>{{ creator.first_name ~ ' ' ~ creator.last_name }}</p>
+                        <p>{{ creator.firstName ~ ' ' ~ creator.lastName }}</p>
                     {% endfor %}
                 </td>
                 <td>{{ meet_up.date ? meet_up.date|date('Y-m-d H:i:s') : '' }}</td>

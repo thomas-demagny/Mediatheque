@@ -21,7 +21,7 @@ class User implements UserInterface
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -98,7 +98,6 @@ class User implements UserInterface
     // public function getRoles(): array
     // {
     //     $roles = [];
-    //     array_push($roles, 'ROLE_USER');
     //     foreach($this->roles as $role) {
     //         array_push($roles, $role->getLabel());
     //     }

@@ -16,14 +16,20 @@
         <thead>
             <tr>
                 {% include "layout/globalUserTh.html.twig" %}
+                <th>Evénements Organisés</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for user in employees %}
+        {% for employee in employees %}
             <tr>
-                {% include "layout/globalUser.html.twig" with {'user' : user} %}
-                {% include "layout/crudActions.html.twig" with {'crudName': 'employee', 'crudElement': user} %}
+                {% include "layout/globalUser.html.twig" with {'user' : employee} %}
+                <td>
+                    {% for meet_up in employee.meetUpsOrganized %}
+                        <p>{{ meet_up.title }}</p>
+                    {% endfor %}
+                </td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'employee', 'crudElement': employee} %}
             </tr>
         {% else %}
             <tr>
