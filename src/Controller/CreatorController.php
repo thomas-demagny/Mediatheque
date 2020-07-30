@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/creator")
@@ -20,10 +22,16 @@ class CreatorController extends AbstractController
      * @param CreatorRepository $creatorRepository
      * @return Response
      */
-    public function index(CreatorRepository $creatorRepository): Response
+    public function index(CreatorRepository $creatorRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $creatorRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+        
         return $this->render('creator/index.html.twig', [
-            'creators' => $creatorRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 

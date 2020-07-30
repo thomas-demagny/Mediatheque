@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/employee")
@@ -20,10 +22,16 @@ class EmployeeController extends AbstractController
      * @param EmployeeRepository $employeeRepository
      * @return Response
      */
-    public function index(EmployeeRepository $employeeRepository): Response
+    public function index(EmployeeRepository $employeeRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $employeeRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+        
         return $this->render('employee/index.html.twig', [
-            'employees' => $employeeRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 

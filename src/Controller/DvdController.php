@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/dvd")
@@ -20,10 +22,16 @@ class DvdController extends AbstractController
      * @param DvdRepository $dvdRepository
      * @return Response
      */
-    public function index(DvdRepository $dvdRepository): Response
+    public function index(DvdRepository $dvdRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $dvdRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+        
         return $this->render('dvd/index.html.twig', [
-            'dvds' => $dvdRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 

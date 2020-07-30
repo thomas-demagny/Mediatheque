@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/member")
@@ -20,10 +22,16 @@ class MemberController extends AbstractController
      * @param MemberRepository $memberRepository
      * @return Response
      */
-    public function index(MemberRepository $memberRepository): Response
+    public function index(MemberRepository $memberRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $memberRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+        
         return $this->render('member/index.html.twig', [
-            'members' => $memberRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 

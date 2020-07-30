@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use App\BorrowingService\LagManager;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/borrowing")
@@ -22,10 +24,16 @@ class BorrowingController extends AbstractController
      * @param BorrowingRepository $borrowingRepository
      * @return Response
      */
-    public function index(BorrowingRepository $borrowingRepository): Response
+    public function index(BorrowingRepository $borrowingRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $borrowingRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+        
         return $this->render('borrowing/index.html.twig', [
-            'borrowings' => $borrowingRepository->findAll(),
+            'pagination' => $pagination,
         ]);
                     
     }
