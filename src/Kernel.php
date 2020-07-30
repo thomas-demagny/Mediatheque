@@ -6,19 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
-use Knp\Component\Pager\PaginatorInterface;
-use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
-/*
-    public function registerBundles()
-    {
-        $bundles = new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle();
-        return $bundles;
-    }
-*/
+
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');
