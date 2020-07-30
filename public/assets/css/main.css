@@ -66,10 +66,11 @@ body{
   input:checked + .slider {
     background-color: #222;
   }
-  
+  /*
   input:focus + .slider {
+
   }
-  
+  */
   input:checked + .slider:before {
     -webkit-transform: translateX(18px);
     -ms-transform: translateX(18px);
