@@ -137,6 +137,46 @@ border-radius: 100px;
 border-radius: 100px;
 }
 
+/* PAGINATION */
+.pagination, .navigation{
+text-align: center;
+margin: 0 auto;  
+}
+.pagination{
+width: 350px;
+}
+.pagination span{
+margin: 0 auto !important;
+}
+.pagination span:not(.current):hover{
+transform: scale(1.2);
+}
+.pagination a:hover{
+text-decoration: none;
+}
+.pagination .first, .pagination .last, .pagination .previous, .pagination .next, .pagination .page, .pagination .current{
+box-shadow: 0 0 10px rgba(0,0,0,.65);
+border-radius: 50px;
+width: 28px;
+height: 28px;
+text-align: center;
+font-weight: bold;
+}
+.pagination .current{
+color: orange !important;
+}
+.pagination a{
+color: purple !important;
+}
+.pagination .page, .pagination .current{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* BTN ADD NEW */
+
+
 /* FOOTER */
 footer{
 background: linear-gradient(0deg, #000, purple)!important;
