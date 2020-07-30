@@ -16,17 +16,17 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>BookingPlaces</th>
-                <th>AvailablePlaces</th>
+                <th>Participant</th>
+                <th>Evénement</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for participate in participates %}
             <tr>
+                <td>{{ participate.person.name }}</td>
+                <td>{{ participate.meetUp.title }}</td>
                 <td>{{ participate.id }}</td>
-                <td>{{ participate.bookingPlaces }}</td>
-                <td>{{ participate.availablePlaces }}</td>
                 {% include "layout/crudActions.html.twig" with {'crudName': 'participates', 'crudElement': participate} %}
             </tr>
         {% else %}

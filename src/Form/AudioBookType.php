@@ -29,7 +29,7 @@ class AudioBookType extends AbstractType
             ->add('title')
             ->add('isInvolvedIns', CollectionType::class, [
                     'entry_type' => IsInvolvedInWithReferencedProductType::class,
-                    'label' => 'Creators',
+                    'label' => 'Artistes',
                     'allow_add' => true,
                     'allow_delete' => true,
                 ])

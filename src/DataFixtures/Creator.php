@@ -16,8 +16,8 @@ class Creator extends Fixture
             $creator = new \App\Entity\Creator();
             $creator->setFirstName($faker->firstName($gender = 'male' | 'female'));
             $creator->setLastName($faker->lastName);
-            $creator->setBirthDate($faker->dateTime);
-            $creator->setDeathDate($faker->dateTime($max = 'now', $timezone = null));
+            $creator->setBirthDate($faker->dateTime($min = '1600', $timezone = null));
+            $creator->setDeathDate($faker->dateTime($min = '1700', $timezone = null));
             $manager->persist($creator);
         }
 

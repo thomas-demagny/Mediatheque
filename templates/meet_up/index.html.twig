@@ -16,7 +16,12 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Organisateur</th>
+                <th>Nom</th>
+                <th>Artistes</th>
                 <th>Date</th>
+                <th>Places</th>
+                <th>Places Disponibles</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,12 +29,21 @@
         {% for meet_up in meet_ups %}
             <tr>
                 <td>{{ meet_up.id }}</td>
+                <td>{{ meet_up.organizer }}</td>
+                <td>{{ meet_up.title }}</td>
+                <td>
+                    {% for creator in meet_up.guests %}
+                        <p>{{ creator.firstName ~ ' ' ~ creator.lastName }}</p>
+                    {% endfor %}
+                </td>
                 <td>{{ meet_up.date ? meet_up.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ meet_up.maxPlaces }}</td>
+                <td>{{ meet_up.maxPlaces - meet_up.bookedPlaces }}</td>
                 {% include "layout/crudActions.html.twig" with {'crudName': 'meet_up', 'crudElement': meet_up} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">Aucune entitée</td>
+                <td colspan="8">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>

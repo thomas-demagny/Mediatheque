@@ -1,0 +1,23 @@
+form {
+    padding: 5px 0;
+}
+
+.creatorContainer {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+.creatorContainer legend {
+    display: none;
+}
+
+.subjectContainer {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+.subjectContainer legend {
+    display: none;
+}

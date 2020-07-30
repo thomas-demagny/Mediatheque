@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 {% include "layout/globalUserTh.html.twig" %}
+                <th>Roles</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,11 +24,16 @@
         {% for user in users %}
             <tr>
                 {% include "layout/globalUser.html.twig" with {'user' : user} %}
+                <td>
+                    {% for role in user.roles %}
+                        <p>{{ role.label }}</p>
+                    {% endfor %}
+                </td>
                 {% include "layout/crudActions.html.twig" with {'crudName': 'user', 'crudElement': user} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">Aucune entitée</td>
+                <td colspan="7">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>

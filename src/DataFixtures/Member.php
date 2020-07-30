@@ -15,8 +15,8 @@ class Member extends Fixture
         for ($i = 0; $i < 50; $i++) {
             $member = new \App\Entity\Member();
 
-            $member->setNickName($faker->userName);
-            $member->setPasswd($faker->password);
+            $member->setUsername($faker->userName);
+            $member->setPassword($faker->password);
             $member->setEmail($faker->email);
             $member->setFirstName($faker->firstName($gender = 'male' | 'female'));
             $member->setLastName($faker->lastName);

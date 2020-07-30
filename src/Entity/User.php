@@ -6,14 +6,15 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="value", type="string")
- * @ORM\DiscriminatorMap({"user" = "User", "participates" = "Participates", "employee" = "Employee", "member" = "Member"})
+ * @ORM\DiscriminatorMap({"user" = "User","employee" = "Employee", "member" = "Member"})
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -23,15 +24,15 @@ class User
     protected ?int $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private ?string $nickName;
+    private string $username;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
-        private $passwd;
-
+    private string $password;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,15 +45,19 @@ class User
     private ?string $lastName;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private ?string $email;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Role::class, mappedBy="user")
+     * @ORM\ManyToMany(targetEntity=Role::class)
      */
-    private $roles;
+    private Collection $roles;
+    
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->roles = new ArrayCollection();
@@ -67,43 +72,115 @@ class User
     }
 
     /**
-     * @return mixed
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
      */
-    public function getNickName()
+    public function getUsername(): string
     {
-        return $this->nickName;
+        return (string) $this->username;
     }
 
     /**
-     * @param mixed $nickName
+     * @param string $username
+     * @return $this
      */
-    public function setNickName($nickName): void
+    public function setUsername(string $username): self
     {
-        $this->nickName = $nickName;
+        $this->username = $username;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @see UserInterface
      */
-    public function getLastName()
+    // public function getRoles(): array
+    // {
+    //     $roles = [];
+    //     foreach($this->roles as $role) {
+    //         array_push($roles, $role->getLabel());
+    //     }
+
+    //     return array_unique($roles);
+    // }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getRoles(): Collection
     {
-        return $this->lastName;
+        return $this->roles;
     }
 
     /**
-     * @return mixed
+     * @param Role $role
+     * @return $this
      */
-    public function getPasswd()
+    public function addRole(Role $role): self
     {
-        return $this->passwd;
+        if (!$this->roles->contains($role)) {
+            $this->roles[] = $role;
+        }
+
+        return $this;
     }
 
     /**
-     * @param mixed $passwd
+     * @param Role $role
+     * @return $this
      */
-    public function setPasswd($passwd): void
+    public function removeRole(Role $role): self
     {
-        $this->passwd = $passwd;
+        if ($this->roles->contains($role)) {
+            $this->roles->removeElement($role);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
+    }
+
+    /**
+     * @param string $password
+     * @return $this
+     */
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
     }
 
     /**
@@ -120,29 +197,34 @@ class User
     /**
      * @return string|null
      */
-    public function getFirstName(): ?string
+    public function getLastName(): ?string
     {
-        return $this->firstName;
+        return $this->lastName;
     }
 
     /**
-     * @param mixed $lastName
+     * @param string $lastName
+     * @return $this
      */
-    public function setLastName($lastName): void
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 
-    public function __toString()
-    {
-      return $this->nickName;
-    }
-
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -150,38 +232,8 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Role[]
-     */
-    public function getRoles(): Collection
+    public function __toString()
     {
-        return $this->roles;
+        return $this->username;
     }
-
-    public function addRole(Role $role): self
-    {
-        if (!$this->roles->contains($role)) {
-            $this->roles[] = $role;
-            $role->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRole(Role $role): self
-    {
-        if ($this->roles->contains($role)) {
-            $this->roles->removeElement($role);
-            $role->removeUser($this);
-        }
-
-        return $this;
-    }
-
-
 }
-
-
-
-
-

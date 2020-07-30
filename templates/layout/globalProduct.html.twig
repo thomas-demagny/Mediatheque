@@ -5,7 +5,7 @@
 <td>{{ product.category }}</td>
 <td>{{ product.title }}</td>
 <td>
-    {% for product in product.isInvolvedIns %}
-        <p>{{ product.creator}}</p>
+    {% for involvement in product.isInvolvedIns %}
+        <p>{{ involvement.creator}}</p>
     {% endfor %}
 </td>

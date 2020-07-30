@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\RoleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,16 +18,11 @@ class Role
     private ?int $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="roles")
+     * @ORM\Column(type="string", length=255)
      */
-    private $user;
+    private $label;
 
-    public function __construct()
-    {
-        $this->user = new ArrayCollection();
-    }
-
-    /**
+/**
      * @return int|null
      */
     public function getId(): ?int
@@ -37,29 +30,21 @@ class Role
         return $this->id;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    public function getLabel(): ?string
     {
-        return $this->user;
+        return $this->label;
     }
 
-    public function addUser(User $user): self
+    public function setLabel(string $label): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
+        $this->label = $label;
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function __toString()
     {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-        }
-
-        return $this;
+        return $this->label;
     }
+
 }

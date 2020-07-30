@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Employee;
+use App\Entity\Role;
 use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,9 +38,14 @@ class EmployeeController extends AbstractController
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
+        //récupérer MDP et encodage
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $roleRepository = $entityManager->getRepository(Role::class);
+            $employee->addRole($roleRepository->findOneByLabel('ROLE_ADMIN'));
+
             $entityManager->persist($employee);
             $entityManager->flush();
 
@@ -74,7 +80,7 @@ class EmployeeController extends AbstractController
     {
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
+//vérification de l'encodage du MDP
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 

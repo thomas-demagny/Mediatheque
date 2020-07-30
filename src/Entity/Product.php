@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\DiscriminatorColumn(name="value", type="string")
  * @ORM\DiscriminatorMap({ "product" = "Product", "audioBook" = "AudioBook", "book" = "Book", "cd" = "Cd", "dvd" = "Dvd", "eBook" = "Ebook", "journal" = "Journal"})
  */
-abstract class Product
+class Product
 {
     /**
      * @ORM\Id()
@@ -34,7 +34,6 @@ abstract class Product
      *  @Assert\NotBlank
      */
     private ?int $stock;
-
 
     /**
      * @ORM\Column(type="string", length=255)

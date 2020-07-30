@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ParticipatesRepository::class)
  */
-class Participates extends User
+class Participates
 {
     /**
      * @ORM\Id()
@@ -23,20 +23,9 @@ class Participates extends User
     private ?User $person;
 
     /**
-     * @ORM\ManyToOne(targetEntity=MeetUp::class, inversedBy="participates")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=MeetUp::class)
      */
     private ?MeetUp $meetUp;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private ?int $bookingPlaces;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private ?int $availablePlaces;
 
     /**
      * @return int|null
@@ -66,30 +55,6 @@ class Participates extends User
     public function setMeetUp(?MeetUp $meetUp): self
     {
         $this->meetUp = $meetUp;
-
-        return $this;
-    }
-
-    public function getBookingPlaces(): ?int
-    {
-        return $this->bookingPlaces;
-    }
-
-    public function setBookingPlaces(int $bookingPlaces): self
-    {
-        $this->bookingPlaces = $bookingPlaces;
-
-        return $this;
-    }
-
-    public function getAvailablePlaces(): ?int
-    {
-        return $this->availablePlaces;
-    }
-
-    public function setAvailablePlaces(int $availablePlaces): self
-    {
-        $this->availablePlaces = $availablePlaces;
 
         return $this;
     }

@@ -40,7 +40,6 @@ class Creator
      */
     private ?DateTimeInterface $deathDate;
 
-
     /**
      * @ORM\OneToMany(targetEntity=IsInvolvedIn::class, mappedBy="creator", orphanRemoval=true)
      */
