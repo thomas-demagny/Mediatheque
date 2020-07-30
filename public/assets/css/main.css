@@ -175,7 +175,14 @@ align-items: center;
 }
 
 /* BTN ADD NEW */
-
+.container{
+  position: relative;
+}
+#ajoutNouv{
+  position: absolute;
+  top: 11%;
+  right: 7%;
+} 
 
 /* FOOTER */
 footer{
