@@ -35,17 +35,18 @@ class UserController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return Response
      */
-    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder ): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        $encoded= $passwordEncoder->encodePassword($user, $user->getPassword());
-        $user->setPassword($encoded);
         
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
+            $encoded = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+            
             $roleRepository = $entityManager->getRepository(Role::class);
             $user->addRole($roleRepository->findOneByLabel('ROLE_USER'));
 

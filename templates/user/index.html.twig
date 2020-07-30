@@ -26,7 +26,7 @@
                 {% include "layout/globalUser.html.twig" with {'user' : user} %}
                 <td>
                     {% for role in user.roles %}
-                        <p>{{ role.label }}</p>
+                        <p>{{ role }}</p>
                     {% endfor %}
                 </td>
                 {% include "layout/crudActions.html.twig" with {'crudName': 'user', 'crudElement': user} %}

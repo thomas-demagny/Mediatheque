@@ -14,8 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\DiscriminatorColumn(name="value", type="string")
  * @ORM\DiscriminatorMap({"user" = "User","employee" = "Employee", "member" = "Member"})
  */
-class User implements UserInterface
-{
+class User implements UserInterface {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -26,33 +25,33 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private string $username;
+    protected string $username;
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private string $password;
+    protected string $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $firstName;
+    protected ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $lastName;
+    protected ?string $lastName;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
-    private ?string $email;
+    protected ?string $email;
 
     /**
      * @ORM\ManyToMany(targetEntity=Role::class)
      */
-    private Collection $roles;
+    protected Collection $roles;
     
 
     /**
@@ -95,20 +94,20 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    // public function getRoles(): array
-    // {
-    //     $roles = [];
-    //     foreach($this->roles as $role) {
-    //         array_push($roles, $role->getLabel());
-    //     }
+    public function getRoles(): array
+    {
+        $roles = [];
+        foreach($this->roles as $role) {
+            array_push($roles, $role->getLabel());
+        }
 
-    //     return array_unique($roles);
-    // }
+        return array_unique($roles);
+    }
 
     /**
      * @return Collection|Role[]
      */
-    public function getRoles(): Collection
+    public function getRolesEntities(): Collection
     {
         return $this->roles;
     }
