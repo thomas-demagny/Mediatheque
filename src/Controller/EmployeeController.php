@@ -37,7 +37,7 @@ class EmployeeController extends AbstractController
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
+//récupérer MDP et encodage
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($employee);
@@ -74,7 +74,7 @@ class EmployeeController extends AbstractController
     {
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
+//vérification de l'encodage du MDP
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 

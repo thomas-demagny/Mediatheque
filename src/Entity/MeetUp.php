@@ -31,7 +31,7 @@ class MeetUp
     private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Employee::class)
+     * @ORM\ManyToOne(targetEntity=Employee::class, inversedBy="meetUpsOrganized")
      * @ORM\JoinColumn(nullable=false)
      */
     private $organizer;
