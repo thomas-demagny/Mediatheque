@@ -91,23 +91,25 @@ class User implements UserInterface
 
         return $this;
     }
-/*
+
     /**
      * @see UserInterface
-
+     */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles = [];
+        array_push($roles, 'ROLE_USER');
+        foreach($this->roles as $role) {
+            array_push($roles, $role->getLabel());
+        }
 
         return array_unique($roles);
     }
-*/
+
     /**
      * @return Collection|Role[]
      */
-    public function getRoles(): Collection
+    public function getRolesEntities(): Collection
     {
         return $this->roles;
     }

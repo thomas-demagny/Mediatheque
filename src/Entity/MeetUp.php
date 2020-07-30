@@ -35,6 +35,12 @@ class MeetUp
      */
     private ArrayCollection $participates;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Employee::class, inversedBy="meetUpsOrganized")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $organizer;
+
     public function __construct()
     {
         $this->participates = new ArrayCollection();
@@ -129,6 +135,18 @@ class MeetUp
                 $participate->setMeetUp(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOrganizer(): ?Employee
+    {
+        return $this->organizer;
+    }
+
+    public function setOrganizer(?Employee $organizer): self
+    {
+        $this->organizer = $organizer;
 
         return $this;
     }
