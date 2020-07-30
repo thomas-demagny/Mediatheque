@@ -4,6 +4,7 @@ security:
             algorithm: bcrypt
 
 
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
@@ -32,9 +33,9 @@ security:
                 use_referer: true
             logout:
                 path: app_logout
-            guard:
-                authenticators:
-                    - App\Security\LoginFormAuthenticator
+            # guard:
+                # authenticators:
+                    # - App\Security\LoginFormAuthenticator
                     # where to redirect after logout
                     # target: app_any_route
 
