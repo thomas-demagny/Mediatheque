@@ -26,18 +26,35 @@ class MeetUp
     private ?DateTimeInterface $date;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="guest")
+     * @ORM\Column(type="string", length=255)
      */
-    private $subject;
+    private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity=Participates::class, mappedBy="meetUp", orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity=Employee::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private ArrayCollection $participates;
+    private $organizer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Creator::class)
+     */
+    private $guests;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $maxPlaces;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $bookedPlaces;
 
     public function __construct()
     {
         $this->participates = new ArrayCollection();
+        $this->guests = new ArrayCollection();
     }
 
 
@@ -68,67 +85,76 @@ class MeetUp
         return $this;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getSubject(): Collection
+    public function getTitle(): ?string
     {
-        return $this->subject;
+        return $this->title;
     }
 
-    /**
-     * @param Product $subject
-     * @return $this
-     */
-    public function addSubject(Product $subject): self
+    public function setTitle(string $title): self
     {
-        if (!$this->subject->contains($subject)) {
-            $this->subject[] = $subject;
-        }
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getOrganizer(): ?Employee
+    {
+        return $this->organizer;
+    }
+
+    public function setOrganizer(?Employee $organizer): self
+    {
+        $this->organizer = $organizer;
 
         return $this;
     }
 
     /**
-     * @param Product $subject
-     * @return $this
+     * @return Collection|Creator[]
      */
-    public function removeSubject(Product $subject): self
+    public function getGuests(): Collection
     {
-        if ($this->subject->contains($subject)) {
-            $this->subject->removeElement($subject);
+        return $this->guests;
+    }
+
+    public function addGuest(Creator $guest): self
+    {
+        if (!$this->guests->contains($guest)) {
+            $this->guests[] = $guest;
         }
 
         return $this;
     }
 
-    /**
-     * @return Collection|Participates[]
-     */
-    public function getParticipates(): Collection
+    public function removeGuest(Creator $guest): self
     {
-        return $this->participates;
-    }
-
-    public function addParticipate(Participates $participate): self
-    {
-        if (!$this->participates->contains($participate)) {
-            $this->participates[] = $participate;
-            $participate->setMeetUp($this);
+        if ($this->guests->contains($guest)) {
+            $this->guests->removeElement($guest);
         }
 
         return $this;
     }
 
-    public function removeParticipate(Participates $participate): self
+    public function getMaxPlaces(): ?int
     {
-        if ($this->participates->contains($participate)) {
-            $this->participates->removeElement($participate);
-            // set the owning side to null (unless already changed)
-            if ($participate->getMeetUp() === $this) {
-                $participate->setMeetUp(null);
-            }
-        }
+        return $this->maxPlaces;
+    }
+
+    public function setMaxPlaces(int $maxPlaces): self
+    {
+        $this->maxPlaces = $maxPlaces;
+
+        return $this;
+    }
+
+    public function getBookedPlaces(): ?int
+    {
+        return $this->bookedPlaces;
+    }
+
+    public function setBookedPlaces(int $bookedPlaces): self
+    {
+        $this->bookedPlaces = $bookedPlaces;
 
         return $this;
     }
