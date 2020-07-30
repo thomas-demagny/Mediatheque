@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for borrowing in borrowings %}
+        {% for borrowing in pagination %}
             <tr>
                 <td>{{ borrowing.id }}</td>
                 <td>{{ borrowing.startDate ? borrowing.startDate|date('Y-m-d H:i:s') : '' }}</td>

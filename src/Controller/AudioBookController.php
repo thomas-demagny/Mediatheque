@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 /**
  * @Route("/audio/book")
@@ -20,10 +22,16 @@ class AudioBookController extends AbstractController
      * @param AudioBookRepository $audioBookRepository
      * @return Response
      */
-    public function index(AudioBookRepository $audioBookRepository): Response
+    public function index(AudioBookRepository $audioBookRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $pagination = $paginator->paginate(
+            $audioBookRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
+
         return $this->render('audio_book/index.html.twig', [
-            'audio_books' => $audioBookRepository->findAll(),
+            'pagination' => $pagination,
         ]);
     }
 

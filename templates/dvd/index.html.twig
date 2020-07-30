@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for product in dvds %}
+        {% for product in pagination %}
             <tr>
                 {% include "layout/globalProduct.html.twig" with {'product': product} %}
                 <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
