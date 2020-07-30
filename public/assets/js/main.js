@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var nav = document.getElementById('mainNav');
     var card = document.getElementsByClassName('card-body');
     var tr = document.querySelectorAll('tr');
+    var drop = document.getElementsByClassName('dropdown-menu')
     var href = document.querySelectorAll('a');
     var input = document.querySelectorAll('input');
     var select = document.querySelectorAll('select');
@@ -60,33 +61,42 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // CODE
     localStorage.setItem('access', 'day');
-    console.log(localStorage['access'])
+    console.log('start page with: ' + localStorage['access'])
 
-    // test après chargement de la page 'night' or 'day'
+    // test after page loaded 'night' or 'day'
     if(localStorage['access'] == 'night'){
         darkness();
         nuit.checked = true
-        console.log('night confirmation')
+        console.log(' ')
+        console.log('confirmation: ' + localStorage['access'])
+        console.log(' ')
     }
     else if(localStorage['access'] == 'day'){
         brightness();
         nuit.checked = false
-        console.log('day confirmation')
+        console.log(' ')
+        console.log('confirmation: ' + localStorage['access'])
+        console.log(' ')
     }
     
     // listener on btn-toggle
     nuit.addEventListener('click', function(){
         if(localStorage['access'] == 'day'){
+            console.log('ifDayBefore: ' + localStorage['access'])
             localStorage.removeItem('access', 'day');
             localStorage.setItem('access', 'night');
+            console.log('ifDayAfter: ' + localStorage['access'])
             darkness();
         }
         else if(localStorage['access'] == 'night'){
+            console.log('night')
+            console.log('ifNigthBefore: ' + localStorage['access'])
             localStorage.removeItem('access', 'night');
             localStorage.setItem('access', 'day');
+            console.log('ifNightAfter: ' + localStorage['access'])
             brightness();
         }
-        console.log(localStorage['access'])
+        console.log('end: ' + localStorage['access'])
         
     })
 });
