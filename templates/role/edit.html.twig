@@ -10,9 +10,9 @@
 {% block body %}
     <h1 class="my-4">Editer Role</h1>
 
-    {{ include('audio_book/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('role/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    {{ include('audio_book/_delete_form.html.twig') }}
+    {{ include('role/_delete_form.html.twig') }}
 
-    <a href="{{ path('audio_book_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+    <a href="{{ path('role_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
 {% endblock %}

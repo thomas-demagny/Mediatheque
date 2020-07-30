@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Role;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Repository\RoleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +42,10 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $roleRepository = $entityManager->getRepository(Role::class);
+            $user->addRole($roleRepository->findOneByLabel('ROLE_USER'));
+
             $entityManager->persist($user);
             $entityManager->flush();
 

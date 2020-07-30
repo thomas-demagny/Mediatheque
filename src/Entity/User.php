@@ -45,7 +45,7 @@ class User implements UserInterface
     private ?string $lastName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private ?string $email;
 
@@ -95,21 +95,21 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getRoles(): array
-    {
-        $roles = [];
-        array_push($roles, 'ROLE_USER');
-        foreach($this->roles as $role) {
-            array_push($roles, $role->getLabel());
-        }
+    // public function getRoles(): array
+    // {
+    //     $roles = [];
+    //     array_push($roles, 'ROLE_USER');
+    //     foreach($this->roles as $role) {
+    //         array_push($roles, $role->getLabel());
+    //     }
 
-        return array_unique($roles);
-    }
+    //     return array_unique($roles);
+    // }
 
     /**
      * @return Collection|Role[]
      */
-    public function getRolesEntities(): Collection
+    public function getRoles(): Collection
     {
         return $this->roles;
     }
@@ -231,5 +231,10 @@ class User implements UserInterface
         $this->email = $email;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->username;
     }
 }

@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Label</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,11 +24,12 @@
         {% for role in roles %}
             <tr>
                 <td>{{ role.id }}</td>
+                <td>{{ role.label }}</td>
                 {% include "layout/crudActions.html.twig" with {'crudName': 'role', 'crudElement': role} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">Aucune entitée</td>
+                <td colspan="3">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>

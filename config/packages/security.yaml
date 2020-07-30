@@ -1,9 +1,7 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: auto
-        App\Entity\Access:
-            algorithm: auto
+            algorithm: bcrypt
 
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -11,7 +9,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\Access
+                class: App\Entity\User
                 property: username
         # used to reload user from session & other features (e.g. switch_user)
     role_hierarchy:
