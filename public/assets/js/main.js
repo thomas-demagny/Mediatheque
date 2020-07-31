@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // MODAL
     // Get the modal
+    /*
     var modal = document.getElementById("myModal");
     var connexion = document.getElementById('connexion');
     var span = document.getElementsByClassName("close")[0];
@@ -123,4 +124,5 @@ document.addEventListener('DOMContentLoaded', function(){
             modal.style.display = "none";
         }
     }
+    */
 });
