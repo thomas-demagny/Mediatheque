@@ -4,4 +4,5 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+    background: linear-gradient(0deg, #000, purple)!important;
 }
