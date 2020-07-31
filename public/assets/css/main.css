@@ -16,6 +16,10 @@
 /* NAV-BAR */
 /* XXXXXXX */
 
+#logout{
+  float: rigth;
+}
+
 .connexion{
   margin-right: 1rem;
 }
