@@ -42,11 +42,10 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+            $encoded= $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
             $entityManager = $this->getDoctrine()->getManager();
 
-            $encoded = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($encoded);
-            
             $roleRepository = $entityManager->getRepository(Role::class);
             $user->addRole($roleRepository->findOneByLabel('ROLE_USER'));
 
@@ -92,7 +91,8 @@ class UserController extends AbstractController
             $user->setPassword($encoded);
 
             $this->getDoctrine()->getManager()->flush();
-
+            $encoded = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
             return $this->redirectToRoute('user_index');
         }
 

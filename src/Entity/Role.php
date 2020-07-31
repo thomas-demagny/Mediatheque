@@ -20,7 +20,7 @@ class Role
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $label;
+    private ?string $label;
 
 /**
      * @return int|null

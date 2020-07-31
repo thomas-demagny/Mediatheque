@@ -67,7 +67,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator {
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+            throw new CustomUserMessageAuthenticationException('Username could not be found.');
         }
 
         return $user;
@@ -77,7 +77,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator {
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
     }
 
-    /** * Used to upgrade (rehash) the user's password automatically over time. */
+    /** * Used to upgrade (rehash) the user's password automatically over time.
+     * @param $credentials
+     * @return string|null
+     */
     public function getPassword($credentials): ?string {
         return $credentials['password'];
     } 
