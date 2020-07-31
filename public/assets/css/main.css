@@ -3,27 +3,11 @@ body {
     transition: .3s;
 }
 
-.nuit {
-    background: #333 !important;
-    color: white !important;
+.logout{
+  float: right;
 }
 
-.nuit-fonce {
-    background: #1f1f1f !important;
-    color: white !important;
-}
 
-.bx-nuit {
-  box-shadow: 0 2px 10px .5em rgba(0,0,0,.75) !important;
-}
-
-.bx-day {
-  box-shadow: 0 0 10px .2em rgba(255,255,255,.5) !important; 
-}
-
-.white {
-    color: white !important;
-}
 
 .card {
     border-radius: 0.5em !important;
