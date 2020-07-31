@@ -36,9 +36,15 @@
             <a class="nav-link" href="{{ path('statistics') }}"> Statistiques </a>
         </li>
     </ul>
+    <div>
+
+{% if app.user %}
+<div class="mb-3">
+    <a href="#">{{ app.user.username }}</a> <a href="{{ path('app_logout') }}">Logout</a>
 </div>
-<div>
-    <a href="{{ path('app_logout') }}" type="btn" class="btn btn-outline-secondary">Déconnexion</a>
+{% endif %}
+
+</div>
     <label class="switch">
         <input id="nuit" type="checkbox">
         <span class="slider round"></span>
