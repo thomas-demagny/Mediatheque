@@ -5,14 +5,8 @@
 {% block body %}
 <form method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+        <div class="alert alert-danger">{{ error.messageKey }}</div>
+    {% endif %}{#|trans(error.messageData, 'security')#}
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputText">Identifiant</label>
