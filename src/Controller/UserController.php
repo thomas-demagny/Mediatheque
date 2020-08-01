@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Role;
+use App\Form\ChangePasswordType;
+
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Repository\RoleRepository;
@@ -62,7 +64,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/{id}", name="user_show", methods={"GET"}, requirements={"id"="[0-9]+"})
      * @param User $user
      * @return Response
      */
@@ -98,6 +100,32 @@ class UserController extends AbstractController
 
         return $this->render('user/edit.html.twig', [
             'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/change-password", methods="GET|POST", name="user_change_password")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $encoder
+     * @return Response
+     */
+    public function changePassword(Request $request, UserPasswordEncoderInterface $encoder): Response
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(ChangePasswordType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($encoder->encodePassword($user, $form->get('newPassword')->getData()));
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('security_logout');
+        }
+
+        return $this->render('user/change_password.html.twig', [
             'form' => $form->createView(),
         ]);
     }
