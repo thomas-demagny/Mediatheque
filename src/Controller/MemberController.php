@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Member;
+use App\Entity\Role;
 use App\Form\MemberType;
 use App\Repository\MemberRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\UserController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/member")
@@ -32,7 +35,7 @@ class MemberController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserController $memberController, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $member = new Member();
         $form = $this->createForm(MemberType::class, $member);
@@ -40,6 +43,16 @@ class MemberController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $encoded = $passwordEncoder->encodePassword($member, $member->getPassword());
+            $member->setPassword($encoded);
+
+            $member->setMembershipDate(new \DateTime('@'.strtotime('now')));
+            
+            $roleRepository = $entityManager->getRepository(Role::class);
+            $member->addRole($roleRepository->findOneByLabel('ROLE_USER'));
+            $member->addRole($roleRepository->findOneByLabel('ROLE_MEMBER'));
+
             $entityManager->persist($member);
             $entityManager->flush();
 
@@ -70,12 +83,16 @@ class MemberController extends AbstractController
      * @param Member $member
      * @return Response
      */
-    public function edit(Request $request, Member $member): Response
+    public function edit(Request $request, Member $member, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $form = $this->createForm(MemberType::class, $member);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $encoded = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('member_index');

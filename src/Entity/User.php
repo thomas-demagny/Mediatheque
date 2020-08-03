@@ -28,6 +28,11 @@ class User implements UserInterface {
     protected string $username;
 
     /**
+     * @ORM\ManyToMany(targetEntity=Role::class)
+     */
+    protected Collection $roles;
+
+    /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
@@ -49,10 +54,9 @@ class User implements UserInterface {
     protected ?string $email;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Role::class)
+     * @ORM\Column(type="json", nullable=true)
      */
-    protected Collection $roles;
-    
+    private $address = [];
 
     /**
      * User constructor.
@@ -231,8 +235,20 @@ class User implements UserInterface {
         return $this;
     }
 
+    public function getAddress(): ?array
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?array $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
     public function __toString()
     {
-        return $this->username;
+        return $this->firstName . ' ' . $this->lastName . ' (' . $this->username . ')';
     }
 }

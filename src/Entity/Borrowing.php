@@ -19,10 +19,9 @@ class Borrowing
     protected ?int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Member::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Member::class, inversedBy="borrowings")
      */
-    private ?Member $borrower;
+    private $borrower;
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class)
@@ -41,7 +40,7 @@ class Borrowing
     private ?DateTimeInterface $expectedReturnDate;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private ?DateTimeInterface $effectiveReturnDate;
 
@@ -125,7 +124,6 @@ class Borrowing
     public function setExpectedReturnDate(DateTimeInterface $expectedReturnDate): self
     {
         $this->expectedReturnDate = $expectedReturnDate;
-        $expectedReturnDate->add(new DateInterval('P15D'));
         return $this;
     }
 
@@ -147,6 +145,5 @@ class Borrowing
 
         return $this;
     }
-
 
 }
