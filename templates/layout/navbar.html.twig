@@ -28,9 +28,9 @@
                 Mon Compte
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Mon Profil</a>
-                <a class="dropdown-item" href="#">Mes Emprunts</a>
-                <a class="dropdown-item" href="#">Mes Événements</a>
+                <a class="dropdown-item" href="{{ path('profile') }}">Mon Profil</a>
+                <a class="dropdown-item" href="{{ path('profile') }}">Mes Emprunts</a>
+                <a class="dropdown-item" href="{{ path('profile') }}">Mes Événements</a>
             </div>
         </li>
         <li>
@@ -41,7 +41,7 @@
 
     {% if app.user %}
     <div class="mb-3">
-        <a href="#">{{ app.user.username }}</a> <a href="{{ path('app_logout') }}">Logout</a>
+        <a href="{{ path('profile') }}">{{ app.user.username }}</a> <a href="{{ path('app_logout') }}">Logout</a>
     </div>
     {% endif %}
 

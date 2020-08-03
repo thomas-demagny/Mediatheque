@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profile{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<h1 class="my-4">Mon profile</h1>
+
+<div class="text-center">
+    <div class="card w-25 text-center mt-0 mb-0 ml-auto mr-auto">
+        <div class="card-header">
+            Paramètres        
+        </div>
+        <div class="card-body" >
+            <a class="d-block" href="">Modifier mes informations</a>
+            <a class="d-block" href="">Mes Emprunts</a>
+            <a class="d-block" href="">Mes Evénements</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
