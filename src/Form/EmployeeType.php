@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Employee;
+use App\Form\PostalAddressType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,10 @@ class EmployeeType extends AbstractType {
             ->add('lastName')
             ->add('username')
             ->add('email')
-            ->add('password');
+            ->add('password')
+            ->add('address', PostalAddressType::class, [
+                'label' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver) {

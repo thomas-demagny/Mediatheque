@@ -37,10 +37,12 @@ class MeetUpController extends AbstractController
         $meetUp = new MeetUp();
         $form = $this->createForm(MeetUpType::class, $meetUp);
         $form->handleRequest($request);
-        $meetUp->setBookedPlaces(0);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $meetUp->setBookedPlaces(0);
+            
             $entityManager->persist($meetUp);
             $entityManager->flush();
 

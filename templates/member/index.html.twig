@@ -17,19 +17,25 @@
         <tr>
             {% include "layout/globalUserTh.html.twig" %}
             <th>Date Adhésion</th>
+            <th>Emprunts</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        {% for user in members %}
+        {% for member in members %}
             <tr>
-                {% include "layout/globalUser.html.twig" with {'user' : user} %}
-                <td>{{ user.membershipDate ? user.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
-                {% include "layout/crudActions.html.twig" with {'crudName': 'member', 'crudElement': user} %}
+                {% include "layout/globalUser.html.twig" with {'user' : member} %}
+                <td>{{ member.membershipDate ? member.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    {% for borrowing in member.borrowings %}
+                        <p>{{ borrowing.document.productCode }}</p>
+                    {% endfor %}
+                </td>
+                {% include "layout/crudActions.html.twig" with {'crudName': 'member', 'crudElement': member} %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">Aucune entitée</td>
+                <td colspan="10">Aucune entitée</td>
             </tr>
         {% endfor %}
         </tbody>

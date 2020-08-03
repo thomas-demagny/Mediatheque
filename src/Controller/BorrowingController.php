@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use App\BorrowingService\LagManager;
+use \DateInterval;
 
 /**
  * @Route("/borrowing")
@@ -42,6 +43,11 @@ class BorrowingController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $startDate = $request->request->get('borrowing')['startDate'];
+            $startDate = date_create_from_format('Y-m-d', $startDate);
+            $borrowing->setExpectedReturnDate($startDate->add(new DateInterval('P15D')));
+
             $entityManager->persist($borrowing);
             $entityManager->flush();
 
