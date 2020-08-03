@@ -44,9 +44,19 @@
 </div>
 {% endif %}
 
+<<<<<<< Updated upstream
 </div>
     <label class="switch">
         <input id="nuit" type="checkbox">
         <span class="slider round"></span>
     </label>
 </div>
+=======
+{% if app.user %}
+<div class="mb-3">
+    Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">test</a>
+</div>
+{% endif %}
+
+<a href="{{ path('app_logout') }}" type="btn" class="btn btn-outline-secondary" id="logout">Logout</a>
+>>>>>>> Stashed changes

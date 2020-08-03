@@ -3,6 +3,7 @@ body {
     transition: .3s;
 }
 
+<<<<<<< Updated upstream
 .nuit {
     background: #333 !important;
     color: white !important;
@@ -23,6 +24,10 @@ body {
 
 .white {
     color: white !important;
+=======
+#logout{
+  float: right;
+>>>>>>> Stashed changes
 }
 
 .card {
