@@ -28,32 +28,32 @@ class MeetUp
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @ORM\ManyToOne(targetEntity=Employee::class, inversedBy="meetUpsOrganized")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $organizer;
+    private ?Employee $organizer;
 
     /**
      * @ORM\ManyToMany(targetEntity=Creator::class)
      */
-    private $guests;
+    private ArrayCollection $guests;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $maxPlaces;
+    private ?int $maxPlaces;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $bookedPlaces;
+    private ?int $bookedPlaces;
 
     public function __construct()
     {
-        $this->participates = new ArrayCollection();
+
         $this->guests = new ArrayCollection();
     }
 

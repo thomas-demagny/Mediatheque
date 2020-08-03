@@ -57,7 +57,7 @@ class User implements UserInterface {
     /**
      * @ORM\Column(type="json", nullable=true)
      */
-    private $address = [];
+    private array $address = [];
 
     /**
      * User constructor.
