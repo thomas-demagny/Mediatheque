@@ -26,7 +26,7 @@ class BookController extends AbstractController
     public function index(BookRepository $bookRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $pagination = $paginator->paginate(
-            $BookRepository->findAll(),
+            $bookRepository->findAll(),
             $request->query->getInt('page', 1),
             5
         );
