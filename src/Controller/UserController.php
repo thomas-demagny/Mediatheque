@@ -8,7 +8,6 @@ use App\Form\ChangePasswordType;
 
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use App\Repository\RoleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
