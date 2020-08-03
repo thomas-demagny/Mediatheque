@@ -69,9 +69,14 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
+
+        $this->denyAccessUnlessGranted('show.html.twig', $user);
+        
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
+
+        
     }
 
     /**
