@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Ressource{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Editer Ressource</h1>
+
+    {{ include('admin/resources/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('admin/resources/_delete_form.html.twig') }}
+
+    <a href="{{ path('resources_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/role")
+ * @Route("/admin/role")
  */
 class RoleController extends AbstractController
 {
@@ -22,7 +22,7 @@ class RoleController extends AbstractController
      */
     public function index(RoleRepository $roleRepository): Response
     {
-        return $this->render('role/index.html.twig', [
+        return $this->render('admin/role/index.html.twig', [
             'roles' => $roleRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class RoleController extends AbstractController
             return $this->redirectToRoute('role_index');
         }
 
-        return $this->render('role/new.html.twig', [
+        return $this->render('admin/role/new.html.twig', [
             'role' => $role,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="role_show", methods={"GET"})
-     * @param Role $role
-     * @return Response
-     */
-    public function show(Role $role): Response
-    {
-        return $this->render('role/show.html.twig', [
-            'role' => $role,
         ]);
     }
 
@@ -81,7 +69,7 @@ class RoleController extends AbstractController
             return $this->redirectToRoute('role_index');
         }
 
-        return $this->render('role/edit.html.twig', [
+        return $this->render('admin/role/edit.html.twig', [
             'role' => $role,
             'form' => $form->createView(),
         ]);

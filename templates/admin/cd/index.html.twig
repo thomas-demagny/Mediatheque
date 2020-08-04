@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des CD{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des CD</h1>
+
+    <a href="{{ path('cd_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include "form/globalProductTh.html.twig" %}
+                <th>Plages</th>
+                <th>Durée</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in cds %}
+            <tr>
+                {% include "form/globalProduct.html.twig" with {'product': product} %}
+                <td>{{ product.plages }}</td>
+                <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
+                {% include "admin/layout/crudActions.html.twig" with {'crudName': 'cd', 'crudElement': product} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

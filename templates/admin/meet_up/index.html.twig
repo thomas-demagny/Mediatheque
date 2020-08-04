@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Evénements{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Evénements</h1>
+
+    <a href="{{ path('meet_up_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Organisateur</th>
+                <th>Nom</th>
+                <th>Artistes</th>
+                <th>Date</th>
+                <th>Places</th>
+                <th>Places Disponibles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meet_up in meet_ups %}
+            <tr>
+                <td>{{ meet_up.organizer }}</td>
+                <td>{{ meet_up.title }}</td>
+                <td>
+                    {% for creator in meet_up.guests %}
+                        <p>{{ creator.firstName ~ ' ' ~ creator.lastName }}</p>
+                    {% endfor %}
+                </td>
+                <td>{{ meet_up.date ? meet_up.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ meet_up.maxPlaces }}</td>
+                <td>{{ meet_up.maxPlaces - meet_up.bookedPlaces }}</td>
+                {% include "admin/layout/crudActions.html.twig" with {'crudName': 'meet_up', 'crudElement': meet_up} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

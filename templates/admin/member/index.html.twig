@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Adhésions{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Adhésions</h1>
+    
+    <a href="{{ path('member_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
+    <table class="table text-center">
+        <thead>
+        <tr>
+            {% include "form/globalUserTh.html.twig" %}
+            <th>Date Adhésion</th>
+            <th>Emprunts</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                {% include "form/globalUser.html.twig" with {'user' : member} %}
+                <td>{{ member.membershipDate ? member.membershipDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    {% for borrowing in member.borrowings %}
+                        <p>{{ borrowing.document.productCode }}</p>
+                    {% endfor %}
+                </td>
+                {% include "admin/layout/crudActions.html.twig" with {'crudName': 'member', 'crudElement': member} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

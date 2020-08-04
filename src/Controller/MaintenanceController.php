@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/maintenance")
+ * @Route("/admin/maintenance")
  */
 class MaintenanceController extends AbstractController
 {
@@ -22,7 +22,7 @@ class MaintenanceController extends AbstractController
      */
     public function index(MaintenanceRepository $maintenanceRepository): Response
     {
-        return $this->render('maintenance/index.html.twig', [
+        return $this->render('admin/maintenance/index.html.twig', [
             'maintenances' => $maintenanceRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class MaintenanceController extends AbstractController
             return $this->redirectToRoute('maintenance_index');
         }
 
-        return $this->render('maintenance/new.html.twig', [
+        return $this->render('admin/maintenance/new.html.twig', [
             'maintenance' => $maintenance,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="maintenance_show", methods={"GET"})
-     * @param Maintenance $maintenance
-     * @return Response
-     */
-    public function show(Maintenance $maintenance): Response
-    {
-        return $this->render('maintenance/show.html.twig', [
-            'maintenance' => $maintenance,
         ]);
     }
 
@@ -81,7 +69,7 @@ class MaintenanceController extends AbstractController
             return $this->redirectToRoute('maintenance_index');
         }
 
-        return $this->render('maintenance/edit.html.twig', [
+        return $this->render('admin/maintenance/edit.html.twig', [
             'maintenance' => $maintenance,
             'form' => $form->createView(),
         ]);

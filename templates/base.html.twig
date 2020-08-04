@@ -14,7 +14,21 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
-            {% include "layout/navbar.html.twig"%}
+            {% if app.user %}
+                {% set isAdmin = 0 %}
+                {% for role in app.user.roles %}
+                    {% if role == 'ROLE_ADMIN' %}
+                        {% set isAdmin = 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if isAdmin == 1 %}
+                    {% include "admin/layout/navbar.html.twig"%}
+                {% else %}
+                    {% include "layout/navbar.html.twig" %}
+                {% endif %}
+            {% else %}
+                {% include "layout/navbar.html.twig" %}
+            {% endif %}
         </nav>
         <div class="container pt-5 pb-5 mt-5 mb-5">
             {% block body %}{% endblock %}

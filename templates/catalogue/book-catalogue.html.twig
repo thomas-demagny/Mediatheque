@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Livres{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Livres</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include "form/globalProductTh.html.twig" %}
+                <th>Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in books %}
+            <tr>
+                {% include "form/globalProduct.html.twig" with {'product': product } %}
+                <td>{{ product.pages }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

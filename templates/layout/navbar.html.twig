@@ -1,4 +1,4 @@
-<a class="navbar-brand" href="{{ path('admin') }}">Mediathèque 3WAcadémie</a>
+<a class="navbar-brand" href="{{ path('home') }}">Mediathèque 3WAcadémie</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
@@ -10,47 +10,44 @@
             Produits
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ path('book_index') }}">Livres</a>
-                <a class="dropdown-item" href="{{ path('audio_book_index') }} ">Livres Audio</a>
-                <a class="dropdown-item" href="{{ path('ebook_index') }}">E-Books</a>
-                <a class="dropdown-item" href="{{ path('journal_index') }}">Journaux</a>
-                <a class="dropdown-item" href="{{ path('cd_index') }}">CD</a>
-                <a class="dropdown-item" href="{{ path('dvd_index') }}">DVD</a>
+                <a class="dropdown-item" href="{{ path('book_catalogue') }}">Livres</a>
+                <a class="dropdown-item" href="{{ path('audio_book_catalogue') }} ">Livres Audio</a>
+                <a class="dropdown-item" href="{{ path('ebook_catalogue') }}">E-Books</a>
+                <a class="dropdown-item" href="{{ path('journal_catalogue') }}">Journaux</a>
+                <a class="dropdown-item" href="{{ path('cd_catalogue') }}">CD</a>
+                <a class="dropdown-item" href="{{ path('dvd_catalogue') }}">DVD</a>
                 <div class="dropdown-divider"></div>
             </div>
         </li>
         <li>
-            <a class="nav-link" href="{{ path('meet_up_index') }}">Événements<span class="sr-only">(current)</span></a> 
+            <a class="nav-link" href="{{ path('meet_up_catalogue') }}">Événements<span class="sr-only">(current)</span></a> 
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mon Compte
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Mon Profil</a>
-                <a class="dropdown-item" href="#">Mes Emprunts</a>
-                <a class="dropdown-item" href="#">Mes Événements</a>
-            </div>
-        </li>
-        <li>
-            <a class="nav-link" href="{{ path('statistics') }}"> Statistiques </a>
-        </li>
-    </ul>
-    <div>
-
-
-</div>
-    <div class="mb-3">
         {% if app.user %}
-            <a href="{{ path('app_logout') }}" type="btn" class="btn btn-outline-secondary">Déconnexion</a>
-        {% else %}
-            <a href="{{ path('app_login') }}" type="btn" class="btn btn-outline-secondary">Connexion</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mon Compte
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Mon Profil</a>
+                    <a class="dropdown-item" href="#">Mes Emprunts</a>
+                    <a class="dropdown-item" href="#">Mes Événements</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('statistics') }}"> Statistiques </a>
+            </li>
         {% endif %}
-    </div>
-    <div>
-        <label class="switch">
-            <input id="nuit" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
+    </ul>
+</div>
+
+<div>
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}" type="btn" class="btn btn-outline-secondary">Déconnexion</a>
+    {% else %}
+        <a href="{{ path('app_login') }}" type="btn" class="btn btn-outline-secondary">Connexion</a>
+    {% endif %}
+    <label class="switch">
+        <input id="nuit" type="checkbox">
+        <span class="slider round"></span>
+    </label>
 </div>

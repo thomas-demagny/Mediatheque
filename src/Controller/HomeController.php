@@ -10,10 +10,16 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index()
-    {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+    public function index() {
+        
+        if ($this->isGranted('ROLE_ADMIN')) {
+            return $this->render('admin/home/index.html.twig', [
+                'controller_name' => 'HomeController',
+            ]);
+        } else {
+            return $this->render('home/index.html.twig', [
+                'controller_name' => 'HomeController',
+            ]);
+        }
     }
 }

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Journaux{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Journaux</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include 'form/globalProductTh.html.twig' %}
+                <th>Periodicité</th>
+                <th>Date Souscription</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in journals %}
+            <tr>
+                {% include "form/globalProduct.html.twig" %}
+                <td>{{ product.periodicity }}</td>
+                <td>{{ product.subscriptionDate ? product.subscriptionDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

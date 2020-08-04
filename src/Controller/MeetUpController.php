@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/meet/up")
+ * @Route("/admin/meet_up")
  */
 class MeetUpController extends AbstractController
 {
@@ -22,7 +22,7 @@ class MeetUpController extends AbstractController
      */
     public function index(MeetUpRepository $meetUpRepository): Response
     {
-        return $this->render('meet_up/index.html.twig', [
+        return $this->render('admin/meet_up/index.html.twig', [
             'meet_ups' => $meetUpRepository->findAll(),
         ]);
     }
@@ -49,21 +49,9 @@ class MeetUpController extends AbstractController
             return $this->redirectToRoute('meet_up_index');
         }
 
-        return $this->render('meet_up/new.html.twig', [
+        return $this->render('admin/meet_up/new.html.twig', [
             'meet_up' => $meetUp,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="meet_up_show", methods={"GET"})
-     * @param MeetUp $meetUp
-     * @return Response
-     */
-    public function show(MeetUp $meetUp): Response
-    {
-        return $this->render('meet_up/show.html.twig', [
-            'meet_up' => $meetUp,
         ]);
     }
 
@@ -84,7 +72,7 @@ class MeetUpController extends AbstractController
             return $this->redirectToRoute('meet_up_index');
         }
 
-        return $this->render('meet_up/edit.html.twig', [
+        return $this->render('admin/meet_up/edit.html.twig', [
             'meet_up' => $meetUp,
             'form' => $form->createView(),
         ]);

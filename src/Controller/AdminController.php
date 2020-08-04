@@ -16,7 +16,7 @@ class AdminController extends AbstractController
     {
         //$returnDate = $this->getParameter('effective.return');
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/home/index.html.twig', [
             'controller_name' => 'AdminController',
             //$returnDate => 'effective.Return'
         ]);

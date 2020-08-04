@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/ebook")
+ * @Route("/admin/ebook")
  */
 class EbookController extends AbstractController
 {
@@ -22,7 +22,7 @@ class EbookController extends AbstractController
      */
     public function index(EbookRepository $ebookRepository): Response
     {
-        return $this->render('ebook/index.html.twig', [
+        return $this->render('admin/ebook/index.html.twig', [
             'ebooks' => $ebookRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class EbookController extends AbstractController
             return $this->redirectToRoute('ebook_index');
         }
 
-        return $this->render('ebook/new.html.twig', [
+        return $this->render('admin/ebook/new.html.twig', [
             'ebook' => $ebook,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="ebook_show", methods={"GET"})
-     * @param Ebook $ebook
-     * @return Response
-     */
-    public function show(Ebook $ebook): Response
-    {
-        return $this->render('ebook/show.html.twig', [
-            'ebook' => $ebook,
         ]);
     }
 
@@ -81,7 +69,7 @@ class EbookController extends AbstractController
             return $this->redirectToRoute('ebook_index');
         }
 
-        return $this->render('ebook/edit.html.twig', [
+        return $this->render('admin/ebook/edit.html.twig', [
             'ebook' => $ebook,
             'form' => $form->createView(),
         ]);

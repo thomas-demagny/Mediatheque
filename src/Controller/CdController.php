@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/cd")
+ * @Route("/admin/cd")
  */
 class CdController extends AbstractController
 {
@@ -22,7 +22,7 @@ class CdController extends AbstractController
      */
     public function index(CdRepository $cdRepository): Response
     {
-        return $this->render('cd/index.html.twig', [
+        return $this->render('admin/cd/index.html.twig', [
             'cds' => $cdRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class CdController extends AbstractController
             return $this->redirectToRoute('cd_index');
         }
 
-        return $this->render('cd/new.html.twig', [
+        return $this->render('admin/cd/new.html.twig', [
             'cd' => $cd,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="cd_show", methods={"GET"})
-     * @param Cd $cd
-     * @return Response
-     */
-    public function show(Cd $cd): Response
-    {
-        return $this->render('cd/show.html.twig', [
-            'cd' => $cd,
         ]);
     }
 
@@ -81,7 +69,7 @@ class CdController extends AbstractController
             return $this->redirectToRoute('cd_index');
         }
 
-        return $this->render('cd/edit.html.twig', [
+        return $this->render('admin/cd/edit.html.twig', [
             'cd' => $cd,
             'form' => $form->createView(),
         ]);

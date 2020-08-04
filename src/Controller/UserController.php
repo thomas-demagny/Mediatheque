@@ -13,8 +13,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 /**
- * @Route("/user")
+ * @Route("/admin/user")
  */
 class UserController extends AbstractController
 {
@@ -25,7 +26,7 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('admin/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -56,27 +57,10 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('user/new.html.twig', [
+        return $this->render('admin/user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="user_show", methods={"GET"}, requirements={"id"="[0-9]+"})
-     * @param User $user
-     * @return Response
-     */
-    public function show(User $user): Response
-    {
-
-        $this->denyAccessUnlessGranted('show.html.twig', $user);
-        
-        return $this->render('user/show.html.twig', [
-            'user' => $user,
-        ]);
-
-        
     }
 
     /**
@@ -102,7 +86,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('user/edit.html.twig', [
+        return $this->render('admin/user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
@@ -129,7 +113,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('security_logout');
         }
 
-        return $this->render('user/change_password.html.twig', [
+        return $this->render('admin/user/change_password.html.twig', [
             'form' => $form->createView(),
         ]);
     }

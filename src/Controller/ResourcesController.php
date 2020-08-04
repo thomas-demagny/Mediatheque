@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/resources")
+ * @Route("/admin/resources")
  */
 class ResourcesController extends AbstractController
 {
@@ -22,7 +22,7 @@ class ResourcesController extends AbstractController
      */
     public function index(ResourcesRepository $resourcesRepository): Response
     {
-        return $this->render('resources/index.html.twig', [
+        return $this->render('admin/resources/index.html.twig', [
             'resources' => $resourcesRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class ResourcesController extends AbstractController
             return $this->redirectToRoute('resources_index');
         }
 
-        return $this->render('resources/new.html.twig', [
+        return $this->render('admin/resources/new.html.twig', [
             'resource' => $resource,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="resources_show", methods={"GET"})
-     * @param Resources $resource
-     * @return Response
-     */
-    public function show(Resources $resource): Response
-    {
-        return $this->render('resources/show.html.twig', [
-            'resource' => $resource,
         ]);
     }
 
@@ -81,7 +69,7 @@ class ResourcesController extends AbstractController
             return $this->redirectToRoute('resources_index');
         }
 
-        return $this->render('resources/edit.html.twig', [
+        return $this->render('admin/resources/edit.html.twig', [
             'resource' => $resource,
             'form' => $form->createView(),
         ]);

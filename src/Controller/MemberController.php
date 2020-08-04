@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/member")
+ * @Route("/admin/member")
  */
 class MemberController extends AbstractController
 {
@@ -25,7 +25,7 @@ class MemberController extends AbstractController
      */
     public function index(MemberRepository $memberRepository): Response
     {
-        return $this->render('member/index.html.twig', [
+        return $this->render('admin/member/index.html.twig', [
             'members' => $memberRepository->findAll(),
         ]);
     }
@@ -59,21 +59,9 @@ class MemberController extends AbstractController
             return $this->redirectToRoute('member_index');
         }
 
-        return $this->render('member/new.html.twig', [
+        return $this->render('admin/member/new.html.twig', [
             'member' => $member,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="member_show", methods={"GET"})
-     * @param Member $member
-     * @return Response
-     */
-    public function show(Member $member): Response
-    {
-        return $this->render('member/show.html.twig', [
-            'member' => $member,
         ]);
     }
 
@@ -98,7 +86,7 @@ class MemberController extends AbstractController
             return $this->redirectToRoute('member_index');
         }
 
-        return $this->render('member/edit.html.twig', [
+        return $this->render('admin/member/edit.html.twig', [
             'member' => $member,
             'form' => $form->createView(),
         ]);

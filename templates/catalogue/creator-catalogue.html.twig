@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Artistes{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Artistes</h1>
+    
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom de Famille</th>
+                <th>Date Naissance</th>
+                <th>Date Décès</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for creator in creators %}
+            <tr>
+                <td>{{ creator.firstName }}</td>
+                <td>{{ creator.lastName }}</td>
+                <td>{{ creator.birthDate ? creator.birthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ creator.deathDate ? creator.deathDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/participates")
+ * @Route("/admin/participates")
  */
 class ParticipatesController extends AbstractController
 {
@@ -22,7 +22,7 @@ class ParticipatesController extends AbstractController
      */
     public function index(ParticipatesRepository $participatesRepository): Response
     {
-        return $this->render('participates/index.html.twig', [
+        return $this->render('admin/participates/index.html.twig', [
             'participates' => $participatesRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class ParticipatesController extends AbstractController
             return $this->redirectToRoute('participates_index');
         }
 
-        return $this->render('participates/new.html.twig', [
+        return $this->render('admin/participates/new.html.twig', [
             'participate' => $participate,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="participates_show", methods={"GET"})
-     * @param Participates $participate
-     * @return Response
-     */
-    public function show(Participates $participate): Response
-    {
-        return $this->render('participates/show.html.twig', [
-            'participate' => $participate,
         ]);
     }
 
@@ -81,7 +69,7 @@ class ParticipatesController extends AbstractController
             return $this->redirectToRoute('participates_index');
         }
 
-        return $this->render('participates/edit.html.twig', [
+        return $this->render('admin/participates/edit.html.twig', [
             'participate' => $participate,
             'form' => $form->createView(),
         ]);

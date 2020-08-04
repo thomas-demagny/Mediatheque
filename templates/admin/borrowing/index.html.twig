@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Emprunts{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/crud_index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des Emprunts</h1>
+    
+    <a href="{{ path('borrowing_new') }}" type="btn" class="btn btn-outline-secondary my-3">Ajouter nouveau</a>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>Membre</th>
+                <th>Date d'Emprunt</th>
+                <th>Date Retour Attendue</th>
+                <th>Date Retour Effective</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for borrowing in borrowings %}
+            <tr>
+                <td>{{ borrowing.document.productCode }}</td>
+                <td>{{ borrowing.borrower }}</th>
+                <td>{{ borrowing.startDate ? borrowing.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ borrowing.expectedReturnDate ? borrowing.expectedReturnDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ borrowing.effectiveReturnDate ? borrowing.effectiveReturnDate|date('Y-m-d H:i:s') : '' }}</td>
+                {% include "admin/layout/crudActions.html.twig" with {'crudName': 'borrowing', 'crudElement': borrowing} %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

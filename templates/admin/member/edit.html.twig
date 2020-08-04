@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Adhésion{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Editer Adhésion</h1>
+
+    {{ include('admin/member/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('admin/member/_delete_form.html.twig') }}
+
+    <a href="{{ path('member_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}

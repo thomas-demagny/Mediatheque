@@ -14,7 +14,7 @@ use App\BorrowingService\LagManager;
 use \DateInterval;
 
 /**
- * @Route("/borrowing")
+ * @Route("/admin/borrowing")
  */
 class BorrowingController extends AbstractController
 {
@@ -25,7 +25,7 @@ class BorrowingController extends AbstractController
      */
     public function index(BorrowingRepository $borrowingRepository): Response
     {
-        return $this->render('borrowing/index.html.twig', [
+        return $this->render('admin/borrowing/index.html.twig', [
             'borrowings' => $borrowingRepository->findAll(),
         ]);
                     
@@ -54,21 +54,9 @@ class BorrowingController extends AbstractController
             return $this->redirectToRoute('borrowing_index');
         }
 
-        return $this->render('borrowing/new.html.twig', [
+        return $this->render('admin/borrowing/new.html.twig', [
             'borrowing' => $borrowing,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="borrowing_show", methods={"GET"}, requirements={"id" = "\d+"})
-     * @param Borrowing $borrowing
-     * @return Response
-     */
-    public function show(Borrowing $borrowing): Response
-    {
-        return $this->render('borrowing/show.html.twig', [
-            'borrowing' => $borrowing,
         ]);
     }
 
@@ -89,7 +77,7 @@ class BorrowingController extends AbstractController
             return $this->redirectToRoute('borrowing_index');
         }
 
-        return $this->render('borrowing/edit.html.twig', [
+        return $this->render('admin/borrowing/edit.html.twig', [
             'borrowing' => $borrowing,
             'form' => $form->createView(),
         ]);

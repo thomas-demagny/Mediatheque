@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/journal")
+ * @Route("/admin/journal")
  */
 class JournalController extends AbstractController
 {
@@ -22,7 +22,7 @@ class JournalController extends AbstractController
      */
     public function index(JournalRepository $journalRepository): Response
     {
-        return $this->render('journal/index.html.twig', [
+        return $this->render('admin/journal/index.html.twig', [
             'journals' => $journalRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class JournalController extends AbstractController
             return $this->redirectToRoute('journal_index');
         }
 
-        return $this->render('journal/new.html.twig', [
+        return $this->render('admin/journal/new.html.twig', [
             'journal' => $journal,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="journal_show", methods={"GET"})
-     * @param Journal $journal
-     * @return Response
-     */
-    public function show(Journal $journal): Response
-    {
-        return $this->render('journal/show.html.twig', [
-            'journal' => $journal,
         ]);
     }
 
@@ -81,7 +69,7 @@ class JournalController extends AbstractController
             return $this->redirectToRoute('journal_index');
         }
 
-        return $this->render('journal/edit.html.twig', [
+        return $this->render('admin/journal/edit.html.twig', [
             'journal' => $journal,
             'form' => $form->createView(),
         ]);

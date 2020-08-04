@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/is/involved/in")
+ * @Route("/admin/is_involved_in")
  */
 class IsInvolvedInController extends AbstractController
 {
@@ -22,7 +22,7 @@ class IsInvolvedInController extends AbstractController
      */
     public function index(IsInvolvedInRepository $isInvolvedInRepository): Response
     {
-        return $this->render('is_involved_in/index.html.twig', [
+        return $this->render('admin/is_involved_in/index.html.twig', [
             'is_involved_ins' => $isInvolvedInRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class IsInvolvedInController extends AbstractController
             return $this->redirectToRoute('is_involved_in_index');
         }
 
-        return $this->render('is_involved_in/new.html.twig', [
+        return $this->render('admin/is_involved_in/new.html.twig', [
             'is_involved_in' => $isInvolvedIn,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="is_involved_in_show", methods={"GET"})
-     * @param IsInvolvedIn $isInvolvedIn
-     * @return Response
-     */
-    public function show(IsInvolvedIn $isInvolvedIn): Response
-    {
-        return $this->render('is_involved_in/show.html.twig', [
-            'is_involved_in' => $isInvolvedIn,
         ]);
     }
 
@@ -81,7 +69,7 @@ class IsInvolvedInController extends AbstractController
             return $this->redirectToRoute('is_involved_in_index');
         }
 
-        return $this->render('is_involved_in/edit.html.twig', [
+        return $this->render('admin/is_involved_in/edit.html.twig', [
             'is_involved_in' => $isInvolvedIn,
             'form' => $form->createView(),
         ]);

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Livre Audio{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/form.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Editer Livre Audio</h1>
+
+    {{ include('admin/audio_book/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('admin/audio_book/_delete_form.html.twig') }}
+
+    <a href="{{ path('audio_book_index') }}" type="btn" class="btn btn-outline-secondary">Retour à la Liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/involvedCreatorCollection.js')}}"></script>
+{% endblock %}

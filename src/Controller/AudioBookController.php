@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/audio/book")
+ * @Route("/admin/audio_book")
  */
 class AudioBookController extends AbstractController
 {
@@ -22,11 +22,11 @@ class AudioBookController extends AbstractController
      */
     public function index(AudioBookRepository $audioBookRepository): Response
     {
-        return $this->render('audio_book/index.html.twig', [
+        return $this->render('admin/audio_book/index.html.twig', [
             'audio_books' => $audioBookRepository->findAll(),
         ]);
     }
-
+    
     /**
      * @Route("/new", name="audio_book_new", methods={"GET","POST"})
      * @param Request $request
@@ -49,21 +49,9 @@ class AudioBookController extends AbstractController
             return $this->redirectToRoute('audio_book_index');
         }
 
-        return $this->render('audio_book/new.html.twig', [
+        return $this->render('admin/audio_book/new.html.twig', [
             'audio_book' => $audioBook,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="audio_book_show", methods={"GET"})
-     * @param AudioBook $audioBook
-     * @return Response
-     */
-    public function show(AudioBook $audioBook): Response
-    {
-        return $this->render('audio_book/show.html.twig', [
-            'audio_book' => $audioBook,
         ]);
     }
 
@@ -87,7 +75,7 @@ class AudioBookController extends AbstractController
             return $this->redirectToRoute('audio_book_index');
         }
 
-        return $this->render('audio_book/edit.html.twig', [
+        return $this->render('admin/audio_book/edit.html.twig', [
             'audio_book' => $audioBook,
             'form' => $form->createView(),
         ]);

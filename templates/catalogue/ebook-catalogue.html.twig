@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des E-Books{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des E-Books</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include 'form/globalProductTh.html.twig' %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in ebooks %}
+            <tr>
+                {% include 'form/globalProduct.html.twig' %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

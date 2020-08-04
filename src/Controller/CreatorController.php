@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/creator")
+ * @Route("/admin/creator")
  */
 class CreatorController extends AbstractController
 {
@@ -22,7 +22,7 @@ class CreatorController extends AbstractController
      */
     public function index(CreatorRepository $creatorRepository): Response
     {
-        return $this->render('creator/index.html.twig', [
+        return $this->render('admin/creator/index.html.twig', [
             'creators' => $creatorRepository->findAll(),
         ]);
     }
@@ -46,21 +46,9 @@ class CreatorController extends AbstractController
             return $this->redirectToRoute('creator_index');
         }
 
-        return $this->render('creator/new.html.twig', [
+        return $this->render('admin/creator/new.html.twig', [
             'creator' => $creator,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="creator_show", methods={"GET"})
-     * @param Creator $creator
-     * @return Response
-     */
-    public function show(Creator $creator): Response
-    {
-        return $this->render('creator/show.html.twig', [
-            'creator' => $creator,
         ]);
     }
 
@@ -81,7 +69,7 @@ class CreatorController extends AbstractController
             return $this->redirectToRoute('creator_index');
         }
 
-        return $this->render('creator/edit.html.twig', [
+        return $this->render('admin/creator/edit.html.twig', [
             'creator' => $creator,
             'form' => $form->createView(),
         ]);

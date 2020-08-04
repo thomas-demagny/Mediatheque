@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des DVD{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Liste des DVD</h1>
+    
+    <table class="table text-center">
+        <thead>
+            <tr>
+                {% include "form/globalProductTh.html.twig" %}
+                <th>Durée</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in dvds %}
+            <tr>
+                {% include "form/globalProduct.html.twig" with {'product': product} %}
+                <td>{{ product.duration ? product.duration|date('H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune entitée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

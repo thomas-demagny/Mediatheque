@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/employee")
+ * @Route("/admin/employee")
  */
 class EmployeeController extends AbstractController
 {
@@ -23,7 +23,7 @@ class EmployeeController extends AbstractController
      */
     public function index(EmployeeRepository $employeeRepository): Response
     {
-        return $this->render('employee/index.html.twig', [
+        return $this->render('admin/employee/index.html.twig', [
             'employees' => $employeeRepository->findAll(),
         ]);
     }
@@ -52,21 +52,9 @@ class EmployeeController extends AbstractController
             return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('employee/new.html.twig', [
+        return $this->render('admin/employee/new.html.twig', [
             'employee' => $employee,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="employee_show", methods={"GET"})
-     * @param Employee $employee
-     * @return Response
-     */
-    public function show(Employee $employee): Response
-    {
-        return $this->render('employee/show.html.twig', [
-            'employee' => $employee,
         ]);
     }
 
@@ -87,7 +75,7 @@ class EmployeeController extends AbstractController
             return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('employee/edit.html.twig', [
+        return $this->render('admin/employee/edit.html.twig', [
             'employee' => $employee,
             'form' => $form->createView(),
         ]);
