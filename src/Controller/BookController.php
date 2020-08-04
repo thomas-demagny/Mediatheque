@@ -28,7 +28,6 @@ class BookController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/last", name="book_last", methods={"GET"})
      * @param BookRepository $bookRepository

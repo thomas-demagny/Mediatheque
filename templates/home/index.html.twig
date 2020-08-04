@@ -9,7 +9,7 @@
         color: white;
         position: relative;
         transition: .3s;
-        background: url( {{ ('assets/img/library.jpg') }} );
+        background: url( '../../public/assets/img/biblio.jpg' );
     }
     .background-lib{
         background: rgba(0,0,0,.75);
@@ -17,26 +17,11 @@
     }
 </style>
 
-<<<<<<< Updated upstream
-<div class="example-wrapper">
-    <h1 class="my-4">Hello "User" !</h1>
-
-    <p class="m-5 p-5 ">
-        ____________________________________________________________________________________________
-    </p>
-    <p class="m-5 p-5 ">
-        Mediathèque 3WAcadémie
-    </p>
-    <p class="m-5 p-5 ">
-        ____________________________________________________________________________________________
-    </p>
-=======
 <div class="background-lib mt">
     <div class="mb-3">
         <h1 class="my-4 ml-5 pt-3"><div class="mb-3">Vous êtes connecté en tant que </h1>
         
         {% include "statistics/index.html.twig"%}
     </div>
->>>>>>> Stashed changes
 </div>
 {% endblock %}
