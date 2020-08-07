@@ -21,19 +21,26 @@ class ControllerListener
     /**
      * @param ControllerEvent $event
      */
-    public function onKernelController(ControllerEvent $event){
-/*
+    public function onKernelRequest(RequestEvent $event)
+    {
+    /*
         $content = $event->getController();
-        if($content[0] instanceof SecurityController && $content[1] === login){
-            $info = $event->getRequest();
-            $username = $info->request->get('username');
-            $password = $info->request->get('password');
+        if ($content[0] instanceof SecurityController && $content[1] === 'login')
+        {
+            var_dump($info->request);
+        }
+    */
 
-            $this->logger->info("L'utilisateur " . $username . $password . "a tenté de se connecter");
+        $info = $event->getRequest()->attributes->get('_route');
+        $method = $event->getRequest()->getMethod();
+        if ($info === 'app_login' && $method == 'POST')
+        {
+            $username = $event->getRequest()->request->get('username');
+            $password = $event->getRequest()->request->get('password');
+            $this->logger->info("L'utilisateur " . $username . " avec le mot de passe : " . $password . " a tenté de se connecter");
         }
         
         var_dump($content);
         $event->setArguments($newArguments);
-        */
     }
 }
