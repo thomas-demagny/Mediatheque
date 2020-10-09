@@ -39,7 +39,7 @@ class BookController extends AbstractController
 
 
         return $this->render('admin/book/index.html.twig', [
-            'books' => $bookRepository->lastBook(1, 5),
+            'books' => $bookRepository->lastBook(5),
         ]);
     }
 

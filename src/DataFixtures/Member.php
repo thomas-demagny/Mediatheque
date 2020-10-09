@@ -20,9 +20,7 @@ class Member extends Fixture
             $member->setEmail($faker->email);
             $member->setFirstName($faker->firstName($gender = 'male' | 'female'));
             $member->setLastName($faker->lastName);
-            $member->setZipCode($faker->numberBetween($min = 10000, $max = 99999));
-            $member->setCity($faker->city);
-            $member->setAddress($faker->address);
+            $member->setAddress((array)$faker->address);
             $member->setMembershipDate($faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null));
             $manager->persist( $member);
         }

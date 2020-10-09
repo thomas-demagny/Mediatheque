@@ -32,7 +32,7 @@ class IsInvolvedIn extends Fixture
 
             $isInvolvedIn->setProduct($repoProduct->find($id));
 
-            switch (get_class($isInvolvedIn->getProduct())) {
+            switch ($isInvolvedIn->getProduct()) {
                 case "App\Entity\DVD":
                     $isInvolvedIn->setRole($faker->randomElement($array = array('acteur', 'producteur', 'scénariste', 'réalisateur')));
                     break;

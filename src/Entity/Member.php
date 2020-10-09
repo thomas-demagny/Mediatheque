@@ -21,7 +21,7 @@ class Member extends User {
     /**
      * @ORM\OneToMany(targetEntity=Borrowing::class, mappedBy="borrower")
      */
-    private $borrowings;
+    private Collection $borrowings;
 
     public function __construct() {
         parent::__construct();

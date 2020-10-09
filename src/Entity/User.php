@@ -243,7 +243,7 @@ class User implements UserInterface {
 
     public function setAddress(?array $address): self
     {
-        $this->address = $address;
+        $this->address = array($address);
 
         return $this;
     }

@@ -15,7 +15,7 @@ class Employee extends User {
     /**
      * @ORM\OneToMany(targetEntity=MeetUp::class, mappedBy="organizer")
      */
-    private $meetUpsOrganized;
+    private Collection $meetUpsOrganized;
 
     public function __construct()
     {

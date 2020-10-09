@@ -2,8 +2,6 @@
 
 namespace App\DataFixtures;
 
-
-use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
